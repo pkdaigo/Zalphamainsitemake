@@ -15,6 +15,7 @@
 
 import { useState, useEffect } from 'react';
 import { Navigation } from '@/app/components/Navigation';
+import { PasswordProtection } from '@/app/components/PasswordProtection';
 import { Landing } from '@/app/pages/Landing';
 import { SignIn } from '@/app/pages/SignIn';
 import { StudentSignup } from '@/app/pages/StudentSignup';
@@ -134,11 +135,70 @@ export default function App() {
   const [userType, setUserType] = useState<'student' | 'employer' | 'school' | null>(null);
   const [schoolId, setSchoolId] = useState<string>('school_001'); // Mock school ID
   const [internalUser, setInternalUser] = useState<{ name: string; role: string } | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Initialize PWA features
   useEffect(() => {
     initPWA();
+    
+    // Check if user is already authenticated
+    const isAuth = sessionStorage.getItem('zalpha_authenticated');
+    if (isAuth === 'true') {
+      setIsAuthenticated(true);
+    }
+
+    // Handle browser back/forward buttons
+    const handlePopState = (event: PopStateEvent) => {
+      const page = event.state?.page || 'landing';
+      setCurrentPage(page);
+      
+      // Update user type based on the page
+      if (page === 'student-dashboard') {
+        setUserType('student');
+      } else if (page === 'employer-dashboard') {
+        setUserType('employer');
+      } else if (page === 'school-dashboard' || page === 'school-revenue-dashboard' || page === 'transaction-tracker' || page === 'payout-system') {
+        setUserType('school');
+      } else if (page === 'landing') {
+        setUserType(null);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    // Set initial state if none exists
+    if (!window.history.state) {
+      window.history.replaceState({ page: 'landing' }, '', window.location.href);
+    } else {
+      // Restore the page from history state
+      const savedPage = window.history.state.page;
+      if (savedPage) {
+        setCurrentPage(savedPage);
+      }
+    }
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
   }, []);
+
+  const handleAuthenticated = () => {
+    setIsAuthenticated(true);
+  };
+  
+  // Public pages that don't require authentication
+  const publicPages = [
+    'landing', 
+    'app-overview',
+    'beta-tester-application',
+    'metgot-beta-application'
+  ];
+  const isPublicPage = publicPages.includes(currentPage);
+  
+  // Show password protection if not authenticated and not on a public page
+  if (!isAuthenticated && !isPublicPage) {
+    return <PasswordProtection onAuthenticated={handleAuthenticated} />;
+  }
 
   const handleInternalLogin = (userName: string, userRole: string) => {
     setInternalUser({ name: userName, role: userRole });
@@ -151,6 +211,9 @@ export default function App() {
 
   const handleNavigate = (page: string) => {
     setCurrentPage(page);
+    
+    // Push to browser history
+    window.history.pushState({ page }, '', window.location.pathname);
     
     // Set user type based on dashboard
     if (page === 'student-dashboard') {

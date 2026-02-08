@@ -2,10 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover, user-scalable=yes" />
+    
+    <!-- Mobile Web App Capable -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ZALPHA" />
     
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#020617" />
+    <meta name="theme-color" content="#0891b2" />
+    <meta name="msapplication-TileColor" content="#0891b2" />
     <meta name="description" content="ZALPHA connects college students and high school graduates in the Pacific region (CNMI, FSM, Guam, Hawaii, American Samoa, Palau) with quality employers. Free for students, verified talent for companies." />
     
     <!-- PWA Manifest -->
@@ -14,11 +21,15 @@
     <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.svg" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icon.svg" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icon.svg" />
     
-    <!-- iOS Specific Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="ZALPHA" />
+    <!-- Format Detection -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="date=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="format-detection" content="email=no" />
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />

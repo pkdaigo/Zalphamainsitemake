@@ -3,14 +3,25 @@
 
 @import "tailwindcss";
 
+/* ============================================
+   MOBILE OPTIMIZATION & TOUCH INTERACTIONS
+   ============================================ */
+
 /* Touch-action optimization for better mobile performance */
 button, a, input, select, textarea {
   touch-action: manipulation;
 }
 
-/* Improved tap highlighting for iOS */
+/* Improved tap highlighting for iOS and Android */
 * {
   -webkit-tap-highlight-color: rgba(6, 182, 212, 0.1);
+  -webkit-touch-callout: none;
+}
+
+/* Make clickable elements more touch-friendly */
+button, a, [role="button"], [type="button"], [type="submit"] {
+  min-height: 44px; /* Apple's recommended minimum touch target */
+  min-width: 44px;
 }
 
 /* Mobile keyboard focus management */
@@ -19,7 +30,7 @@ input:focus, textarea:focus, select:focus {
   scroll-margin-bottom: 100px;
 }
 
-/* Prevent zoom on focus for iOS */
+/* Prevent zoom on focus for iOS (16px minimum to prevent auto-zoom) */
 @media screen and (max-width: 768px) {
   input[type="text"],
   input[type="email"],
@@ -28,6 +39,7 @@ input:focus, textarea:focus, select:focus {
   input[type="password"],
   input[type="date"],
   input[type="search"],
+  input[type="url"],
   textarea,
   select {
     font-size: 16px !important;
@@ -39,4 +51,185 @@ input:focus, textarea:focus, select:focus {
   html {
     scroll-behavior: smooth;
   }
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+
+/* Responsive font scaling for mobile devices */
+@media screen and (max-width: 640px) {
+  h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  h3 {
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  }
+  h4 {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+  }
+}
+
+/* ============================================
+   SAFE AREAS FOR NOTCHED DEVICES (iPhone X+)
+   ============================================ */
+
+/* Support for iPhone notch and Android gesture bars */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ============================================
+   MOBILE SCROLLING OPTIMIZATION
+   ============================================ */
+
+/* Momentum scrolling for iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent overscroll/bounce effect on body */
+body {
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================
+   ORIENTATION LOCK HINTS
+   ============================================ */
+
+/* Better landscape orientation handling */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .mobile-landscape-adjust {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* ============================================
+   ANDROID & iOS SPECIFIC FIXES
+   ============================================ */
+
+/* Fix for Android Chrome address bar hiding/showing */
+.min-h-screen {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+/* Fix for iOS Safari bottom bar */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* ============================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+
+/* GPU acceleration for smoother animations on mobile */
+.gpu-accelerate {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Disable text selection on buttons and UI elements (better mobile UX) */
+button, .no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* ============================================
+   MOBILE MODALS & OVERLAYS
+   ============================================ */
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* ============================================
+   MOBILE INPUT IMPROVEMENTS
+   ============================================ */
+
+/* Remove default iOS input styling */
+input, textarea, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* Restore border-radius set by Tailwind */
+.rounded, .rounded-lg, .rounded-xl, .rounded-2xl {
+  border-radius: var(--radius, 0.5rem);
+}
+
+/* ============================================
+   MOBILE NAVIGATION & MENU
+   ============================================ */
+
+/* Ensure mobile menus are accessible */
+@media screen and (max-width: 768px) {
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow-y: auto;
+  }
+}
+
+/* ============================================
+   RESPONSIVE IMAGES & MEDIA
+   ============================================ */
+
+/* Prevent images from overflowing on mobile */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Video responsive handling */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   MOBILE-SPECIFIC UTILITIES
+   ============================================ */
+
+/* Hide scrollbar on mobile but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Active states for mobile touch */
+.touch-active:active {
+  opacity: 0.7;
+  transform: scale(0.98);
+  transition: all 0.1s ease;
 }

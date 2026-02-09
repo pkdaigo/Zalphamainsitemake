@@ -2,6 +2,6 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
   "devCommand": "pnpm dev",
-  "installCommand": "pnpm install",
+  "installCommand": "corepack enable && pnpm install",
   "framework": "vite"
 }

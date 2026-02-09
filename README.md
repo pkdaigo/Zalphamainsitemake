@@ -1,624 +1,402 @@
 # 🌊 ZALPHA - Pacific Job Connection Platform
 
-**Connecting Gen Z & Alpha Talent with Pacific Opportunities**
+> Connecting college students and high school graduates across Pacific Islands with quality employment opportunities
 
-[![Production Ready](https://img.shields.io/badge/Status-Production%20Ready-green.svg)](/)
-[![Version](https://img.shields.io/badge/Version-v1.0-blue.svg)](/)
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg)](/)
-
----
-
-## 📖 Overview
-
-**ZALPHA** is a comprehensive job connection platform designed specifically for the Western Pacific region, connecting students and recent graduates across 6 Micronesian islands with local employment opportunities.
-
-### 🎯 Mission
-
-Combat the Pacific islands' brain drain crisis by keeping talented young professionals in their home communities, retaining $50M+ in annual wages in local economies while solving chronic employer labor shortages.
-
-### 🏝️ Service Area
-
-- **CNMI** (Commonwealth of Northern Mariana Islands)
-- **FSM** (Federated States of Micronesia)
-- **Guam**
-- **Hawaii**
-- **Palau**
-- **Marshall Islands**
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/zalpha-platform)
+[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF.svg)](https://vitejs.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-3178C6.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.1.12-38B2AC.svg)](https://tailwindcss.com/)
 
 ---
 
-## ✨ Key Features
+## 🌴 About ZALPHA
 
-### For Students (100% Free)
-- ✅ 10,000+ local job opportunities
-- ✅ Dual ID verification (school email + government ID)
-- ✅ Gamified Basic Skills Assessment
-- ✅ AI-powered career guidance (ZalphaBot)
-- ✅ Virtual Job Fairs across 6 islands
-- ✅ Company reviews from fellow students
-- ✅ Video interview platform
-- ✅ Contract work marketplace
+ZALPHA is a comprehensive job connection platform designed specifically for college students and high school graduates across the Pacific Islands region, including:
 
-### For Employers (3 Subscription Tiers)
-- ✅ **Starter:** $99/mo (3 jobs, 50 applications)
-- ✅ **Professional:** $249/mo (10 jobs, 200 applications)
-- ✅ **Ultra Premium:** $499/mo (unlimited jobs, full analytics)
-- ✅ ZALPHA ATS (Applicant Tracking System)
-- ✅ Integration with company websites
-- ✅ Cultural sensitivity training
-- ✅ Skills assessment access
-- ✅ Contract job posting (first 3 free)
+- 🏝️ CNMI (Commonwealth of the Northern Mariana Islands)
+- 🏝️ FSM (Federated States of Micronesia)
+- 🏝️ Guam
+- 🏝️ Hawaii
+- 🏝️ American Samoa
+- 🏝️ Palau
 
-### For Schools (Revenue Sharing)
-- ✅ 3% commission on employer subscriptions
-- ✅ 5% commission on contract work
-- ✅ Zero upfront cost
-- ✅ Real-time revenue tracking
-- ✅ Student placement analytics
-- ✅ Enhanced career services
+### Key Features
+
+- ✅ **100% White-Labeled Platform**
+- ✅ **Gamified Skills Assessments**
+- ✅ **AI Chatbot "Zee"** - Intelligent career guidance
+- ✅ **Tiered Employer Subscriptions**
+- ✅ **Virtual Job & College Fairs**
+- ✅ **Contract Job Pricing**
+- ✅ **Government Loan Application Documentation**
+- ✅ **FERPA Compliance** (18+ age requirement)
+- ✅ **6-Month Premium Beta Testing Program**
 
 ---
 
 ## 🚀 Quick Start
 
-### Demo the Platform
+### Prerequisites
 
-1. **Open your browser** and navigate to the platform
-2. **Landing page** - Start here to see the full overview
-3. **Explore user types:**
-   - Click "Get Started Free" for Student experience
-   - Click "For Employers" for Employer experience
-   - Click "Educational Partner Login" for School experience
+- Node.js >= 18.0.0
+- pnpm >= 8.0.0
 
-### Documentation Library
+### Installation
 
-📚 **Complete documentation available:**
-- [QUICK_START_DEMO.md](/QUICK_START_DEMO.md) - 5/10/15-minute demo scripts
-- [DEMO_READY_CHECKLIST.md](/DEMO_READY_CHECKLIST.md) - Complete demo preparation
-- [PRODUCTION_VERIFICATION.md](/PRODUCTION_VERIFICATION.md) - Production readiness status
-- [DOCUMENTATION_INDEX.md](/DOCUMENTATION_INDEX.md) - Full library index
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/zalpha-platform.git
 
----
+# Navigate to project directory
+cd zalpha-platform
 
-## 📊 Platform Status
+# Install dependencies
+pnpm install
 
-### ✅ Production Ready (v1.0)
+# Start development server
+pnpm dev
+```
 
-**Pages:** 49 fully functional pages  
-**Features:** 15+ major features  
-**Status:** 100% demo-ready and production-ready  
-**Errors:** Zero critical errors  
-**Branding:** 100% white-labeled (ZALPHA)  
-**Backend:** Fully connected and functional  
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-### Key Statistics
+### Build for Production
 
-- **Market Size:** $29.8M TAM (10,000+ employers)
-- **Student Pool:** 500,000+ potential users
-- **Target Year 1:** $230K-$300K ARR
-- **Target Year 3:** $2.95M-$4.25M ARR
-- **Job Creation:** 8-10 direct jobs, 1,000-5,000 indirect placements
+```bash
+# Create production build
+pnpm build
 
----
-
-## 🎯 Business Model
-
-### Revenue Streams
-
-1. **Employer Subscriptions** (70% of revenue)
-   - 3-tier pricing model
-   - Average ARPU: $249/month
-   - Target: 100-110 employers Year 1
-
-2. **School Revenue Sharing** (20% of revenue)
-   - 3% employer subscription commission
-   - 5% contract work commission
-   - Target: 5-10 school partnerships Year 1
-
-3. **Contract Marketplace** (10% of revenue)
-   - First 3 jobs FREE
-   - Then $99 flat fee OR 10% commission
-   - Target: 500 contract jobs Year 1
-
-### Unit Economics
-
-- **CAC:** $150-$300 per employer
-- **LTV:** $5,976-$8,964 per employer
-- **LTV/CAC Ratio:** 20:1 to 60:1 (Outstanding)
-- **Churn Rate:** <5% monthly (target)
-- **Gross Margin:** 75-80%
-
----
-
-## 🏗️ Technical Architecture
-
-### Tech Stack
-
-**Frontend:**
-- React 18+ (TypeScript)
-- Tailwind CSS v4
-- Vite (build tool)
-- Lucide React (icons)
-
-**Backend:**
-- Supabase (PostgreSQL database)
-- Supabase Edge Functions (Hono web server)
-- Server-side KV store for data persistence
-
-**Integrations:**
-- ZALPHA ATS (centralized applicant tracking)
-- Company website sync (employer career pages)
-- Real-time data synchronization
-
-**Project ID:** `becsvvgggvhokamuiijt`
+# Preview production build locally
+pnpm preview
+```
 
 ---
 
 ## 📁 Project Structure
 
 ```
-/
+zalpha-platform/
 ├── src/
 │   ├── app/
-│   │   ├── App.tsx                 # Main application entry
-│   │   ├── components/             # Reusable UI components
-│   │   │   ├── Navigation.tsx
-│   │   │   ├── Logo.tsx
-│   │   │   └── ErrorBoundary.tsx
-│   │   └── pages/                  # All 49 application pages
-│   │       ├── Landing.tsx
-│   │       ├── StudentSignup.tsx
-│   │       ├── EmployerDashboard.tsx
-│   │       ├── SchoolRevenueDashboard.tsx
-│   │       └── ... (46 more pages)
-│   └── styles/
-│       ├── theme.css               # Tailwind theme variables
-│       └── fonts.css               # Font imports
-├── supabase/
-│   └── functions/
-│       └── server/                 # Backend server code
-│           ├── index.tsx
-│           └── kv_store.tsx
-└── public/                         # Static assets
+│   │   ├── components/        # Reusable React components
+│   │   ├── pages/             # Page components
+│   │   └── App.tsx            # Main app component
+│   ├── styles/
+│   │   ├── fonts.css          # Custom fonts
+│   │   ├── tailwind.css       # Tailwind configuration
+│   │   └── theme.css          # Theme variables
+│   ├── imports/               # Figma imports & assets
+│   └── main.tsx               # App entry point
+├── public/
+│   ├── manifest.json          # PWA manifest
+│   └── icon.svg               # App icon
+├── supabase/                  # Supabase backend (optional)
+├── vite.config.ts             # Vite configuration
+├── package.json               # Dependencies & scripts
+├── vercel.json                # Vercel deployment config
+└── tsconfig.json              # TypeScript configuration
 ```
 
 ---
 
-## 📚 Documentation
+## 🎨 Tech Stack
 
-### Complete Documentation Library (15 Files)
+### Frontend
+- **React 18.3.1** - UI library
+- **TypeScript 5.7.3** - Type safety
+- **Vite 6.3.5** - Build tool & dev server
+- **Tailwind CSS 4.1.12** - Utility-first CSS
 
-**Platform Development:**
-1. [FINAL_UPDATE_COMPLETE.md](/FINAL_UPDATE_COMPLETE.md) - Platform status report
-2. [COMPLETE_WHITE_LABEL_SUMMARY.md](/COMPLETE_WHITE_LABEL_SUMMARY.md) - White-labeling details
-3. [INTEGRATION_TECH_GUIDE.md](/INTEGRATION_TECH_GUIDE.md) - Technical integration guide
+### UI Components
+- **Radix UI** - Accessible component primitives
+- **Material UI** - Enterprise-grade components
+- **Lucide React** - Beautiful icons
+- **Motion** - Smooth animations
 
-**Business Development:**
-4. [EmployerBDGuide.tsx](/src/app/pages/EmployerBDGuide.tsx) - Employer sales playbook
-5. [SchoolBDGuide.tsx](/src/app/pages/SchoolBDGuide.tsx) - School partnership playbook
-6. [InvestorBDGuide.tsx](/src/app/pages/InvestorBDGuide.tsx) - Investor fundraising playbook
-7. [CONTRACT_PRICING_MODEL.md](/CONTRACT_PRICING_MODEL.md) - Contract job pricing
+### Forms & Validation
+- **React Hook Form** - Form management
+- **React Day Picker** - Date selection
 
-**Investor Materials:**
-8. [PITCH_DECK_REAL_DATA.md](/PITCH_DECK_REAL_DATA.md) - Real vs. projected data guide
-9. [PitchDeckInvestors.tsx](/src/app/pages/PitchDeckInvestors.tsx) - Investor pitch deck
-10. [PitchDeckInternal.tsx](/src/app/pages/PitchDeckInternal.tsx) - Internal team deck
+### Data Visualization
+- **Recharts** - Beautiful charts & graphs
+- **Three.js** - 3D visualizations
 
-**Government Loan Applications:**
-11. [GOVERNMENT_LOAN_APPLICATION.md](/GOVERNMENT_LOAN_APPLICATION.md) - 25+ page loan package
-12. [LOAN_SUBMISSION_CHECKLIST.md](/LOAN_SUBMISSION_CHECKLIST.md) - Submission guide
-
-**Demo Preparation:**
-13. [DEMO_READY_CHECKLIST.md](/DEMO_READY_CHECKLIST.md) - Demo preparation guide
-14. [PRODUCTION_VERIFICATION.md](/PRODUCTION_VERIFICATION.md) - Production verification
-15. [QUICK_START_DEMO.md](/QUICK_START_DEMO.md) - Quick demo scripts
-
-**Index:**
-16. [DOCUMENTATION_INDEX.md](/DOCUMENTATION_INDEX.md) - Complete library index
-17. [README.md](/README.md) - This file
+### Backend (Optional)
+- **Supabase** - Database, auth, storage
+- **Plaid** - Financial integration
+- **D-ID** - AI avatar integration
 
 ---
 
-## 🎬 Demo Scripts
+## 🔐 Authentication & Access
 
-### 5-Minute Demo (Investor/Government)
-Perfect for quick pitch meetings and elevator pitches.
-[View Full Script →](/QUICK_START_DEMO.md#5-minute-demo)
+### Beta Testing Access
 
-### 10-Minute Demo (Employers)
-Perfect for sales calls and employer prospect meetings.
-[View Full Script →](/QUICK_START_DEMO.md#10-minute-demo)
+The platform is currently in **beta testing** mode:
 
-### 15-Minute Demo (Schools)
-Perfect for university partnerships and high school career services.
-[View Full Script →](/QUICK_START_DEMO.md#15-minute-demo)
+- 🔒 Password: `ZALPHA2026`
+- 📧 Contact: contact@kiexgroup.com
 
-### 20-Minute Demo (Comprehensive)
-Perfect for major investor meetings, board presentations, media interviews.
-[View Full Script →](/QUICK_START_DEMO.md#20-minute-demo)
+### Public Pages (No Password Required)
+- Landing Page
+- App Overview
+- Beta Tester Application Forms
 
----
-
-## 💼 Fundraising
-
-### Current Fundraising Status
-
-**Seeking:** $250,000 - $500,000  
-**Stage:** Seed round / Government loan applications  
-**Use of Funds:**
-- 35% Sales & Marketing
-- 30% Personnel (CTO, Sales Manager, Customer Success)
-- 25% Technology (mobile apps, scaling, security)
-- 10% Operations & Legal
-
-### Loan Applications Ready
-
-✅ **CEDA** (Community/Economic Development Administration)  
-✅ **SBDC** (Small Business Development Center)  
-✅ **SBA** (Small Business Administration 7(a) loans)
-
-[View Complete Loan Application →](/GOVERNMENT_LOAN_APPLICATION.md)
+### Protected Pages (Password Required)
+- Beta User Demo
+- All Dashboards (Student, Employer, School)
+- Platform Features
+- Admin Tools
 
 ---
 
-## 🌟 Social Impact
+## 📱 Mobile Compatibility
 
-### Economic Impact (Year 3 Projections)
+ZALPHA is **fully optimized** for mobile devices:
 
-- **Jobs Created:** 8-10 direct, 1,000-5,000 indirect
-- **Tax Revenue:** $150K-$300K annually
-- **Wages Retained:** $50M+ in local economies
-- **Brain Drain Reduction:** From 85% to 60%
-- **Economic Multiplier:** $5-$10 returned for every $1 invested
+### Supported Devices
+- ✅ iPhone (15, 14, 13, 12, 11, X, SE, 8)
+- ✅ Samsung Galaxy (S24, S23, S22, S21, Note series)
+- ✅ Google Pixel (8, 7, 6 series)
+- ✅ OnePlus, Xiaomi, Motorola, OPPO, Vivo
+- ✅ iPads and Android tablets
 
-### Community Benefits
+### Mobile Features
+- ✅ Responsive design (320px - 2000px+)
+- ✅ Touch-optimized UI (44px minimum tap targets)
+- ✅ PWA support (Add to Home Screen)
+- ✅ Offline capabilities
+- ✅ Safe area support (notches, Dynamic Island)
+- ✅ Browser back/forward navigation
+- ✅ Virtual keyboard handling
 
-- Young professionals stay close to family
-- Local leadership pipeline development
-- Cultural preservation through local employment
-- Reduced social issues from workforce exodus
-- Educational advancement and skills training
-
----
-
-## 📞 Contact
-
-### KI Executive Group
-
-**Email:** contact@kiexgroup.com  
-**Phone:** 1-670-286-3010  
-**WhatsApp:** 1-670-286-3010  
-**Website:** [When live: zalpha.com]
-
-### Support Hours
-
-**Monday-Friday:** 9:00 AM - 5:00 PM ChST  
-**Response Time:** Within 24 hours for emails, same-day for urgent calls
+See [MOBILE_COMPATIBILITY.md](./MOBILE_COMPATIBILITY.md) for detailed specifications.
 
 ---
 
-## 🔐 Security & Privacy
+## 🚀 Deployment
 
-### Compliance
+### Vercel (Recommended)
 
-- ✅ WCAG 2.1 AA accessibility compliant
-- ✅ HTTPS-only connections
-- ✅ Privacy Policy published
-- ✅ Terms of Service published
-- ✅ Hold Harmless Agreement
-- ✅ Dispute & Refund Policy
-- ✅ Student privacy settings
-- ✅ GDPR-ready (data export, deletion)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/zalpha-platform)
 
-### Authentication
+1. Push your code to GitHub
+2. Import repository in Vercel
+3. Vercel auto-detects Vite configuration
+4. Click "Deploy"
 
-- ✅ Dual ID verification (students)
-- ✅ Password hashing and encryption
-- ✅ Secure session management (JWT)
-- ✅ Protected routes and API endpoints
-- ✅ Role-based access control
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment guide.
 
----
+### Manual Deployment
 
-## 🎯 Roadmap
+```bash
+# Build the project
+pnpm build
 
-### Q1 2026 (Beta Launch)
-- [ ] Onboard first 10-20 pilot employers (CNMI)
-- [ ] Sign 2-3 school partnerships
-- [ ] Place 100-200 students in jobs
-- [ ] Generate $5K-$10K MRR
-- [ ] Submit government loan applications
-
-### Q2 2026 (Expansion)
-- [ ] Expand to Guam
-- [ ] Reach 50-100 employer customers
-- [ ] Place 500-1,000 students
-- [ ] Generate $25K-$50K MRR
-- [ ] Hire CTO and Sales Manager
-
-### Q3-Q4 2026 (Scale)
-- [ ] Expand to Palau, Marshall Islands, FSM
-- [ ] Reach 100-150 employer customers
-- [ ] Place 2,500-5,000 students
-- [ ] Generate $200K-$300K ARR
-- [ ] Begin Series A fundraising
-
-### 2027 (Regional Dominance)
-- [ ] Expand to Hawaii
-- [ ] Reach 1,000+ employer customers
-- [ ] Place 10,000+ students
-- [ ] Generate $2M-$4M ARR
-- [ ] Close Series A funding round
+# The dist/ folder contains production-ready files
+# Upload to any static hosting service
+```
 
 ---
 
-## 📊 Key Metrics to Track
+## ⚙️ Configuration
 
-### User Metrics
-- Student signups per week
-- Employer signups per week
-- Active users (DAU/MAU)
-- Job applications submitted
-- Students placed in jobs
+### Build Optimization
 
-### Business Metrics
-- Monthly Recurring Revenue (MRR)
-- Annual Recurring Revenue (ARR)
-- Customer Acquisition Cost (CAC)
-- Customer Lifetime Value (LTV)
-- Churn rate (target: <5%)
+The project includes advanced build optimization:
 
-### Social Impact Metrics
-- Jobs created (direct + indirect)
-- Wages retained locally
-- Brain drain reduction percentage
-- Student employment rate
-- Employer retention improvement
+- ✅ Chunk size limit: 1500kb
+- ✅ Manual chunk splitting for vendor libraries
+- ✅ Console.log removal in production
+- ✅ Terser minification
+- ✅ ES2020 target for modern browsers
 
----
+### Environment Variables
 
-## 🏆 Competitive Advantages
+Create a `.env` file for environment-specific configuration:
 
-### Why ZALPHA Wins
+```env
+VITE_API_URL=your_api_url_here
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_key
+```
 
-1. **First-Mover:** Only platform specifically for Pacific islands
-2. **Dual ID Verification:** School email + Government ID = authentic profiles
-3. **Gamified Assessments:** Required tests made engaging for 18-year-olds
-4. **Student Reviews:** Transparency builds trust (like Glassdoor for students)
-5. **Cultural Training:** Reduces turnover for mainland employers hiring locally
-6. **Virtual Fairs:** Connect 6 islands simultaneously, zero travel costs
-7. **School Revenue Sharing:** Creates sticky partnerships and referral networks
-8. **Contract Marketplace:** Transparent pricing (first 3 free)
-9. **Free for Students:** Competitors charge students for premium features
-10. **Government Aligned:** Solving brain drain is a regional priority
+**Note**: All Vite environment variables must be prefixed with `VITE_`
 
 ---
 
-## 🤝 Partnerships
+## 🧪 Development
 
-### Current Partnership Opportunities
+### Available Scripts
 
-**Educational Institutions:**
-- Universities across 6 islands
-- High schools with career programs
-- Vocational training centers
-- Community colleges
+```bash
+# Development server
+pnpm dev
 
-**Employers:**
-- Tourism & hospitality (largest industry)
-- Healthcare (chronic shortages)
-- Retail & service industries
-- Government agencies
-- Construction & trades
-- Professional services
+# Production build
+pnpm build
 
-**Investors:**
-- Angel investors (Pacific region)
-- Impact investors (social good focus)
-- Venture capital (SaaS B2B2C model)
-- Government loan programs (CEDA, SBDC, SBA)
+# Preview production build
+pnpm preview
 
----
+# Lint code (if configured)
+pnpm lint
+```
 
-## 📜 Legal & Compliance
+### Development Server
 
-### Legal Documents
-
-- ✅ Privacy Policy
-- ✅ Terms of Service
-- ✅ Hold Harmless Agreement
-- ✅ Dispute & Refund Policy
-- ✅ Employer Subscription Agreement
-- ✅ School Partnership Agreement
-- ✅ Contractor Agreement
-
-### Business Licenses
-
-- [ ] Business registration (CNMI/primary location)
-- [ ] Business license (local jurisdiction)
-- [ ] EIN (Employer Identification Number)
-- [ ] Trademark registration (ZALPHA name + logo)
-- [ ] Copyright documentation (platform code)
+- Local: http://localhost:5173
+- Network: http://YOUR_IP:5173 (for mobile testing)
 
 ---
 
-## 🎓 Training & Support
-
-### For Employers
-
-- Video tutorials (platform walkthrough)
-- Cultural sensitivity training
-- Best practices for Pacific hiring
-- Integration setup guides
-- Customer success manager support
+## 🎯 Platform Features
 
 ### For Students
-
-- Profile optimization tips
-- Resume building workshops
-- Interview preparation
-- Skills assessment practice
-- Career guidance resources
-
-### For Schools
-
-- Partnership onboarding
-- Revenue tracking tutorials
-- Student placement reporting
-- Integration with student systems
-- Quarterly business reviews
-
----
-
-## 🔧 Maintenance & Updates
-
-### Regular Maintenance
-
-**Weekly:**
-- Monitor error logs
-- Review user feedback
-- Check performance metrics
-- Update content
-- Respond to support tickets
-
-**Monthly:**
-- Update documentation
-- Security audits
-- Optimize database queries
-- Update dependencies
-- Review financials vs. projections
-
-**Quarterly:**
-- Comprehensive platform audit
-- User satisfaction surveys
-- Competitive analysis update
-- Feature prioritization
-- Marketing retrospective
-
----
-
-## 📈 Success Stories (Coming Soon)
-
-### Student Testimonials
-> "I found my dream job without leaving Guam. I get to stay close to family and work in my community." - [Student Name], Hired at [Company]
-
-### Employer Testimonials
-> "ZALPHA saved us $15K in recruitment costs and we found better local talent than mainland candidates." - [Employer Name], [Company]
-
-### School Testimonials
-> "We're generating $50K annually in passive revenue while helping our students find local jobs. Win-win." - [Administrator Name], [School]
-
----
-
-## 🌟 Awards & Recognition (Future)
-
-**Target Awards:**
-- Pacific Business Awards (Economic Impact)
-- SaaS Innovation Awards
-- Social Impact Awards
-- Best Startup (Pacific Region)
-
----
-
-## 🔗 Quick Links
-
-### External Resources
-- [SBDC Office Locator](https://www.sba.gov/local-assistance/find/)
-- [SBA Lender Match](https://www.sba.gov/funding-programs/loans)
-- [Pacific Business Census Data](https://www.census.gov/topics/business-economy.html)
-- [CNMI Commerce Division](https://commerce.gov.mp/)
-- [Guam Economic Development](https://investguam.com)
-
-### Internal Links
-- [Demo Scripts](/QUICK_START_DEMO.md)
-- [Production Verification](/PRODUCTION_VERIFICATION.md)
-- [Loan Application](/GOVERNMENT_LOAN_APPLICATION.md)
-- [Full Documentation Index](/DOCUMENTATION_INDEX.md)
-
----
-
-## ❓ FAQ
-
-### For Investors
-
-**Q: What's your unfair advantage?**  
-A: First-mover in a $29.8M market with zero direct competitors, plus government priority alignment reduces regulatory risk.
-
-**Q: How do you plan to scale?**  
-A: Network effects (more students → more employers → more students), school partnerships create sticky referrals, proven SaaS model.
-
-**Q: What's your exit strategy?**  
-A: Acquisition by national job platforms (Indeed, LinkedIn) seeking Pacific expansion, or continue as profitable regional leader.
+- 📝 Free account creation
+- 🎮 Gamified skills assessments
+- 💼 Job search & applications
+- 🎓 College fair access
+- 📊 Progress tracking
+- 🤖 AI career guidance (Zee chatbot)
+- 🔒 Full control over visibility to employers
 
 ### For Employers
+- 💳 Tiered subscription plans
+- 👥 Multi-seat team access
+- 📋 Job posting & management
+- 👨‍💼 Candidate screening
+- 📊 Analytics & reporting
+- 🎪 Virtual job fair participation
+- ✅ Verified talent pool
 
-**Q: How is this different from Indeed or LinkedIn?**  
-A: We're specifically for Pacific islands with dual ID verification, cultural training, gamified assessments, and student reviews. Plus 70% cost savings.
+### For Schools/Career Services
+- 🏫 Institution partnerships
+- 📈 Student placement tracking
+- 💰 Revenue sharing program
+- 📊 Detailed analytics
+- 🎯 Alumni network support
 
-**Q: What if students don't use the platform?**  
-A: We partner with schools who incentivize student sign-ups (revenue sharing), plus we're 100% free for students (vs. competitors charging fees).
+---
 
-### For Schools
+## 🔒 Privacy & Compliance
 
-**Q: What's the catch? Why is it free for us?**  
-A: We make money from employer subscriptions. You help us reach students, we pay you commissions. Simple revenue sharing.
+- ✅ **FERPA Compliant** - Educational records protection
+- ✅ **18+ Age Requirement** - Legal compliance
+- ✅ **Student Data Control** - Students own their data
+- ✅ **On-Platform Interactions** - Protected revenue model
+- ✅ **Offer Tracking** - All offers must go through platform
 
-**Q: How much work is this for our career services team?**  
-A: Minimal. We handle all the technology and employer relationships. You just promote ZALPHA to students, which you'd do anyway.
+---
+
+## 🌊 Design System
+
+### Ocean Professional Color Scheme
+
+The platform uses a cohesive ocean-themed color palette:
+
+- **Primary**: Cyan (#06b6d4) - Ocean Professional
+- **Secondary**: Blue (#3b82f6)
+- **Accent**: Teal (#14b8a6)
+- **Background**: Slate (#0f172a)
+
+### Typography
+
+- **Headings**: System font stack
+- **Body**: Clean, readable sans-serif
+- **Responsive**: Fluid typography (clamp)
+
+---
+
+## 📊 Performance
+
+### Build Output (Optimized)
+
+```
+dist/
+├── index.html (2.5 KB)
+├── assets/
+│   ├── index-[hash].js         (~150 KB gzipped)
+│   ├── vendor-react-[hash].js  (~130 KB gzipped)
+│   ├── vendor-radix-[hash].js  (~180 KB gzipped)
+│   ├── vendor-mui-[hash].js    (~250 KB gzipped)
+│   └── vendor-*-[hash].js      (various sizes)
+└── Total: ~2-3 MB gzipped
+```
+
+### Performance Targets
+
+- ✅ First Contentful Paint: < 1.5s
+- ✅ Time to Interactive: < 3.0s
+- ✅ Lighthouse Score: 90+
+
+---
+
+## 🤝 Contributing
+
+This is a private beta platform. For access or inquiries:
+
+📧 **Email**: contact@kiexgroup.com
 
 ---
 
 ## 📝 License
 
-**Proprietary License**  
-© 2026 KI Executive Group. All Rights Reserved.
-
-Operated by: KI Manpower Services DBA ZALPHA  
-For licensing inquiries: legal@zalpha.com
+Proprietary - KIEX Group  
+All rights reserved.
 
 ---
 
-## 🙏 Acknowledgments
+## 🆘 Support
 
-**Built for the Pacific islands by people who understand the Pacific islands.**
+### Beta Testing Support
 
-Special thanks to:
-- Pacific island communities facing brain drain
-- Students seeking local opportunities
-- Employers committed to hiring locally
-- Schools supporting career development
-- Government agencies prioritizing economic development
+- 📧 Email: contact@kiexgroup.com
+- 🔑 Beta Password: `ZALPHA2026`
 
----
+### Documentation
 
-## 🎉 Ready to Launch!
+- [Deployment Guide](./DEPLOYMENT.md)
+- [Mobile Compatibility](./MOBILE_COMPATIBILITY.md)
 
-**ZALPHA is 100% production-ready:**
+### Known Issues
 
-✅ 49 functional pages  
-✅ 15+ major features  
-✅ Zero critical errors  
-✅ 100% white-labeled  
-✅ Backend connected  
-✅ Documentation complete  
-✅ Loan applications ready  
-✅ Demo scripts prepared  
-
-**Let's combat brain drain and build stronger Pacific island communities! 🏝️🚀**
+Currently in beta testing. Report issues to: contact@kiexgroup.com
 
 ---
 
-**Last Updated:** January 31, 2026  
-**Version:** v1.0 Production Release  
-**Status:** 🟢 DEMO-READY & PRODUCTION-READY
+## 🎉 Acknowledgments
+
+Built with ❤️ for the Pacific Islands community
+
+### Technologies Used
+
+- React, TypeScript, Vite, Tailwind CSS
+- Radix UI, Material UI, Lucide Icons
+- Supabase, Plaid, D-ID
+- Motion, Recharts, Three.js
 
 ---
 
-**For immediate assistance:**  
-📧 contact@kiexgroup.com  
-📱 1-670-286-3010  
-💬 WhatsApp: 1-670-286-3010
+## 📅 Version History
+
+### 1.0.0 - Beta Launch (February 2026)
+- ✅ Full platform functionality
+- ✅ Password protection for beta access
+- ✅ Mobile optimization (all devices)
+- ✅ Browser navigation support
+- ✅ Production-ready Vercel deployment
+- ✅ Comprehensive beta testing program
 
 ---
 
-**END OF README**
+**Made with 🌊 for Pacific Islands Job Seekers**
+
+---
+
+## 🔗 Quick Links
+
+- [Deploy to Vercel](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/zalpha-platform)
+- [View Demo](https://youtu.be/lcI_g3_PfF4) (YouTube)
+- [Contact Support](mailto:contact@kiexgroup.com)
+- [Request Beta Access](mailto:contact@kiexgroup.com?subject=ZALPHA%20Beta%20Access%20Request)

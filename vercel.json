@@ -1,12 +1,10 @@
 {
-  "build": {
-    "command": "<existing-build-command>",
-    "outputDirectory": "<existing-output-directory>",
-    "devCommand": "<existing-dev-command>",
-    "installCommand": "<existing-install-command>"
-  },
-  "framework": "<existing-framework>",
-  "rewrites": <existing-rewrites>,
-  "headers": <existing-headers>,
-  "regions": <existing-regions>
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

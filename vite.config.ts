@@ -120,7 +120,6 @@ export default defineConfig({
             'input-otp',
             '@popperjs/core',
             'react-popper',
-            'tw-animate-css',
           ],
         },
       },

@@ -184,14 +184,45 @@ export default function App() {
 
   const handleAuthenticated = () => {
     setIsAuthenticated(true);
+    sessionStorage.setItem('zalpha_authenticated', 'true');
   };
   
   // Public pages that don't require authentication
   const publicPages = [
-    'landing', 
+    'landing',
+    'signin',
+    'student-signup',
+    'employer-signup',
+    'school-login',
     'app-overview',
+    'about-us',
+    'mission-social-impact',
+    'social-responsibility',
+    'pricing',
+    'faq',
+    'privacy-policy',
+    'terms-of-service',
+    'legal-disclaimers',
+    'ada-information',
+    'inclusive-hiring',
+    'kickstarter-campaign',
+    'zalpha-vs-indeed',
+    'demo-showcase',
+    'student-platform-features',
+    'employer-platform-features',
+    'coming-soon',
+    'experienced-professionals-coming-soon',
+    'install-guide',
+    'qr-code',
     'beta-tester-application',
-    'metgot-beta-application'
+    'metgot-beta-application',
+    'pitch-deck-employers',
+    'pitch-deck-students',
+    'pitch-deck-schools',
+    'pitch-deck-investors',
+    'pitch-deck-advertisers',
+    'health-check',
+    'logo-showcase'
   ];
   const isPublicPage = publicPages.includes(currentPage);
   

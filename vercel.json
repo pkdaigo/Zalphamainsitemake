@@ -1,5 +1,5 @@
 {
   "framework": "vite",
-  "buildCommand": "pnpm build",
-  "installCommand": "corepack enable && corepack prepare pnpm@8.15.0 --activate && pnpm install --no-frozen-lockfile"
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps"
 }

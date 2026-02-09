@@ -1770,40 +1770,75 @@ app.post("/make-server-9bd83859/beta/submit", async (c) => {
     // Generate unique ID
     const applicationId = crypto.randomUUID();
 
-    // Create beta application record
-    const betaApplication = {
-      id: applicationId,
-      type,
-      ...data,
-      status: 'pending',
-      submittedAt: new Date().toISOString(),
-      reviewedAt: null,
-      adminNotes: '',
+    // Get Supabase client
+    const supabase = getServiceClient();
+    
+    // Map application type to user_type for database
+    const userTypeMap: Record<string, string> = {
+      'student': 'student',
+      'employer': 'employer',
+      'career-services': 'school',
+      'ada': 'person_with_disability'
     };
-
-    // Save to database with verification
-    await kv.set(`beta_application:${applicationId}`, betaApplication);
     
-    // CRITICAL: Verify the data was actually saved
-    const verification = await kv.get(`beta_application:${applicationId}`);
-    if (!verification) {
-      console.error(`CRITICAL ERROR: Failed to verify storage of application ${applicationId}`);
-      throw new Error('Failed to verify application was saved. Please try again.');
+    // Extract common fields based on application type
+    let program = '';
+    let cohort = '';
+    let notes = '';
+    
+    if (type === 'student') {
+      program = data.currentEducation || data.major || '';
+      cohort = data.graduationYear || '';
+      notes = data.whyBetaTest || data.additionalComments || '';
+    } else if (type === 'employer') {
+      program = data.companyName || '';
+      cohort = data.industry || '';
+      notes = data.whyBetaTest || data.additionalComments || '';
+    } else if (type === 'career-services') {
+      program = data.institutionName || '';
+      cohort = data.institutionType || '';
+      notes = data.whyBetaTest || data.additionalComments || '';
+    } else if (type === 'ada') {
+      program = 'ADA Beta Program';
+      cohort = data.disabilityType ? JSON.stringify(data.disabilityType) : '';
+      notes = data.accommodationsNeeded || data.additionalComments || '';
     }
-
-    console.log(`✅ Beta application VERIFIED and SAVED: ${type} - ${data.email} (ID: ${applicationId})`);
-    console.log(`✅ Storage verification passed for: ${applicationId}`);
     
-    // BACKUP: Log complete application data for manual recovery if needed
-    console.log('📋 BACKUP DATA LOG:', JSON.stringify({
+    // Create unified beta application record
+    const application = {
       id: applicationId,
-      type,
-      email: data.email,
+      user_type: userTypeMap[type],
       name: data.fullName,
-      timestamp: new Date().toISOString(),
-      allData: betaApplication
-    }));
-
+      email: data.email,
+      phone: data.phone || null,
+      program: program || null,
+      cohort: cohort || null,
+      notes: notes || null,
+      source: data.howHeardAbout || data.specificLocation || data.referralCode || null,
+      status: 'pending',
+      application_data: data, // Store full form data as JSONB
+    };
+    
+    // Insert into unified beta_applications table
+    const { data: insertedData, error: insertError } = await supabase
+      .from('beta_applications')
+      .insert([application])
+      .select()
+      .single();
+    
+    if (insertError) {
+      console.error('❌ Postgres insert error:', insertError);
+      
+      // Check if table doesn't exist
+      if (insertError.code === '42P01') {
+        throw new Error('Database table not configured. Please run the setup SQL from BETA_APPLICATIONS_TABLE_SETUP.md');
+      }
+      
+      throw new Error(`Database error: ${insertError.message}`);
+    }
+    
+    console.log(`✅ ${type} beta application saved to Postgres: ${data.email} (ID: ${applicationId})`);
+    
     return c.json({
       success: true,
       applicationId,
@@ -1834,42 +1869,42 @@ app.post("/make-server-9bd83859/beta/metgot-submit", async (c) => {
       }, 400);
     }
 
-    // Generate unique ID
+    const supabase = getServiceClient();
     const applicationId = crypto.randomUUID();
 
-    // Create Metgot beta application record
-    const metgotApplication = {
+    // Create Metgot beta application record for unified table
+    const application = {
       id: applicationId,
-      type: 'metgot-global',
-      ...data,
+      user_type: 'metgot',
+      name: data.fullName,
+      email: data.email,
+      phone: data.phone || null,
+      program: 'Metgot Global Beta',
+      cohort: data.cohort || data.age || null,
+      notes: data.whyParticipate || data.additionalComments || null,
+      source: data.howHeardAbout || data.referralCode || null,
       status: 'pending',
-      submittedAt: new Date().toISOString(),
-      reviewedAt: null,
-      adminNotes: '',
+      application_data: data, // Store full form data as JSONB
     };
 
-    // Save to database with different prefix and verification
-    await kv.set(`metgot_application:${applicationId}`, metgotApplication);
+    // Insert into unified beta_applications table
+    const { data: insertedData, error: insertError } = await supabase
+      .from('beta_applications')
+      .insert([application])
+      .select()
+      .single();
     
-    // CRITICAL: Verify the data was actually saved
-    const verification = await kv.get(`metgot_application:${applicationId}`);
-    if (!verification) {
-      console.error(`CRITICAL ERROR: Failed to verify storage of Metgot application ${applicationId}`);
-      throw new Error('Failed to verify application was saved. Please try again.');
+    if (insertError) {
+      console.error('❌ Metgot application Postgres insert error:', insertError);
+      
+      if (insertError.code === '42P01') {
+        throw new Error('Database table not configured. Please run the setup SQL from BETA_APPLICATIONS_TABLE_SETUP.md');
+      }
+      
+      throw new Error(`Database error: ${insertError.message}`);
     }
 
-    console.log(`✅ Metgot Global application VERIFIED and SAVED: ${data.email} (ID: ${applicationId})`);
-    console.log(`✅ Storage verification passed for: ${applicationId}`);
-    
-    // BACKUP: Log complete application data for manual recovery if needed
-    console.log('📋 BACKUP DATA LOG (METGOT):', JSON.stringify({
-      id: applicationId,
-      type: 'metgot-global',
-      email: data.email,
-      name: data.fullName,
-      timestamp: new Date().toISOString(),
-      allData: metgotApplication
-    }));
+    console.log(`✅ Metgot Global application saved to Postgres: ${data.email} (ID: ${applicationId})`);
 
     return c.json({
       success: true,

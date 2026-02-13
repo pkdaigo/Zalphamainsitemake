@@ -73,14 +73,14 @@ $$ LANGUAGE plpgsql;
 
 -- Triggers
 CREATE TRIGGER update_agent_jobs_updated_at
-  BEFORE UPDATE ON agent_jobs
-  FOR EACH ROW
-  EXECUTE FUNCTION update_updated_at_column();
+BEFORE UPDATE ON agent_jobs
+FOR EACH ROW
+EXECUTE FUNCTION update_updated_at_column();
 
 CREATE TRIGGER update_agent_config_updated_at
-  BEFORE UPDATE ON agent_config
-  FOR EACH ROW
-  EXECUTE FUNCTION update_updated_at_column();
+BEFORE UPDATE ON agent_config
+FOR EACH ROW
+EXECUTE FUNCTION update_updated_at_column();
 
 -- Insert default config for First Interview Agent
 INSERT INTO agent_config (agent_type, is_enabled, config) VALUES

@@ -129,6 +129,8 @@ import { initPWA } from '@/pwa-register';
 import { SignupMonitor } from '@/app/pages/SignupMonitor';
 import { AdminDataViewer } from '@/app/components/AdminDataViewer';
 import { DataCheck } from '@/app/pages/DataCheck';
+import { AgentDashboard } from '@/app/admin/agents/AgentDashboard';
+import { AdminGuard } from '@/app/guards/AdminGuard';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('landing');
@@ -388,6 +390,13 @@ export default function App() {
       {currentPage === 'signup-monitor' && <SignupMonitor onNavigate={handleNavigate} />}
       {currentPage === 'admin-data-viewer' && <AdminDataViewer onNavigate={handleNavigate} />}
       {currentPage === 'data-check' && <DataCheck onNavigate={handleNavigate} />}
+      
+      {/* Agent Dashboard - Admin Only */}
+      {currentPage === 'agent-dashboard' && (
+        <AdminGuard onNavigate={handleNavigate} requiredRole="any">
+          <AgentDashboard />
+        </AdminGuard>
+      )}
     </div>
   );
 }

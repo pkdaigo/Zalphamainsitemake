@@ -230,7 +230,7 @@ export default function App() {
   
   // Show password protection if not authenticated and not on a public page
   if (!isAuthenticated && !isPublicPage) {
-    return <PasswordProtection onAuthenticated={handleAuthenticated} />;
+    return null;
   }
 
   const handleInternalLogin = (userName: string, userRole: string) => {

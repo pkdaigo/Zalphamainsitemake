@@ -81,10 +81,10 @@ export function EmployerFAQs() {
                   </p>
                 </div>
                 <h4 className="text-3xl font-black text-white mb-3">
-                  Get 6 Months FREE!
+                  Get 3 Months FREE!
                 </h4>
                 <p className="text-xl text-white/95 mb-4">
-                  Sign up during our beta period and receive <strong className="text-yellow-300">6 months of Premium access absolutely FREE</strong> — no credit card required!
+                  Sign up during our beta period and receive <strong className="text-yellow-300">3 months of access absolutely FREE</strong> — no credit card required!
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
                   <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3">
@@ -105,63 +105,67 @@ export function EmployerFAQs() {
                   </div>
                 </div>
                 <p className="text-white/90 text-sm italic">
-                  After 6 months, choose to continue with a paid plan or cancel — no obligations!
+                  After 3 months, choose to continue with a paid plan or cancel — no obligations!
                 </p>
               </div>
             </div>
 
             <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg p-6 border border-green-400/30">
-              <div className="flex items-baseline gap-3 mb-2">
-                <p className="text-3xl font-bold text-white">$49.99/month</p>
-                <p className="text-xl text-white/50 line-through">$99</p>
-                <span className="px-3 py-1 bg-yellow-400 text-yellow-900 rounded-full text-xs font-bold">LIMITED TIME</span>
-              </div>
-              <p className="text-xl text-white/90">Starter Subscription</p>
+              <p className="text-3xl font-bold text-white mb-2">💰 Low Monthly Subscription: $29/month</p>
+              <p className="text-lg text-white/90 mb-4">Simple, affordable base plan with all core features</p>
               <div className="mt-4 space-y-2 text-white/90">
                 <p>✅ Unlimited job postings</p>
                 <p>✅ Access to entire student database</p>
-                <p>✅ Pre-screened candidate profiles</p>
-                <p>✅ Direct messaging with applicants</p>
-                <p>✅ Application tracking system</p>
+                <p>✅ Basic application tracking</p>
                 <p>✅ Company profile page</p>
-                <p>✅ Basic analytics and reporting</p>
+                <p>✅ Direct messaging with applicants</p>
               </div>
             </div>
 
             <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg p-6 border border-blue-400/30">
-              <p className="text-3xl font-bold text-white mb-2">$249/month</p>
-              <p className="text-xl text-white/90">Professional Subscription</p>
-              <div className="mt-4 space-y-2 text-white/90">
-                <p>✅ Everything in Starter, PLUS:</p>
-                <p>✅ Priority placement in student searches</p>
-                <p>✅ Virtual job fair participation</p>
-                <p>✅ Advanced analytics and insights</p>
-                <p>✅ Custom skills assessment requests</p>
-                <p>✅ Dedicated account support</p>
-                <p>✅ Employer branding features</p>
+              <p className="text-2xl font-bold text-white mb-4">💳 Pay-As-You-Go Add-Ons:</p>
+              <p className="text-white/90 mb-4">Choose only the services you need. No forced premium tiers.</p>
+              <div className="grid md:grid-cols-2 gap-3 text-white/90">
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="font-bold text-white">Pre-screened candidate verification</p>
+                  <p className="text-2xl font-bold text-green-300">$5 <span className="text-sm font-normal text-white/70">per candidate</span></p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="font-bold text-white">Priority job placement</p>
+                  <p className="text-2xl font-bold text-green-300">$15 <span className="text-sm font-normal text-white/70">per posting</span></p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="font-bold text-white">Advanced analytics report</p>
+                  <p className="text-2xl font-bold text-green-300">$25 <span className="text-sm font-normal text-white/70">per month</span></p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="font-bold text-white">AI video interview (powered by Zal)</p>
+                  <p className="text-2xl font-bold text-green-300">$10 <span className="text-sm font-normal text-white/70">per interview</span></p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="font-bold text-white">Skills assessment custom requests</p>
+                  <p className="text-2xl font-bold text-green-300">$20 <span className="text-sm font-normal text-white/70">per assessment</span></p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="font-bold text-white">Virtual job fair participation</p>
+                  <p className="text-2xl font-bold text-green-300">$99 <span className="text-sm font-normal text-white/70">per event</span></p>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <p className="font-bold text-white">Dedicated account support</p>
+                  <p className="text-2xl font-bold text-green-300">$49 <span className="text-sm font-normal text-white/70">per month</span></p>
+                </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-lg p-6 border border-purple-400/30">
-              <div className="flex items-baseline gap-3 mb-2">
-                <p className="text-3xl font-bold text-white">$499/month</p>
-                <p className="text-xl text-white/50 line-through">$799</p>
-                <span className="px-3 py-1 bg-yellow-400 text-yellow-900 rounded-full text-xs font-bold">LIMITED TIME</span>
-              </div>
-              <p className="text-xl text-white/90">Ultra Premium Subscription</p>
-              <div className="mt-4 space-y-2 text-white/90">
-                <p>✅ Everything in Professional, PLUS:</p>
-                <p>✅ AI video interview capabilities</p>
-                <p>✅ Multi-location job posting management</p>
-                <p>✅ White-label career pages</p>
-                <p>✅ API access for integration</p>
-                <p>✅ Priority customer support (24/7)</p>
-                <p>✅ Custom training program development</p>
-              </div>
+            <div className="bg-yellow-500/20 rounded-lg p-5 border border-yellow-400/40">
+              <p className="text-yellow-300 font-bold text-xl mb-3">💡 Why this model works:</p>
+              <p className="text-white/95 mb-2">
+                Pay only for what you need. Start small with basic features and scale up as you grow. No forced premium tiers—you choose your features.
+              </p>
             </div>
 
             <p className="text-white font-semibold mt-4">
-              💰 <strong>Compare to alternatives:</strong> Traditional job boards charge $200-$500 PER posting. Recruiters charge $5,000-$15,000 PER hire. LinkedIn Recruiter costs $8,000+/year. ZALPHA gives you UNLIMITED access for a fraction of the cost.
+              📊 <strong>Compare to alternatives:</strong> Traditional job boards charge $200-$500 PER posting. Recruiters charge $5,000-$15,000 PER hire. With ZALPHA, you pay a low base rate and add only the services you use.
             </p>
           </div>
         </div>

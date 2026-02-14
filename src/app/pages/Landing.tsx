@@ -769,6 +769,259 @@ export function Landing({ onNavigate }: LandingProps) {
         </div>
       </section>
 
+      {/* High School Co-Op Program Demo Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full" style={{ 
+            backgroundImage: 'radial-gradient(circle, #0891b2 1px, transparent 1px)',
+            backgroundSize: '30px 30px'
+          }}></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-cyan-100 px-5 py-2 rounded-full mb-6">
+              <GraduationCap className="w-5 h-5 text-blue-600" />
+              <span className="text-sm font-bold text-blue-900">For School Administrators</span>
+            </div>
+            
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 mb-6">
+              High School Co-Op Program Management
+            </h2>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              ZALPHA Co-Op mirrors and supports work-based learning programs across the Pacific region, 
+              giving administrators a centralized platform for student placements, hours tracking, and employer partnerships.
+            </p>
+          </motion.div>
+
+          {/* 3-Column Feature Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-200"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                <MapPin className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">CNMI PSS Co-Op</h3>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                Support the CNMI Public School System's Cooperative Education Program with digital placement tracking, 
+                employer coordination, and student progress monitoring.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span>Placement management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span>Hours verification</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span>Employer evaluations</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 border-2 border-cyan-200"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
+                <Building2 className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Guam DOE Programs</h3>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                Align with Guam Department of Education's work-based learning and Co-Op style programs, 
+                streamlining student-employer connections and compliance reporting.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" />
+                  <span>DOL compliance tools</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" />
+                  <span>Real-time progress tracking</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-600 mt-0.5 flex-shrink-0" />
+                  <span>Outcome reporting</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 border-2 border-indigo-200"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                <Globe className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">COFA Region Schools</h3>
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                Extend support to school systems in RMI, FSM, and Palau with similar Co-Op or work-based 
+                learning pathways, fostering cross-regional employer connections.
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+                  <span>Multi-island coordination</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+                  <span>Standardized workflows</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-600 mt-0.5 flex-shrink-0" />
+                  <span>Regional best practices</span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Request Demo Card */}
+          <motion.div
+            className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 rounded-3xl p-8 sm:p-12 relative overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            {/* Background Glow Effects */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none">
+              <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-500 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-10 right-10 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+            </div>
+
+            <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+              {/* Left: Content */}
+              <div>
+                <div className="inline-flex items-center gap-2 bg-cyan-500/20 border border-cyan-400/50 px-4 py-2 rounded-full mb-6">
+                  <Sparkles className="w-4 h-4 text-cyan-300" />
+                  <span className="text-sm font-bold text-cyan-200">Book a Demo</span>
+                </div>
+
+                <h3 className="text-3xl sm:text-4xl font-black text-white mb-4">
+                  See ZALPHA Co-Op in Action
+                </h3>
+                <p className="text-lg text-blue-100 mb-6 leading-relaxed">
+                  Discover how administrators can use ZALPHA to manage student placements, track work hours, 
+                  coordinate with employer partners, and monitor student progress—all in one centralized platform 
+                  built for Pacific Island school systems.
+                </p>
+
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3 text-white">
+                    <div className="w-6 h-6 bg-cyan-500/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 text-cyan-300" />
+                    </div>
+                    <span><strong>Placement Workflow:</strong> Match students with regional employers seamlessly</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white">
+                    <div className="w-6 h-6 bg-cyan-500/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 text-cyan-300" />
+                    </div>
+                    <span><strong>Hours Tracking:</strong> Automated time logs verified by employers</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white">
+                    <div className="w-6 h-6 bg-cyan-500/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 text-cyan-300" />
+                    </div>
+                    <span><strong>Progress Reports:</strong> Real-time dashboards for coordinators and counselors</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white">
+                    <div className="w-6 h-6 bg-cyan-500/30 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 text-cyan-300" />
+                    </div>
+                    <span><strong>Compliance Ready:</strong> DOL-aligned reporting for all territories</span>
+                  </li>
+                </ul>
+
+                <button
+                  onClick={() => onNavigate('co-op-coordinator-dashboard')}
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-xl hover:shadow-2xl"
+                >
+                  <Monitor className="w-6 h-6" />
+                  Book a Co-Op Demo
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Right: Visual/Stats */}
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border-2 border-white/20">
+                <h4 className="text-xl font-bold text-white mb-6 text-center">
+                  What You'll See in the Demo
+                </h4>
+                
+                <div className="space-y-4">
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 bg-blue-500/30 rounded-lg flex items-center justify-center">
+                        <Users className="w-5 h-5 text-blue-300" />
+                      </div>
+                      <span className="font-bold text-white">Student Placement Dashboard</span>
+                    </div>
+                    <p className="text-blue-200 text-sm">
+                      Browse available positions, match students with employers, and track application status
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 bg-cyan-500/30 rounded-lg flex items-center justify-center">
+                        <TrendingUp className="w-5 h-5 text-cyan-300" />
+                      </div>
+                      <span className="font-bold text-white">Real-Time Analytics</span>
+                    </div>
+                    <p className="text-blue-200 text-sm">
+                      Monitor hours worked, employer feedback, and student performance metrics
+                    </p>
+                  </div>
+
+                  <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-10 h-10 bg-indigo-500/30 rounded-lg flex items-center justify-center">
+                        <FileCheck className="w-5 h-5 text-indigo-300" />
+                      </div>
+                      <span className="font-bold text-white">Compliance Reporting</span>
+                    </div>
+                    <p className="text-blue-200 text-sm">
+                      Generate DOL-ready reports and maintain audit trails for all placements
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-white/20 text-center">
+                  <p className="text-blue-200 text-sm">
+                    <strong className="text-white">Perfect for:</strong> Co-Op Coordinators, Career Counselors, 
+                    School Administrators, and Regional Education Leaders
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Final CTA Section */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 text-white">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">

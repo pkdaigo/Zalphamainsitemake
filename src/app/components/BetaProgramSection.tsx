@@ -28,15 +28,15 @@ export function BetaProgramSection({ onNavigate }: BetaProgramSectionProps) {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
             <p className="text-xl sm:text-2xl font-black text-slate-900">
-              🎉 LIMITED TIME: 6 MONTHS PREMIUM FREE! 🎉
+              🚀 JOIN AS A BETA TESTER
             </p>
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-4">
-            Join Our Beta Program
+            Shape the Future of Pacific Hiring
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            Choose your path and get premium access absolutely FREE — no credit card required!
+            Early adopters get full platform access and help us improve ZALPHA before our full launch!
           </p>
         </motion.div>
 

@@ -103,8 +103,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
               </motion.div>
               <div className="text-left">
                 <motion.h1 
-                  className="text-5xl font-bold text-slate-800"
-                  whileHover={{ scale: 1.05, color: "#0891b2" }}
+                  className="text-5xl font-bold text-slate-800 hover:text-cyan-600 transition-colors"
+                  whileHover={{ scale: 1.05 }}
                 >
                   ZALPHA RECRUIT
                 </motion.h1>
@@ -160,33 +160,33 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
               </motion.p>
               <div className="grid md:grid-cols-3 gap-4 mt-6">
                 <motion.div 
-                  className="bg-white/25 backdrop-blur-sm rounded-xl p-4"
+                  className="bg-white/25 hover:bg-white/35 backdrop-blur-sm rounded-xl p-4 transition-colors"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.35)" }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   <Map className="w-8 h-8 text-white mb-2" />
                   <div className="text-white font-bold mb-1">Regional Focus</div>
                   <div className="text-white/90 text-sm">CNMI, Guam, FSM, Palau, Marshall Islands, Hawaii & APAC</div>
                 </motion.div>
                 <motion.div 
-                  className="bg-white/25 backdrop-blur-sm rounded-xl p-4"
+                  className="bg-white/25 hover:bg-white/35 backdrop-blur-sm rounded-xl p-4 transition-colors"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.35)" }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   <Users className="w-8 h-8 text-white mb-2" />
                   <div className="text-white font-bold mb-1">Brain Circulation</div>
                   <div className="text-white/90 text-sm">Turn brain drain into brain circulation</div>
                 </motion.div>
                 <motion.div 
-                  className="bg-white/25 backdrop-blur-sm rounded-xl p-4"
+                  className="bg-white/25 hover:bg-white/35 backdrop-blur-sm rounded-xl p-4 transition-colors"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.35)" }}
+                  whileHover={{ scale: 1.05 }}
                 >
                   <TrendingUp className="w-8 h-8 text-white mb-2" />
                   <div className="text-white font-bold mb-1">One Ecosystem</div>
@@ -340,8 +340,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
 
           <div className="grid md:grid-cols-3 gap-6">
             <motion.div 
-              className="bg-white/25 backdrop-blur-sm rounded-2xl p-6 border border-white/30"
-              whileHover={{ scale: 1.03, backgroundColor: "rgba(255, 255, 255, 0.35)" }}
+              className="bg-white/25 hover:bg-white/35 backdrop-blur-sm rounded-2xl p-6 border border-white/30 transition-colors"
+              whileHover={{ scale: 1.03 }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-white/30 rounded-xl flex items-center justify-center">
@@ -355,8 +355,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
             </motion.div>
 
             <motion.div 
-              className="bg-white/25 backdrop-blur-sm rounded-2xl p-6 border border-white/30"
-              whileHover={{ scale: 1.03, backgroundColor: "rgba(255, 255, 255, 0.35)" }}
+              className="bg-white/25 hover:bg-white/35 backdrop-blur-sm rounded-2xl p-6 border border-white/30 transition-colors"
+              whileHover={{ scale: 1.03 }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-white/30 rounded-xl flex items-center justify-center">
@@ -370,8 +370,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
             </motion.div>
 
             <motion.div 
-              className="bg-white/25 backdrop-blur-sm rounded-2xl p-6 border border-white/30"
-              whileHover={{ scale: 1.03, backgroundColor: "rgba(255, 255, 255, 0.35)" }}
+              className="bg-white/25 hover:bg-white/35 backdrop-blur-sm rounded-2xl p-6 border border-white/30 transition-colors"
+              whileHover={{ scale: 1.03 }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-white/30 rounded-xl flex items-center justify-center">
@@ -403,8 +403,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
 
           <div className="grid md:grid-cols-2 gap-6">
             <motion.div 
-              className="flex items-start gap-4 bg-slate-50/80 rounded-2xl p-6 border border-slate-200"
-              whileHover={{ backgroundColor: "rgba(248, 250, 252, 1)", borderColor: "rgb(203, 213, 225)" }}
+              className="flex items-start gap-4 bg-slate-50/80 hover:bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-colors"
+              whileHover={{ scale: 1.02 }}
             >
               <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Target className="w-6 h-6 text-cyan-600" />
@@ -418,8 +418,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
             </motion.div>
 
             <motion.div 
-              className="flex items-start gap-4 bg-slate-50/80 rounded-2xl p-6 border border-slate-200"
-              whileHover={{ backgroundColor: "rgba(248, 250, 252, 1)", borderColor: "rgb(203, 213, 225)" }}
+              className="flex items-start gap-4 bg-slate-50/80 hover:bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-colors"
+              whileHover={{ scale: 1.02 }}
             >
               <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Globe className="w-6 h-6 text-blue-600" />
@@ -433,8 +433,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
             </motion.div>
 
             <motion.div 
-              className="flex items-start gap-4 bg-slate-50/80 rounded-2xl p-6 border border-slate-200"
-              whileHover={{ backgroundColor: "rgba(248, 250, 252, 1)", borderColor: "rgb(203, 213, 225)" }}
+              className="flex items-start gap-4 bg-slate-50/80 hover:bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-colors"
+              whileHover={{ scale: 1.02 }}
             >
               <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Heart className="w-6 h-6 text-rose-600" />
@@ -448,8 +448,8 @@ export function AppOverview({ onNavigate }: AppOverviewProps) {
             </motion.div>
 
             <motion.div 
-              className="flex items-start gap-4 bg-slate-50/80 rounded-2xl p-6 border border-slate-200"
-              whileHover={{ backgroundColor: "rgba(248, 250, 252, 1)", borderColor: "rgb(203, 213, 225)" }}
+              className="flex items-start gap-4 bg-slate-50/80 hover:bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-slate-300 transition-colors"
+              whileHover={{ scale: 1.02 }}
             >
               <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
                 <TrendingUp className="w-6 h-6 text-emerald-600" />

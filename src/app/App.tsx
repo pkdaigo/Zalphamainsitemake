@@ -15,7 +15,6 @@
 
 import { useState, useEffect } from 'react';
 import { Navigation } from '@/app/components/Navigation';
-import { PasswordProtection } from '@/app/components/PasswordProtection';
 import { Landing } from '@/app/pages/Landing';
 import { SignIn } from '@/app/pages/SignIn';
 import { StudentSignup } from '@/app/pages/StudentSignup';
@@ -31,10 +30,6 @@ import { CompanyReviewDemo } from '@/app/pages/CompanyReviewDemo';
 import { AdminModeration } from '@/app/pages/AdminModeration';
 import { PrivacyPolicy } from '@/app/pages/PrivacyPolicy';
 import { TermsOfService } from '@/app/pages/TermsOfService';
-import { PricingPage } from '@/app/pages/PricingPage';
-import { TransactionTracker } from '@/app/pages/TransactionTracker';
-import { SchoolRevenueDashboard } from '@/app/pages/SchoolRevenueDashboard';
-import { PayoutSystem } from '@/app/pages/PayoutSystem';
 import { DemoShowcase } from '@/app/pages/DemoShowcase';
 import { HeyGenDemo } from '@/app/pages/HeyGenDemo';
 import { HeyGenConfiguration } from '@/app/pages/HeyGenConfiguration';
@@ -61,6 +56,7 @@ import { InclusiveHiring } from '@/app/pages/InclusiveHiring';
 import { IntegrationSettings } from '@/app/pages/IntegrationSettings';
 import { SyncDashboard } from '@/app/pages/SyncDashboard';
 import { AppOverview } from '@/app/pages/AppOverview';
+import { GlobalContractsMarketplace } from '@/app/pages/GlobalContractsMarketplace';
 import { PitchDeckEmployers } from '@/app/pages/PitchDeckEmployers';
 import { DIDAgentDemo } from '@/app/pages/DIDAgentDemo';
 import { EmployerAIAgents } from '@/app/pages/EmployerAIAgents';
@@ -75,6 +71,7 @@ import { PitchDeckInternal } from '@/app/pages/PitchDeckInternal';
 import { ContractMarketplace } from '@/app/pages/ContractMarketplace';
 import { CustomIntegrations } from '@/app/pages/CustomIntegrations';
 import { PitchDeckAdvertisers } from '@/app/pages/PitchDeckAdvertisers';
+import { PitchDeckRecruit } from '@/app/pages/PitchDeckRecruit';
 import { BasicSkillsDemo } from '@/app/pages/BasicSkillsDemo';
 import { VideoInterviews } from '@/app/pages/VideoInterviews';
 import { SchoolBDGuide } from '@/app/pages/SchoolBDGuide';
@@ -99,7 +96,6 @@ import { InternalLogin } from '@/app/pages/InternalLogin';
 import { InternalDashboard } from '@/app/pages/InternalDashboard';
 import { HealthCheck } from '@/app/pages/HealthCheck';
 import { RecruiterIntegration } from '@/app/pages/RecruiterIntegration';
-import { AdminPaymentManagement } from '@/app/pages/AdminPaymentManagement';
 import { CandidateSearch } from '@/app/pages/CandidateSearch';
 import { EmployerProfile } from '@/app/pages/EmployerProfile';
 import { PrivacyDashboard } from '@/app/pages/PrivacyDashboard';
@@ -129,25 +125,24 @@ import { initPWA } from '@/pwa-register';
 import { SignupMonitor } from '@/app/pages/SignupMonitor';
 import { AdminDataViewer } from '@/app/components/AdminDataViewer';
 import { DataCheck } from '@/app/pages/DataCheck';
-import { AgentDashboard } from '@/app/admin/agents/AgentDashboard';
-import { AdminGuard } from '@/app/guards/AdminGuard';
+import { CoOpLogin } from '@/app/pages/CoOpLogin';
+import { CoOpStudentDashboard } from '@/app/pages/CoOpStudentDashboard';
+import { CoOpCoordinatorDashboard } from '@/app/pages/CoOpCoordinatorDashboard';
+import { CoOpEmployerDashboard } from '@/app/pages/CoOpEmployerDashboard';
+import { CoOpFundraisingHub } from '@/app/pages/CoOpFundraisingHub';
+import { CoOpStudentTimeLog } from '@/app/pages/CoOpStudentTimeLog';
+import { CoOpCoordinatorCohortSetup } from '@/app/pages/CoOpCoordinatorCohortSetup';
+import { CoOpCoordinatorPlacementManagement } from '@/app/pages/CoOpCoordinatorPlacementManagement';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('landing');
   const [userType, setUserType] = useState<'student' | 'employer' | 'school' | null>(null);
   const [schoolId, setSchoolId] = useState<string>('school_001'); // Mock school ID
   const [internalUser, setInternalUser] = useState<{ name: string; role: string } | null>(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // Initialize PWA features
   useEffect(() => {
     initPWA();
-    
-    // Check if user is already authenticated
-    const isAuth = sessionStorage.getItem('zalpha_authenticated');
-    if (isAuth === 'true') {
-      setIsAuthenticated(true);
-    }
 
     // Handle browser back/forward buttons
     const handlePopState = (event: PopStateEvent) => {
@@ -159,7 +154,7 @@ export default function App() {
         setUserType('student');
       } else if (page === 'employer-dashboard') {
         setUserType('employer');
-      } else if (page === 'school-dashboard' || page === 'school-revenue-dashboard' || page === 'transaction-tracker' || page === 'payout-system') {
+      } else if (page === 'school-dashboard') {
         setUserType('school');
       } else if (page === 'landing') {
         setUserType(null);
@@ -184,55 +179,6 @@ export default function App() {
     };
   }, []);
 
-  const handleAuthenticated = () => {
-    setIsAuthenticated(true);
-    sessionStorage.setItem('zalpha_authenticated', 'true');
-  };
-  
-  // Public pages that don't require authentication
-  const publicPages = [
-    'landing',
-    'signin',
-    'student-signup',
-    'employer-signup',
-    'school-login',
-    'app-overview',
-    'about-us',
-    'mission-social-impact',
-    'social-responsibility',
-    'pricing',
-    'faq',
-    'privacy-policy',
-    'terms-of-service',
-    'legal-disclaimers',
-    'ada-information',
-    'inclusive-hiring',
-    'kickstarter-campaign',
-    'zalpha-vs-indeed',
-    'demo-showcase',
-    'student-platform-features',
-    'employer-platform-features',
-    'coming-soon',
-    'experienced-professionals-coming-soon',
-    'install-guide',
-    'qr-code',
-    'beta-tester-application',
-    'metgot-beta-application',
-    'pitch-deck-employers',
-    'pitch-deck-students',
-    'pitch-deck-schools',
-    'pitch-deck-investors',
-    'pitch-deck-advertisers',
-    'health-check',
-    'logo-showcase'
-  ];
-  const isPublicPage = publicPages.includes(currentPage);
-  
-  // Show password protection if not authenticated and not on a public page
-  if (!isAuthenticated && !isPublicPage) {
-    return null;
-  }
-
   const handleInternalLogin = (userName: string, userRole: string) => {
     setInternalUser({ name: userName, role: userRole });
   };
@@ -253,7 +199,7 @@ export default function App() {
       setUserType('student');
     } else if (page === 'employer-dashboard') {
       setUserType('employer');
-    } else if (page === 'school-dashboard' || page === 'school-revenue-dashboard' || page === 'transaction-tracker' || page === 'payout-system') {
+    } else if (page === 'school-dashboard') {
       setUserType('school');
     } else if (page === 'landing') {
       setUserType(null);
@@ -286,10 +232,6 @@ export default function App() {
       {currentPage === 'admin-moderation' && <AdminModeration onNavigate={handleNavigate} />}
       {currentPage === 'privacy-policy' && <PrivacyPolicy onNavigate={handleNavigate} />}
       {currentPage === 'terms-of-service' && <TermsOfService onNavigate={handleNavigate} />}
-      {currentPage === 'pricing' && <PricingPage onNavigate={handleNavigate} />}
-      {currentPage === 'transaction-tracker' && <TransactionTracker userType="school" schoolId={schoolId} />}
-      {currentPage === 'school-revenue-dashboard' && <SchoolRevenueDashboard schoolId={schoolId} />}
-      {currentPage === 'payout-system' && <PayoutSystem schoolId={schoolId} />}
       {currentPage === 'demo-showcase' && <DemoShowcase onNavigate={handleNavigate} />}
       {currentPage === 'heygen-demo' && <HeyGenDemo onNavigate={handleNavigate} />}
       {currentPage === 'heygen-configuration' && <HeyGenConfiguration onNavigate={handleNavigate} />}
@@ -322,11 +264,13 @@ export default function App() {
       {currentPage === 'did-knowledge-manager' && <DIDKnowledgeManager onNavigate={handleNavigate} />}
       {currentPage === 'tutorial-admin' && <TutorialAdmin onNavigate={handleNavigate} />}
       {currentPage === 'app-overview' && <AppOverview onNavigate={handleNavigate} />}
+      {currentPage === 'global-contracts-marketplace' && <GlobalContractsMarketplace onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-employers' && <PitchDeckEmployers onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-students' && <PitchDeckStudents onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-schools' && <PitchDeckSchools onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-investors' && <PitchDeckInvestors onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-internal' && <PitchDeckInternal onNavigate={handleNavigate} />}
+      {currentPage === 'pitch-deck-recruit' && <PitchDeckRecruit onNavigate={handleNavigate} />}
       {currentPage === 'contract-marketplace' && <ContractMarketplace onNavigate={setCurrentPage} userType={userType} />}
       {currentPage === 'custom-integrations' && <CustomIntegrations onNavigate={setCurrentPage} />}
       {currentPage === 'pitch-deck-advertisers' && <PitchDeckAdvertisers onNavigate={setCurrentPage} />}
@@ -361,7 +305,6 @@ export default function App() {
       )}
       {currentPage === 'health-check' && <HealthCheck onNavigate={handleNavigate} />}
       {currentPage === 'recruiter-integration' && <RecruiterIntegration onNavigate={handleNavigate} />}
-      {currentPage === 'admin-payment-management' && <AdminPaymentManagement onNavigate={handleNavigate} />}
       {currentPage === 'candidate-search' && <CandidateSearch onNavigate={handleNavigate} />}
       {currentPage === 'employer-profile' && <EmployerProfile onNavigate={handleNavigate} />}
       {currentPage === 'privacy-dashboard' && <PrivacyDashboard onNavigate={handleNavigate} />}
@@ -390,13 +333,14 @@ export default function App() {
       {currentPage === 'signup-monitor' && <SignupMonitor onNavigate={handleNavigate} />}
       {currentPage === 'admin-data-viewer' && <AdminDataViewer onNavigate={handleNavigate} />}
       {currentPage === 'data-check' && <DataCheck onNavigate={handleNavigate} />}
-      
-      {/* Agent Dashboard - Admin Only */}
-      {currentPage === 'agent-dashboard' && (
-        <AdminGuard onNavigate={handleNavigate} requiredRole="any">
-          <AgentDashboard />
-        </AdminGuard>
-      )}
+      {currentPage === 'co-op-login' && <CoOpLogin onNavigate={handleNavigate} />}
+      {currentPage === 'co-op-student-dashboard' && <CoOpStudentDashboard onNavigate={handleNavigate} />}
+      {currentPage === 'co-op-coordinator-dashboard' && <CoOpCoordinatorDashboard onNavigate={handleNavigate} />}
+      {currentPage === 'co-op-employer-dashboard' && <CoOpEmployerDashboard onNavigate={handleNavigate} />}
+      {currentPage === 'co-op-fundraising-hub' && <CoOpFundraisingHub onNavigate={handleNavigate} />}
+      {currentPage === 'co-op-student-time-log' && <CoOpStudentTimeLog onNavigate={handleNavigate} />}
+      {currentPage === 'co-op-coordinator-cohort-setup' && <CoOpCoordinatorCohortSetup onNavigate={handleNavigate} />}
+      {currentPage === 'co-op-coordinator-placement-management' && <CoOpCoordinatorPlacementManagement onNavigate={handleNavigate} />}
     </div>
   );
 }

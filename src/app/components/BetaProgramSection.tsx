@@ -53,9 +53,6 @@ export function BetaProgramSection({ onNavigate }: BetaProgramSectionProps) {
           >
             <div className="text-4xl mb-4 text-center">💼</div>
             <h3 className="text-2xl font-black text-white text-center mb-3">Employers</h3>
-            <p className="text-cyan-100 text-sm text-center mb-4">
-              Premium Tier Worth <span className="text-yellow-300 font-bold">$600+</span>
-            </p>
             
             <div className="space-y-2 mb-6">
               <div className="flex items-start gap-2 text-white/90 text-sm">
@@ -95,9 +92,6 @@ export function BetaProgramSection({ onNavigate }: BetaProgramSectionProps) {
           >
             <div className="text-4xl mb-4 text-center">🎓</div>
             <h3 className="text-2xl font-black text-white text-center mb-3">Students</h3>
-            <p className="text-blue-100 text-sm text-center mb-4">
-              Premium Features Worth <span className="text-yellow-300 font-bold">$30/mo</span>
-            </p>
             
             <div className="space-y-2 mb-6">
               <div className="flex items-start gap-2 text-white/90 text-sm">
@@ -137,9 +131,6 @@ export function BetaProgramSection({ onNavigate }: BetaProgramSectionProps) {
           >
             <div className="text-4xl mb-4 text-center">🏫</div>
             <h3 className="text-2xl font-black text-white text-center mb-3">Schools</h3>
-            <p className="text-emerald-100 text-sm text-center mb-4">
-              Institutional Access <span className="text-yellow-300 font-bold">FREE</span>
-            </p>
             
             <div className="space-y-2 mb-6">
               <div className="flex items-start gap-2 text-white/90 text-sm">
@@ -179,9 +170,6 @@ export function BetaProgramSection({ onNavigate }: BetaProgramSectionProps) {
           >
             <div className="text-4xl mb-4 text-center">💜</div>
             <h3 className="text-2xl font-black text-white text-center mb-3">Accessibility</h3>
-            <p className="text-purple-100 text-sm text-center mb-4">
-              Inclusive Job Matching <span className="text-yellow-300 font-bold">FREE</span>
-            </p>
             
             <div className="space-y-2 mb-6">
               <div className="flex items-start gap-2 text-white/90 text-sm">

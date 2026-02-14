@@ -67,7 +67,7 @@ export function StudentDashboard({ onNavigate }: StudentDashboardProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-4 sm:space-y-6">
         {/* Back Button */}
         <div>
-          <BackButton onNavigate={onNavigate} label="Back to Home" />
+          <BackButton onNavigate={onNavigate} label="Back to Home" variant="dark" />
         </div>
 
         {/* Welcome Header */}

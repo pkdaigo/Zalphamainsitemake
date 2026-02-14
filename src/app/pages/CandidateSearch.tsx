@@ -10,6 +10,7 @@ const candidates = [
   {
     id: 1,
     name: 'Sarah Johnson',
+    email: 'sarah.johnson@email.com',
     education: "Bachelor's in Computer Science",
     graduationYear: 2024,
     location: 'Guam',
@@ -19,10 +20,13 @@ const candidates = [
     jobTypesLookingFor: ['Technology/IT', 'Freelance/Contract Remote', 'Part-Time'],
     aiMatchScore: 95,
     aiInterviewCompleted: false,
+    jobId: 'JOB-001',
+    jobTitle: 'Junior Software Developer',
   },
   {
     id: 2,
     name: 'Michael Chen',
+    email: 'michael.chen@email.com',
     education: "Associate's in Information Technology",
     graduationYear: 2025,
     location: 'CNMI',
@@ -32,10 +36,13 @@ const candidates = [
     jobTypesLookingFor: ['Technology/IT', 'Administrative', 'Internships'],
     aiMatchScore: 88,
     aiInterviewCompleted: true,
+    jobId: 'JOB-002',
+    jobTitle: 'IT Support Specialist',
   },
   {
     id: 3,
     name: 'Emily Rodriguez',
+    email: 'emily.rodriguez@email.com',
     education: "Bachelor's in Marketing",
     graduationYear: 2023,
     location: 'Hawaii',
@@ -45,10 +52,13 @@ const candidates = [
     jobTypesLookingFor: ['Marketing/Social Media', 'Creative/Design', 'Freelance/Contract Remote'],
     aiMatchScore: 82,
     aiInterviewCompleted: true,
+    jobId: 'JOB-003',
+    jobTitle: 'Social Media Coordinator',
   },
   {
     id: 4,
     name: 'David Kim',
+    email: 'david.kim@email.com',
     education: "Bachelor's in Nursing",
     graduationYear: 2024,
     location: 'Guam',
@@ -58,10 +68,13 @@ const candidates = [
     jobTypesLookingFor: ['Healthcare', 'Part-Time', 'Internships'],
     aiMatchScore: 91,
     aiInterviewCompleted: false,
+    jobId: 'JOB-004',
+    jobTitle: 'Registered Nurse',
   },
   {
     id: 5,
     name: 'Maria Santos',
+    email: 'maria.santos@email.com',
     education: "High School Diploma",
     graduationYear: 2025,
     location: 'FSM',
@@ -71,6 +84,8 @@ const candidates = [
     jobTypesLookingFor: ['Hospitality', 'Restaurant/Food Service', 'Customer Service', 'Part-Time'],
     aiMatchScore: 78,
     aiInterviewCompleted: false,
+    jobId: 'JOB-005',
+    jobTitle: 'Customer Service Representative',
   },
 ];
 
@@ -83,6 +98,48 @@ export function CandidateSearch({ onNavigate }: CandidateSearchProps) {
   const [selectedCandidate, setSelectedCandidate] = useState<number | null>(null);
   const [isPremium] = useState(true); // Demo: Set to true for premium features
   const [useAIMatching, setUseAIMatching] = useState(true);
+  const [sendingInterview, setSendingInterview] = useState(false);
+
+  // Handler for sending Zal Interview Link
+  const handleSendZalInterview = async (candidate: typeof candidates[0]) => {
+    setSendingInterview(true);
+    
+    try {
+      // ============================================================================
+      // Make.com Webhook URL for Zal_First_Interview scenario
+      // ============================================================================
+      const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/unv1ulyok3pxshgyeu5u3s82t2k216zr';
+      
+      // Send request to Make.com webhook
+      const response = await fetch(MAKE_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          candidate_id: candidate.id,
+          candidate_name: candidate.name,
+          email: candidate.email,
+          job_id: candidate.jobId,
+          job_title: candidate.jobTitle,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // Success
+      alert('🤖 Zal Interview link sent! Candidate will receive an email with their personalized interview link.');
+      console.log('✅ Successfully sent Zal interview request for:', candidate.name);
+      
+    } catch (error) {
+      console.error('❌ Failed to send Zal interview request:', error);
+      alert('❌ Something went wrong sending the Zal interview link. Please try again.');
+    } finally {
+      setSendingInterview(false);
+    }
+  };
 
   const filteredCandidates = candidates.filter((candidate) => {
     const matchesSearch = candidate.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -532,26 +589,33 @@ export function CandidateSearch({ onNavigate }: CandidateSearchProps) {
                             <span>Recommendation: Advance or decline</span>
                           </li>
                         </ul>
-                        {candidate.aiInterviewCompleted ? (
+                        
+                        {/* NEW: Send Zal Interview Link Button */}
+                        <div className="space-y-3">
                           <button 
-                            onClick={() => onNavigate('video-interviews')}
+                            onClick={() => handleSendZalInterview(candidate)}
                             className="w-full px-4 sm:px-6 py-3 bg-white text-purple-600 rounded-lg sm:rounded-xl hover:bg-purple-50 transition-colors font-bold flex items-center justify-center gap-2 text-sm sm:text-base"
                           >
-                            <Video className="w-4 h-4 sm:w-5 sm:h-5" />
-                            View AI Interview Results
+                            <Bot className="w-4 h-4 sm:w-5 sm:h-5" />
+                            Send Zal Interview Link
                           </button>
-                        ) : (
-                          <button 
-                            onClick={() => {
-                              // In real app, this would trigger AI interview
-                              alert('✨ AI Interview scheduled! Zee will conduct the interview within 24 hours and send you the results.');
-                              setSelectedCandidate(null);
-                            }}
-                            className="w-full px-4 sm:px-6 py-3 bg-white text-purple-600 rounded-lg sm:rounded-xl hover:bg-purple-50 transition-colors font-bold flex items-center justify-center gap-2 text-sm sm:text-base"
-                          >
-                            <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
-                            Start AI Interview (Auto)
-                          </button>
+                          
+                          {/* Developer Note */}
+                          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 text-xs text-white/70 text-center">
+                            💡 On click → call Make scenario: create row in `agent_jobs` (first_interview)
+                          </div>
+                        </div>
+                        
+                        {candidate.aiInterviewCompleted && (
+                          <div className="mt-3">
+                            <button 
+                              onClick={() => onNavigate('video-interviews')}
+                              className="w-full px-4 sm:px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg sm:rounded-xl hover:bg-white/30 transition-colors font-bold flex items-center justify-center gap-2 text-sm sm:text-base border-2 border-white/30"
+                            >
+                              <Video className="w-4 h-4 sm:w-5 sm:h-5" />
+                              View AI Interview Results
+                            </button>
+                          </div>
                         )}
                       </div>
                     )}

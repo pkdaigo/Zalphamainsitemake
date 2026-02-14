@@ -25,8 +25,8 @@ export function PasswordProtection({ onAuthenticated }: PasswordProtectionProps)
     setIsLoading(true);
 
     // Password validation
-    // You can change this password to whatever you want
-    const correctPassword = 'ZALPHA2026';
+    // Beta testing password for ZALPHA platform
+    const correctPassword = 'Beta2026';
 
     setTimeout(() => {
       if (password === correctPassword) {

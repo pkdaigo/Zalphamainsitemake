@@ -1,4 +1,4 @@
-import { MapPin, Users, TrendingUp, ChevronRight, GraduationCap, Building2, Zap, Shield, Search, FileCheck, MessageSquare, Star, Monitor, Smartphone, Tablet, Globe, Sparkles, Award, Target, CheckCircle2, ArrowRight, Phone, Mail, Briefcase, Heart, Crown } from 'lucide-react';
+import { MapPin, Users, TrendingUp, ChevronRight, GraduationCap, Building2, Zap, Shield, Search, FileCheck, MessageSquare, Star, Monitor, Smartphone, Tablet, Globe, Sparkles, Award, Target, CheckCircle2, ArrowRight, Phone, Mail, Briefcase, Heart, Crown, Accessibility, Bot } from 'lucide-react';
 import { motion } from 'motion/react';
 import { TollaiBot } from '@/app/components/TollaiBot';
 import { CollapsibleSection } from '@/app/components/CollapsibleSection';
@@ -33,9 +33,9 @@ export function Landing({ onNavigate }: LandingProps) {
               </div>
               
               <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black leading-tight">
-                Access Fresh Talent.{' '}
+                FRESH TALENT.{' '}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mt-2 sm:mt-3">
-                  Develop Future Leaders
+                  FUTURE LEADERS.
                 </span>
               </h1>
 
@@ -49,53 +49,8 @@ export function Landing({ onNavigate }: LandingProps) {
                   ease: "easeOut"
                 }}
               >
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 1, 0.7] }}
-                  transition={{ 
-                    duration: 2,
-                    delay: 0.5,
-                    repeat: Infinity,
-                    repeatDelay: 3
-                  }}
-                  className="font-bold text-cyan-300"
-                >
-                  Today.
-                </motion.span>{' '}
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 1, 0.7] }}
-                  transition={{ 
-                    duration: 2,
-                    delay: 1.2,
-                    repeat: Infinity,
-                    repeatDelay: 3
-                  }}
-                  className="font-bold text-blue-300"
-                >
-                  Tomorrow.
-                </motion.span>{' '}
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 1, 0.7] }}
-                  transition={{ 
-                    duration: 2,
-                    delay: 1.9,
-                    repeat: Infinity,
-                    repeatDelay: 3
-                  }}
-                  className="font-bold text-purple-300"
-                >
-                  Forever.
-                </motion.span>{' '}
-                <motion.span
-                  className="block mt-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 1.4 }}
-                >
-                  The platform built for the future of career connections.
-                </motion.span>
+                Internships, early-career hiring, and global contract placements for Pacific 
+                students and employers in one connected platform.
               </motion.p>
 
               {/* Stats Preview */}
@@ -605,7 +560,286 @@ export function Landing({ onNavigate }: LandingProps) {
         </div>
       </section>
 
-      {/* Features Section - Duplicate removed */}
+      {/* Who It's For Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+          <motion.div 
+            className="text-center mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-100 text-cyan-700 rounded-full text-sm font-bold mb-6"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: "spring", stiffness: 200 }}
+            >
+              <Users className="w-4 h-4" />
+              WHO IT'S FOR
+            </motion.div>
+            
+            <motion.h2 
+              className="text-4xl lg:text-5xl font-black text-gray-900 mb-6"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Built for Every Stage of Your Journey
+            </motion.h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Students Card */}
+            <motion.div 
+              className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+                <GraduationCap className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Students</h3>
+              <p className="text-gray-600 mb-6">
+                High school students, college students, and recent graduates finding internships, 
+                and early-career opportunities across the Pacific.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">Free job search tools</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">AI career coach & skill assessments</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">Virtual job fairs & networking</span>
+                </li>
+              </ul>
+              <button
+                onClick={() => onNavigate('student-signup')}
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 rounded-xl font-bold hover:shadow-xl transition-all"
+              >
+                Join as Student
+              </button>
+            </motion.div>
+
+            {/* Schools Card */}
+            <motion.div 
+              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border-2 border-green-200 hover:border-green-400 transition-all"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                <Building2 className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Schools</h3>
+              <p className="text-gray-600 mb-6">
+                Career services and educational institutions managing student 
+                placements and earning revenue share.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">Student placement management tools</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">Revenue share on employer activity</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">Compliance tracking & reporting</span>
+                </li>
+              </ul>
+              <button
+                onClick={() => onNavigate('school-login')}
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-bold hover:shadow-xl transition-all"
+              >
+                School Portal
+              </button>
+            </motion.div>
+
+            {/* Employers Card */}
+            <motion.div 
+              className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border-2 border-purple-200 hover:border-purple-400 transition-all"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                <Briefcase className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Employers & Contractors</h3>
+              <p className="text-gray-600 mb-6">
+                Local businesses, global contractors, and agencies hiring Pacific talent for internships, 
+                full-time roles, and fixed-term contracts.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">Access verified Pacific talent pool</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">AI interviewer & ATS integration</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm">EPA/DOL compliance support</span>
+                </li>
+              </ul>
+              <button
+                onClick={() => onNavigate('employer-signup')}
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold hover:shadow-xl transition-all"
+              >
+                Hire Pacific Talent
+              </button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance & Accessibility Strip */}
+      <section className="py-12 bg-gradient-to-r from-blue-600 via-cyan-600 to-indigo-600">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-white mb-3">Built with Trust & Accessibility</h3>
+            <p className="text-blue-100 text-lg">
+              Compliant, accessible, and fair for everyone
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <motion.div 
+              className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-2xl p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              <Accessibility className="w-12 h-12 text-pink-300 mb-4 mx-auto" />
+              <h4 className="text-xl font-bold text-white text-center mb-3">ADA & WCAG 2.1 AA Accessible</h4>
+              <p className="text-blue-100 text-sm text-center">
+                Full accessibility support including screen readers, keyboard navigation, and high-contrast modes
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-2xl p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+            >
+              <Bot className="w-12 h-12 text-cyan-300 mb-4 mx-auto" />
+              <h4 className="text-xl font-bold text-white text-center mb-3">AI Interviewer – Fair & Auditable</h4>
+              <p className="text-blue-100 text-sm text-center">
+                EEOC-aligned, bias-mitigated AI with full audit trails and human oversight options
+              </p>
+            </motion.div>
+
+            <motion.div 
+              className="bg-white/10 backdrop-blur-sm border border-white/30 rounded-2xl p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <Shield className="w-12 h-12 text-green-300 mb-4 mx-auto" />
+              <h4 className="text-xl font-bold text-white text-center mb-3">Pacific Labor & EPA Compliance</h4>
+              <p className="text-blue-100 text-sm text-center">
+                Purpose-built for CNMI, Guam, US, and Philippine DOL requirements with automated tracking
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 text-white">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <motion.h2 
+            className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Ready to Shape the Future of Pacific Talent?
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Join thousands of students, schools, and employers building careers and communities 
+            across the Western Pacific Islands.
+          </motion.p>
+
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <button
+              onClick={() => onNavigate('beta-tester-application')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-xl hover:shadow-2xl"
+            >
+              <Star className="w-5 h-5" />
+              Join the Beta
+              <ArrowRight className="w-5 h-5" />
+            </button>
+
+            <button
+              onClick={() => onNavigate('app-overview')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/20 transition-all"
+            >
+              <Monitor className="w-5 h-5" />
+              Platform Overview
+            </button>
+
+            <button
+              onClick={() => onNavigate('pitch-deck-recruit')}
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full font-bold text-lg hover:bg-white/20 transition-all"
+            >
+              <FileCheck className="w-5 h-5" />
+              View Pitch Deck
+            </button>
+          </motion.div>
+
+          <motion.div 
+            className="mt-12 pt-12 border-t border-white/20"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <p className="text-white text-lg mb-2">Contact our team:</p>
+            <a href="mailto:contact@kiexgroup.com" className="flex items-center gap-2 justify-center text-cyan-300 hover:text-white transition text-lg font-semibold">
+              <Mail className="w-5 h-5" />
+              <span>contact@kiexgroup.com</span>
+            </a>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }

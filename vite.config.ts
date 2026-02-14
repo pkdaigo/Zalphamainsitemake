@@ -14,31 +14,23 @@ export default defineConfig({
     },
   },
   build: {
-    chunkSizeWarningLimit: 2000,
+    chunkSizeWarningLimit: 4000,
     minify: 'esbuild',
     sourcemap: false,
     target: 'es2020',
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'react-vendor';
-            }
-            return 'vendor';
-          }
+        entryFileNames: `assets/[name]-[hash]-v2.js`,
+        chunkFileNames: `assets/[name]-[hash]-v2.js`,
+        assetFileNames: `assets/[name]-[hash]-v2.[ext]`,
+        manualChunks: {
+          'react-core': ['react', 'react-dom'],
         }
       }
     }
   },
-  preview: {
-    port: 4173,
-    strictPort: false,
-  },
   server: {
     port: 5173,
-    strictPort: false,
     host: true,
-    open: false,
   },
 })

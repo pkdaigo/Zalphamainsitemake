@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card'
-import { useAgentAnalyticsNew } from './hooks/useAgentAnalytics'
+import { useAgentAnalyticsNew } from './hooks/useAgentAnalyticsNew'
 import { BarChart3, TrendingUp, Clock, Zap } from 'lucide-react'
 
 export function AgentAnalytics() {

@@ -313,16 +313,15 @@ export function CoOpSignInSection({ onNavigate }: CoOpSignInSectionProps) {
 
           {/* Beta Access Notice */}
           <div className="mt-6 pt-6 border-t-2 border-slate-200">
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-400 rounded-xl p-4">
+            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 border-2 border-blue-400 rounded-xl p-4">
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 text-2xl">🔐</div>
+                <div className="flex-shrink-0 text-2xl">ℹ️</div>
                 <div>
                   <p className="font-bold text-slate-900 text-sm mb-1">
-                    Beta2026 Access Required
+                    Open Beta Access
                   </p>
                   <p className="text-slate-700 text-xs leading-relaxed">
-                    This Co-Op Hub is in private beta testing. All users must enter the Beta2026 password to access the platform. 
-                    Schools, students, and employers approved for pilot programs will receive access credentials via email.
+                    This Co-Op Hub is now accessible to all users. Schools, students, and employers can sign in directly to explore our pilot programs and collaborative learning opportunities.
                   </p>
                 </div>
               </div>

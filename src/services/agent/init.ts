@@ -12,3 +12,4 @@ export const agentEngine = new AgentEngine(supabase)
 
 // Export for use in components
 export { supabase }
+// env update

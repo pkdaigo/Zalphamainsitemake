@@ -181,6 +181,30 @@ export function VirtualCollegeFairs2({ onNavigate, userType = 'student' }: Virtu
         'Online degree programs'
       ],
       focusAreas: ['All majors represented']
+    },
+    {
+      id: 'pacific-track',
+      name: 'Pacific Islander Student Pathways Track',
+      date: 'March 15, 2024',
+      time: '10:00 AM - 4:00 PM (ChST)',
+      participatingColleges: 6,
+      registeredStudents: 534,
+      description: 'Dedicated fair for colleges serving Pacific Islander students. Learn about programs tailored to FSM, CNMI, Palau, RMI, and regional students with cultural support and island-friendly policies.',
+      features: [
+        'Pacific Islander student organizations',
+        'Island culture support services',
+        'Language assistance programs',
+        'COFA-friendly financial aid',
+        'Family housing options',
+      ],
+      colleges: [
+        'Pacific Islands University',
+        'College of Micronesia-FSM (all 6 campuses)',
+        'Northern Marianas College',
+        'University of Guam - Pacific Islander Programs',
+        'Palau Community College',
+        'College of the Marshall Islands'
+      ]
     }
   ];
 

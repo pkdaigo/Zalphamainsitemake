@@ -8,58 +8,48 @@ interface AdBannerProps {
 }
 
 // Mock ad data - in production this would come from an ad server
-const mockAds = {
-  small: [
+const ads: Ad[] = [
     {
       id: 'ad-1',
-      title: 'Bank of the Pacific',
-      subtitle: 'Start Your Banking Career',
-      image: 'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=400&q=80',
-      cta: 'Learn More',
-      url: 'https://bankofthepacific.com/careers'
+      title: 'Northern Marianas College',
+      subtitle: 'Applications Now Open for Fall 2026',
+      description: 'Apply now for scholarships and financial aid. Programs in Business, Hospitality, and Health Sciences.',
+      link: 'https://www.marianas.edu',
+      imageUrl: '/api/placeholder/800/400',
     },
     {
       id: 'ad-2',
       title: 'University of Guam',
-      subtitle: 'Graduate Programs Open',
-      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80',
-      cta: 'Apply Now',
-      url: 'https://uog.edu'
-    }
-  ],
-  medium: [
+      subtitle: 'Your Pacific Island University',
+      description: 'Bachelor\'s and Master\'s programs. Join 3,500+ students from across the Pacific Islands region.',
+      link: 'https://www.uog.edu',
+      imageUrl: '/api/placeholder/800/400',
+    },
     {
       id: 'ad-3',
-      title: 'Pacific Tech Solutions',
-      subtitle: 'Join Our Growing Tech Team',
-      description: 'Looking for software engineers, designers, and product managers.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80',
-      cta: 'View Openings',
-      url: 'https://pacifictech.com/careers'
+      title: 'Amazon Web Services (AWS)',
+      subtitle: 'Cloud Practitioner Training',
+      description: 'Free certification prep course. No experience required. Start your tech career today!',
+      link: 'https://aws.amazon.com/training',
+      imageUrl: '/api/placeholder/800/400',
     },
     {
       id: 'ad-4',
-      title: 'Guam Healthcare Network',
-      subtitle: 'Healthcare Careers Available',
-      description: 'Multiple positions available for nursing graduates and medical professionals.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
-      cta: 'Explore Careers',
-      url: 'https://guamhealthcare.com'
-    }
-  ],
-  large: [
+      title: 'Pacific Islands Career Pathways',
+      subtitle: 'Free Resume & Career Coaching',
+      description: 'One-on-one career counseling for Pacific Islander students. Job search support available.',
+      link: 'https://example.com/career-coaching',
+      imageUrl: '/api/placeholder/800/400',
+    },
     {
       id: 'ad-5',
-      title: 'Micronesian Career Fair 2026',
+      title: 'Pacific Islands Career Fair 2026',
       subtitle: '50+ Employers • 200+ Open Positions',
       description: 'Connect with top employers across the Pacific region. Free admission for verified students!',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
-      cta: 'Register Free',
-      url: 'https://micronesiacareerfair.com',
-      sponsored: true
-    }
-  ]
-};
+      link: 'https://example.com/career-fair',
+      imageUrl: '/api/placeholder/800/400',
+    },
+  ];
 
 export function AdBanner({ size = 'medium', position = 'inline', onClose }: AdBannerProps) {
   const [isVisible, setIsVisible] = useState(true);

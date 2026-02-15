@@ -1,4 +1,4 @@
-import { MapPin, Users, TrendingUp, ChevronRight, GraduationCap, Building2, Zap, Shield, Search, FileCheck, MessageSquare, Star, Monitor, Smartphone, Tablet, Globe, Sparkles, Award, Target, CheckCircle2, ArrowRight, Phone, Mail, Briefcase, Heart, Crown, Accessibility, Bot } from 'lucide-react';
+import { MapPin, Users, TrendingUp, ChevronRight, GraduationCap, Building2, Zap, Shield, Search, FileCheck, MessageSquare, Star, Monitor, Smartphone, Tablet, Globe, Sparkles, Award, Target, CheckCircle2, ArrowRight, Phone, Mail, Briefcase, Heart, Crown, Accessibility, Bot, Wrench, Fingerprint, BadgeCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 import { TollaiBot } from '@/app/components/TollaiBot';
 import { CollapsibleSection } from '@/app/components/CollapsibleSection';
@@ -355,6 +355,511 @@ export function Landing({ onNavigate }: LandingProps) {
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
             <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
           </svg>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS - Co-Op Ecosystem */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12 sm:mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-cyan-100 px-4 py-2 rounded-full mb-4">
+                <Target className="w-5 h-5 text-blue-600" />
+                <span className="text-blue-700 font-semibold text-sm">Co-Op Platform</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
+                Built for Everyone in the
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
+                  Co-Op Ecosystem
+                </span>
+              </h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Students, employers, and school admins work together seamlessly with ZALPHA's Co-Op platform
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Role Cards - Mobile-First Vertical Stack */}
+          <div className="space-y-6 max-w-4xl mx-auto">
+            {/* Card 1: Co-Op Students */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-6 sm:p-8 border-2 border-blue-200 hover:shadow-2xl transition-all"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <GraduationCap className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Co-Op Students</h3>
+                  <p className="text-blue-700 font-medium text-sm sm:text-base">High School Work-Based Learning</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 sm:space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <strong>Install ZALPHA as a PWA on your phone</strong>—works offline and syncs when you're back online
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    See your placement, schedule, and assigned <strong>deliverables</strong> (Admin, POS, Operations, R&D)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <strong>Clock in/out, log hours,</strong> and tag time to specific deliverables
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Send <strong>late/absent/time-off messages</strong> that automatically CC your school co-op admin
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Track which skills you're <strong>strong in, need practice, or aren't interested in</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <strong>Export verified achievements</strong> to your resume or portfolio
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Card 2: Co-Op Employers */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-6 sm:p-8 border-2 border-purple-200 hover:shadow-2xl transition-all"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Briefcase className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Co-Op Employers</h3>
+                  <p className="text-purple-700 font-medium text-sm sm:text-base">Small Business Partners</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 sm:space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Create placements and define <strong>clear deliverables by business function</strong> (HR/SOPs, POS, inventory, R&D)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <strong>Track student progress,</strong> approve time-off requests, and mark deliverables complete
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    See <strong>student skill and interest signals</strong> to adjust training and job descriptions
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    <strong>Communicate with students and school admins</strong> in recorded message threads
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Card 3: School Co-Op Admins & WIOA Staff */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-6 sm:p-8 border-2 border-emerald-200 hover:shadow-2xl transition-all"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <FileCheck className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">School Co-Op Admins</h3>
+                  <p className="text-emerald-700 font-medium text-sm sm:text-base">& WIOA Staff</p>
+                </div>
+              </div>
+
+              <ul className="space-y-3 sm:space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    View <strong>all placements across CNMI, Guam, and COFA</strong> in one dashboard
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Map deliverables to <strong>school outcomes and WIOA youth elements</strong> (work experience, leadership, occupational skills)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Generate <strong>compliance reports for CNMI WIA, Guam WIOA, and Federal requirements</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Design <strong>co-op pathways and mental readiness programs</strong> based on real student performance data
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Card 4: Post-Secondary & Technical Institutions */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl p-6 sm:p-8 border-2 border-orange-200 hover:shadow-2xl transition-all"
+            >
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg relative">
+                  <GraduationCap className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
+                  <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                    <Wrench className="w-3 h-3 text-orange-600" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Post-Secondary & Technical Institutions</h3>
+                  <p className="text-orange-700 font-medium text-sm sm:text-base">(NMC & NMTech)</p>
+                </div>
+              </div>
+
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
+                Northern Marianas College (NMC) and Northern Marianas Technical Institute (NMTech) use ZALPHA to manage work-based learning for their students in career and technical education (CTE) programs.
+              </p>
+
+              <ul className="space-y-3 sm:space-y-4">
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Track students in <strong>certificate, associate, and technical training programs</strong> doing co-op and apprenticeship placements
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Define deliverables tied to <strong>trade skills</strong> (welding, HVAC, construction, hospitality, IT, business admin)
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Map work experiences to <strong>CTE learning outcomes and credential requirements</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Generate reports for <strong>CNMI DOL, WIOA, and accreditation</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    Partner with high schools to create <strong>seamless pathways from PSS co-op → NMC/NMTech programs → workforce</strong>
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-12 sm:mt-16 text-center"
+          >
+            <div className="inline-flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <button
+                onClick={() => onNavigate('student-signup')}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-xl font-bold hover:shadow-xl transition-all text-base sm:text-lg"
+              >
+                Sign Up as Student
+              </button>
+              <button
+                onClick={() => onNavigate('employer-signup')}
+                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-bold hover:shadow-xl transition-all text-base sm:text-lg"
+              >
+                Sign Up as Employer
+              </button>
+              <button
+                onClick={() => onNavigate('school-login')}
+                className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-xl font-bold hover:shadow-xl transition-all text-base sm:text-lg"
+              >
+                School Admin Login
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Z-UID SYSTEM FEATURE HIGHLIGHT */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mb-6">
+              <BadgeCheck className="w-5 h-5 text-white" />
+              <span className="text-white font-semibold text-sm">One Student, One Identity</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-6">
+              The Z-UID System
+            </h2>
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Every student who enters the ZALPHA ecosystem receives a unique <strong className="text-blue-600">Z-UID (ZALPHA Universal Identifier)</strong> that follows them throughout their entire career journey:
+            </p>
+          </motion.div>
+
+          {/* Visual Flow */}
+          <motion.div
+            className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-16"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {/* Student with Z-UID */}
+            <div className="flex flex-col items-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mb-4 shadow-xl">
+                <GraduationCap className="w-12 h-12 text-white" />
+              </div>
+              <div className="bg-white border-2 border-blue-500 rounded-xl px-6 py-3 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <Fingerprint className="w-5 h-5 text-blue-600" />
+                  <span className="font-mono font-bold text-blue-900 text-lg">Z-00123456</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Arrow */}
+            <div className="hidden lg:block">
+              <ArrowRight className="w-8 h-8 text-blue-400" />
+            </div>
+            <div className="lg:hidden">
+              <div className="h-12 w-0.5 bg-blue-400"></div>
+            </div>
+
+            {/* Three Platforms */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {/* ZALPHA Recruit */}
+              <motion.div
+                className="bg-white rounded-2xl p-6 shadow-xl border-2 border-blue-200"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-3">
+                  <GraduationCap className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-bold text-slate-900 mb-2">ZALPHA Recruit</h4>
+                <p className="text-xs text-slate-600">High School Co-Op</p>
+              </motion.div>
+
+              {/* MicroGig Marketplace */}
+              <motion.div
+                className="bg-white rounded-2xl p-6 shadow-xl border-2 border-purple-200"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                  <Zap className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-bold text-slate-900 mb-2">MicroGig Marketplace</h4>
+                <p className="text-xs text-slate-600">College & Gig Work</p>
+              </motion.div>
+
+              {/* ZALPHA Global HRIS */}
+              <motion.div
+                className="bg-white rounded-2xl p-6 shadow-xl border-2 border-emerald-200"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-3">
+                  <Briefcase className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-bold text-slate-900 mb-2">ZALPHA Global HRIS</h4>
+                <p className="text-xs text-slate-600">Full-Time Career</p>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Journey Details */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-blue-500"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="flex items-start gap-3 mb-3">
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-5 h-5 text-blue-600" />
+                </div>
+                <h4 className="font-bold text-slate-900 pt-2">High School Co-Op</h4>
+              </div>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                <strong className="text-blue-600">Z-UID tracks</strong> verified deliverables, time logs, skills, and employer feedback
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-purple-500"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <div className="flex items-start gap-3 mb-3">
+                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-5 h-5 text-purple-600" />
+                </div>
+                <h4 className="font-bold text-slate-900 pt-2">College & MicroGigs</h4>
+              </div>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                <strong className="text-purple-600">Z-UID carries</strong> co-op achievements into paid work, building a verified portfolio
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-emerald-500"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <div className="flex items-start gap-3 mb-3">
+                <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="w-5 h-5 text-emerald-600" />
+                </div>
+                <h4 className="font-bold text-slate-900 pt-2">Professional Career</h4>
+              </div>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                <strong className="text-emerald-600">Z-UID becomes</strong> the employee record in HRIS—no data re-entry, seamless transition
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Why It Matters */}
+          <motion.div
+            className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-3xl p-8 sm:p-12 text-white shadow-2xl"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <h3 className="text-2xl sm:text-3xl font-black mb-8 text-center">Why it matters:</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-cyan-200 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="font-semibold mb-1">Portable Identity</p>
+                  <p className="text-sm text-blue-100">Students never lose their work history—it's portable across employers, schools, and regions</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-cyan-200 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="font-semibold mb-1">Verified Experience</p>
+                  <p className="text-sm text-blue-100">Employers can see verified work experience from day one, not just a resume</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-cyan-200 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="font-semibold mb-1">Long-Term Tracking</p>
+                  <p className="text-sm text-blue-100">Schools and coordinators can track long-term outcomes (from co-op → MicroGig → full-time employment)</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-cyan-200 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="font-semibold mb-1">Lifelong Career Data</p>
+                  <p className="text-sm text-blue-100">One profile, one identity, lifelong career data</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

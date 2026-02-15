@@ -1151,21 +1151,21 @@ export function Landing({ onNavigate }: LandingProps) {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Schools</h3>
               <p className="text-gray-600 mb-6">
-                Career services and educational institutions managing student 
-                placements and earning revenue share.
+                Career services and educational institutions empowering students 
+                with <strong>affordable subscription model</strong>—free for all your students.
               </p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Student placement management tools</span>
+                  <span className="text-gray-700 text-sm"><strong>Free for all your students</strong>—your school pays a flat annual fee</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Revenue share on employer activity</span>
+                  <span className="text-gray-700 text-sm"><strong>Predictable budgeting</strong> with no per-student charges</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm">Compliance tracking & reporting</span>
+                  <span className="text-gray-700 text-sm"><strong>ROI:</strong> Higher placement rates + career services enhancement</span>
                 </li>
               </ul>
               <button

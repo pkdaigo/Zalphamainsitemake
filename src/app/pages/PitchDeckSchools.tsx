@@ -1235,56 +1235,127 @@ export function PitchDeckSchools({ onNavigate }: PitchDeckSchoolsProps) {
             </div>
           </div>
 
-          {/* Revenue Model */}
-          <div className="bg-gradient-to-r from-green-500/30 to-emerald-500/30 rounded-2xl p-8 border-2 border-green-400 mb-8">
+          {/* Revenue Model - College Subscriptions (Handshake Model) */}
+          <div className="bg-gradient-to-r from-blue-500/30 to-cyan-500/30 rounded-2xl p-8 border-2 border-blue-400 mb-8">
             <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <DollarSign className="w-10 h-10 text-green-400" />
-              Earn 0.5% on Every Student Transaction
+              <DollarSign className="w-10 h-10 text-blue-400" />
+              Revenue Model: College Subscriptions (Handshake Model)
             </h3>
-            <div className="bg-yellow-400/20 border-2 border-yellow-400 rounded-xl p-6 mb-6">
-              <p className="text-white text-lg mb-3">
-                <strong className="text-yellow-300">💰 Passive Revenue Stream:</strong> Your institution earns a 0.5% commission on ALL transactions 
-                when your students get hired or accept contract work through ZALPHA.
+            
+            <div className="bg-blue-400/20 border-2 border-blue-400 rounded-xl p-6 mb-6">
+              <p className="text-white text-lg mb-2">
+                <strong className="text-blue-300">💼 Flat Annual Fees:</strong> ZALPHA charges colleges based on enrollment size—keeping the platform <strong className="text-yellow-300">100% FREE for students</strong>.
               </p>
               <p className="text-white/90 text-sm">
-                Best part? Revenue sharing happens <strong className="text-yellow-300">REGARDLESS of privacy settings</strong>. Even if students hide their identity, 
-                you still earn commission!
+                Predictable budgeting. No per-student charges. Just like Handshake, but built for the Pacific.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="bg-white/10 rounded-xl p-6 text-center">
-                <div className="text-5xl font-bold text-green-400 mb-2">$225</div>
-                <div className="text-white text-sm">Revenue from 1 hire</div>
-                <div className="text-green-200 text-xs mt-1">at $45,000 salary</div>
-              </div>
-              <div className="bg-white/10 rounded-xl p-6 text-center">
-                <div className="text-5xl font-bold text-emerald-400 mb-2">$5,400</div>
-                <div className="text-white text-sm">Revenue from 24 hires</div>
-                <div className="text-emerald-200 text-xs mt-1">typical yearly cohort</div>
-              </div>
-              <div className="bg-white/10 rounded-xl p-6 text-center">
-                <div className="text-5xl font-bold text-cyan-400 mb-2">$10K+</div>
-                <div className="text-white text-sm">Annual potential</div>
-                <div className="text-cyan-200 text-xs mt-1">with 200+ students</div>
+            {/* Pricing Table */}
+            <div className="bg-white/10 rounded-xl p-6 mb-6 overflow-x-auto">
+              <table className="w-full text-white">
+                <thead>
+                  <tr className="border-b-2 border-white/30">
+                    <th className="text-left py-3 px-4 text-blue-300">Tier</th>
+                    <th className="text-left py-3 px-4 text-blue-300">Enrollment Size</th>
+                    <th className="text-left py-3 px-4 text-blue-300">Annual Fee</th>
+                    <th className="text-left py-3 px-4 text-blue-300">Features Included</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-white/10">
+                    <td className="py-4 px-4 font-bold text-green-300">Starter</td>
+                    <td className="py-4 px-4">&lt;500 students</td>
+                    <td className="py-4 px-4 font-bold">$2,400/year<br/><span className="text-sm text-white/70">($200/mo)</span></td>
+                    <td className="py-4 px-4 text-sm">
+                      School dashboard, unlimited student accounts, 2 virtual fairs/year, basic analytics, email support
+                    </td>
+                  </tr>
+                  <tr className="border-b border-white/10 bg-blue-500/20">
+                    <td className="py-4 px-4 font-bold text-cyan-300">Growth</td>
+                    <td className="py-4 px-4">500–2,500 students</td>
+                    <td className="py-4 px-4 font-bold">$6,000/year<br/><span className="text-sm text-white/70">($500/mo)</span></td>
+                    <td className="py-4 px-4 text-sm">
+                      Everything in Starter + custom branding, unlimited virtual fairs, advanced placement tracking, priority employer connections, dedicated account manager
+                    </td>
+                  </tr>
+                  <tr className="bg-purple-500/20">
+                    <td className="py-4 px-4 font-bold text-purple-300">Enterprise</td>
+                    <td className="py-4 px-4">2,500+ students</td>
+                    <td className="py-4 px-4 font-bold">$12,000+/year<br/><span className="text-sm text-white/70">(custom)</span></td>
+                    <td className="py-4 px-4 text-sm">
+                      Everything in Growth + white-label options, API integrations, multi-campus support, SLA guarantees, on-site training
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Premium Pacific Value */}
+            <div className="bg-gradient-to-r from-cyan-500/20 to-teal-500/20 rounded-xl p-6 border-2 border-cyan-400 mb-6">
+              <h4 className="text-white font-bold mb-4 text-xl flex items-center gap-2">
+                <Star className="w-6 h-6 text-cyan-300" />
+                Premium Pacific Value
+              </h4>
+              <div className="grid md:grid-cols-2 gap-4">
+                <ul className="text-white/90 space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><strong className="text-white">Hyper-local focus:</strong> Jobs from CNMI, Guam, Palau, FSM employers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><strong className="text-white">96% placement rates</strong> vs generic platforms</span>
+                  </li>
+                </ul>
+                <ul className="text-white/90 space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><strong className="text-white">Compliance-ready:</strong> CNMI DOL, Guam DOL, US DOL tracking</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-cyan-300 flex-shrink-0 mt-0.5" />
+                    <span><strong className="text-white">No competition</strong> from mainland US-focused platforms</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
+            {/* Target Institutions */}
             <div className="bg-white/20 rounded-xl p-6">
-              <h4 className="text-white font-bold mb-4 text-xl">💡 How Revenue Works:</h4>
-              <div className="grid md:grid-cols-2 gap-6">
-                <ul className="text-white/90 space-y-2 text-sm">
-                  <li>✓ Student accepts job offer → 0.5% of annual salary</li>
-                  <li>✓ Student completes contract → 0.5% of contract value</li>
-                  <li>✓ Automatic commission processing</li>
-                  <li>✓ Monthly revenue reports</li>
-                </ul>
-                <ul className="text-white/90 space-y-2 text-sm">
-                  <li>✓ No setup fees or recurring costs</li>
-                  <li>✓ Revenue even if student hides identity</li>
-                  <li>✓ Supports career services funding</li>
-                  <li>✓ Transparent accounting dashboard</li>
-                </ul>
+              <h4 className="text-white font-bold mb-4 text-xl">🎯 Target Institutions (Launch Partners):</h4>
+              <div className="grid md:grid-cols-2 gap-6 mb-4">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <GraduationCap className="w-8 h-8 text-cyan-300" />
+                    <div>
+                      <h5 className="text-white font-bold">Northern Marianas College (NMC)</h5>
+                      <p className="text-white/70 text-sm">~1,500 students</p>
+                    </div>
+                  </div>
+                  <div className="text-white/90 text-sm space-y-1">
+                    <p>✓ <strong className="text-cyan-300">Growth tier</strong> at $6,000/year</p>
+                    <p className="text-yellow-300">Pilot Pricing: <strong>$4,200/year</strong> (30% discount Year 1)</p>
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <Wrench className="w-8 h-8 text-green-300" />
+                    <div>
+                      <h5 className="text-white font-bold">NMTech</h5>
+                      <p className="text-white/70 text-sm">~250 students</p>
+                    </div>
+                  </div>
+                  <div className="text-white/90 text-sm space-y-1">
+                    <p>✓ <strong className="text-green-300">Starter tier</strong> at $2,400/year</p>
+                    <p className="text-yellow-300">Pilot Pricing: <strong>$1,680/year</strong> (30% discount Year 1)</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-yellow-400/20 border-2 border-yellow-400 rounded-lg p-4 mt-4">
+                <p className="text-white text-center">
+                  <strong className="text-yellow-300">🎉 Launch Incentive:</strong> First 5 colleges get <strong>30% off Year 1</strong> + free onboarding + dedicated account manager
+                </p>
               </div>
             </div>
           </div>

@@ -2,7 +2,6 @@ import { MapPin, Users, TrendingUp, ChevronRight, GraduationCap, Building2, Zap,
 import { motion } from 'motion/react';
 import { TollaiBot } from '@/app/components/TollaiBot';
 import { CollapsibleSection } from '@/app/components/CollapsibleSection';
-import { BetaProgramSection } from '@/app/components/BetaProgramSection';
 
 interface LandingProps {
   onNavigate: (page: string) => void;
@@ -862,9 +861,6 @@ export function Landing({ onNavigate }: LandingProps) {
           </motion.div>
         </div>
       </section>
-
-      {/* CONSOLIDATED BETA PROGRAM - ALL USER TYPES */}
-      <BetaProgramSection onNavigate={onNavigate} />
 
       {/* Features Section */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-50 to-cyan-50 relative overflow-hidden">

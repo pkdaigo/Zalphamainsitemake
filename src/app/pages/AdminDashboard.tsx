@@ -25,7 +25,12 @@ import {
   Briefcase,
   CheckCircle,
   Building,
-  BookOpenCheck
+  BookOpenCheck,
+  Beaker,
+  Sparkles,
+  Crown,
+  UserCheck,
+  TrendingUp
 } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
@@ -657,6 +662,344 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
                   <div className="text-xs text-slate-600">Recruitment platform overview for businesses</div>
                 </div>
               </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Beta Testing Management - Moved from Landing Page */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-800 mb-1 flex items-center gap-2">
+                <Beaker className="w-7 h-7 text-orange-600" />
+                Beta Testing Program Management
+              </h2>
+              <p className="text-slate-600 text-sm">Manage beta testers, approvals, applications, and program analytics</p>
+            </div>
+            <Badge className="bg-orange-100 text-orange-700 border-orange-300 text-sm px-3 py-1">
+              <Sparkles className="w-3 h-3 mr-1 inline" />
+              Active Program
+            </Badge>
+          </div>
+
+          {/* Beta Program Stats Banner */}
+          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-6 mb-6 border-2 border-orange-200">
+            <div className="flex items-start gap-4">
+              <div className="bg-orange-500 rounded-xl p-3">
+                <Crown className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">🚀 Join as a Beta Tester Program</h3>
+                <p className="text-slate-700 mb-4">
+                  Shape the Future of Pacific Hiring - Early adopters get full platform access and help us improve ZALPHA before our full launch!
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-black text-cyan-600 mb-1">127</div>
+                    <div className="text-xs text-slate-600">Employer Testers</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-black text-blue-600 mb-1">456</div>
+                    <div className="text-xs text-slate-600">Student Testers</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-black text-green-600 mb-1">23</div>
+                    <div className="text-xs text-slate-600">School Partners</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-3 text-center">
+                    <div className="text-2xl font-black text-purple-600 mb-1">89</div>
+                    <div className="text-xs text-slate-600">Accessibility Users</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 4-Column Beta Tester Type Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            {/* Employers Beta Card */}
+            <Card className="border-2 border-cyan-200 bg-gradient-to-br from-cyan-50 to-blue-50 hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <div className="text-4xl mb-2 text-center">💼</div>
+                <CardTitle className="text-slate-900 text-lg text-center mb-2">Employers</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 mb-4 text-sm">
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-cyan-500 font-bold">✓</span>
+                    <span>Full platform access</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-cyan-500 font-bold">✓</span>
+                    <span>Unlimited job posts</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-cyan-500 font-bold">✓</span>
+                    <span>Advanced analytics</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-cyan-500 font-bold">✓</span>
+                    <span>Priority support</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => onNavigate('beta-applications-admin')}
+                  className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:opacity-90 text-white text-sm font-semibold"
+                >
+                  View Applications →
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Students Beta Card */}
+            <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50 hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <div className="text-4xl mb-2 text-center">🎓</div>
+                <CardTitle className="text-slate-900 text-lg text-center mb-2">Students</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 mb-4 text-sm">
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-blue-500 font-bold">✓</span>
+                    <span>AI interview coach</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-blue-500 font-bold">✓</span>
+                    <span>Priority job matching</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-blue-500 font-bold">✓</span>
+                    <span>Skills assessments</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-blue-500 font-bold">✓</span>
+                    <span>Premium employers</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => onNavigate('beta-applications-admin')}
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90 text-white text-sm font-semibold"
+                >
+                  View Applications →
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Schools Beta Card */}
+            <Card className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <div className="text-4xl mb-2 text-center">🏫</div>
+                <CardTitle className="text-slate-900 text-lg text-center mb-2">Schools</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 mb-4 text-sm">
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-emerald-500 font-bold">✓</span>
+                    <span>Student tracking</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-emerald-500 font-bold">✓</span>
+                    <span>Outcome reporting</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-emerald-500 font-bold">✓</span>
+                    <span>Revenue sharing</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-emerald-500 font-bold">✓</span>
+                    <span>Dedicated support</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => onNavigate('beta-applications-admin')}
+                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:opacity-90 text-white text-sm font-semibold"
+                >
+                  View Applications →
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Accessibility Beta Card */}
+            <Card className="border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-lg transition-all">
+              <CardHeader className="pb-3">
+                <div className="text-4xl mb-2 text-center">💜</div>
+                <CardTitle className="text-slate-900 text-lg text-center mb-2">Accessibility</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-2 mb-4 text-sm">
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-purple-500 font-bold">✓</span>
+                    <span>Ability assessment</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-purple-500 font-bold">✓</span>
+                    <span>Tailored job matches</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-purple-500 font-bold">✓</span>
+                    <span>Screen reader support</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-700">
+                    <span className="text-purple-500 font-bold">✓</span>
+                    <span>Income support</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => onNavigate('beta-applications-admin')}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white text-sm font-semibold"
+                >
+                  View Applications →
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Metgot Global Beta - Special Program */}
+          <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-purple-700 rounded-2xl p-6 border-4 border-purple-300 shadow-xl mb-6">
+            <div className="flex flex-col md:flex-row items-start gap-6">
+              {/* Left: Icon & Title */}
+              <div className="flex-shrink-0">
+                <div className="text-5xl mb-2">🎯</div>
+                <h3 className="text-2xl font-black text-white mb-1">
+                  Metgot Global Beta
+                </h3>
+                <p className="text-purple-100 text-sm font-semibold">
+                  Exclusive Program for Ages 25+
+                </p>
+                <Badge className="mt-2 bg-yellow-400 text-purple-900 border-0">
+                  <UserCheck className="w-3 h-3 mr-1 inline" />
+                  67 Participants
+                </Badge>
+              </div>
+
+              {/* Middle: Features Grid */}
+              <div className="flex-1 grid sm:grid-cols-2 gap-3">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                  <div className="flex items-start gap-2 text-white text-sm">
+                    <span className="text-yellow-300">⭐</span>
+                    <span><strong>Focus Groups:</strong> In-person sessions with compensation</span>
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                  <div className="flex items-start gap-2 text-white text-sm">
+                    <span className="text-yellow-300">⭐</span>
+                    <span><strong>Early Access:</strong> Shape job fair technology</span>
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                  <div className="flex items-start gap-2 text-white text-sm">
+                    <span className="text-yellow-300">⭐</span>
+                    <span><strong>Professionals:</strong> For experienced workforce</span>
+                  </div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                  <div className="flex items-start gap-2 text-white text-sm">
+                    <span className="text-yellow-300">⭐</span>
+                    <span><strong>Direct Impact:</strong> Influence platform features</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Admin Actions */}
+              <div className="flex-shrink-0 flex flex-col gap-2">
+                <Button
+                  onClick={() => onNavigate('metgot-beta-application')}
+                  className="bg-white text-purple-700 hover:bg-yellow-300 hover:text-purple-900 font-bold whitespace-nowrap"
+                >
+                  Manage Applications →
+                </Button>
+                <Button
+                  onClick={() => onNavigate('beta-applications-admin')}
+                  variant="outline"
+                  className="bg-white/10 text-white border-white/30 hover:bg-white/20 text-sm"
+                >
+                  View Stats
+                </Button>
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="mt-4 bg-white/20 backdrop-blur-sm rounded-lg p-3 border border-white/30">
+              <p className="text-white text-sm">
+                <strong>💼 Focus Group Participants:</strong> Share job fair experiences and technology comfort level. 
+                Transportation assistance available. Selected participants receive compensation.
+              </p>
+            </div>
+          </div>
+
+          {/* Beta Program Benefits & Admin Tools */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Benefits Panel */}
+            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 border-2 border-yellow-200">
+              <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-yellow-600" />
+                Why Join Our Beta Program?
+              </h3>
+              <div className="space-y-3 text-sm">
+                <div className="flex items-start gap-2 text-slate-700">
+                  <TrendingUp className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Help shape the platform</strong> with your feedback</span>
+                </div>
+                <div className="flex items-start gap-2 text-slate-700">
+                  <TrendingUp className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Access new features first</strong> before public launch</span>
+                </div>
+                <div className="flex items-start gap-2 text-slate-700">
+                  <TrendingUp className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Connect with beta testers</strong> across Pacific Islands</span>
+                </div>
+                <div className="flex items-start gap-2 text-slate-700">
+                  <TrendingUp className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
+                  <span><strong>Support local innovation</strong> - Built in CNMI</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Admin Quick Actions */}
+            <div className="bg-slate-100 rounded-xl p-6 border border-slate-200">
+              <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <FileText className="w-5 h-5 text-slate-700" />
+                Beta Management Tools
+              </h3>
+              <div className="space-y-3">
+                <button
+                  onClick={() => onNavigate('beta-applications-admin')}
+                  className="w-full flex items-center gap-3 bg-white rounded-lg p-4 hover:shadow-md transition-all text-left border border-slate-200"
+                >
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <FileText className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-slate-900 text-sm">Review Applications</div>
+                    <div className="text-xs text-slate-600">23 pending approvals</div>
+                  </div>
+                  <Badge className="bg-red-100 text-red-700 border-0 text-xs">New</Badge>
+                </button>
+                <button
+                  onClick={() => onNavigate('demo-showcase')}
+                  className="w-full flex items-center gap-3 bg-white rounded-lg p-4 hover:shadow-md transition-all text-left border border-slate-200"
+                >
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Monitor className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-slate-900 text-sm">Beta User Demo</div>
+                    <div className="text-xs text-slate-600">View tester experience showcase</div>
+                  </div>
+                </button>
+                <button
+                  onClick={() => onNavigate('user-management')}
+                  className="w-full flex items-center gap-3 bg-white rounded-lg p-4 hover:shadow-md transition-all text-left border border-slate-200"
+                >
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                    <Users className="w-5 h-5 text-green-600" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-slate-900 text-sm">Manage Beta Users</div>
+                    <div className="text-xs text-slate-600">695 active beta testers</div>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -108,6 +108,7 @@ import { EducationalInstitutionDashboard } from '@/app/pages/EducationalInstitut
 import { EmployerPlanDemos } from '@/app/pages/EmployerPlanDemos';
 import { StudentAddonDemo } from '@/app/pages/StudentAddonDemo';
 import { AIInterviewPractice } from '@/app/pages/AIInterviewPractice';
+import { InterviewTutorialVideo } from '@/app/pages/InterviewTutorialVideo';
 import { SchoolDashboardDemo } from '@/app/pages/SchoolDashboardDemo';
 import { SchoolPartnershipGuide } from '@/app/pages/SchoolPartnershipGuide';
 import { BetaTesterApplication } from '@/app/pages/BetaTesterApplication';
@@ -317,6 +318,7 @@ export default function App() {
       {currentPage === 'employer-plan-demos' && <EmployerPlanDemos onNavigate={handleNavigate} />}
       {currentPage === 'student-addon-demo' && <StudentAddonDemo onNavigate={handleNavigate} />}
       {currentPage === 'ai-interview-practice' && <AIInterviewPractice onNavigate={handleNavigate} />}
+      {currentPage === 'interview-tutorial-video' && <InterviewTutorialVideo onNavigate={handleNavigate} />}
       {currentPage === 'school-dashboard-demo' && <SchoolDashboardDemo onNavigate={handleNavigate} />}
       {currentPage === 'school-partnership-guide' && <SchoolPartnershipGuide onNavigate={handleNavigate} />}
       {currentPage === 'beta-tester-application' && <BetaTesterApplication onNavigate={handleNavigate} />}

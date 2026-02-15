@@ -16,7 +16,16 @@ import {
   FileSpreadsheet,
   Brain,
   Video,
-  MessageSquare
+  MessageSquare,
+  Star,
+  ArrowRight,
+  Monitor,
+  Mail,
+  Target,
+  Briefcase,
+  CheckCircle,
+  Building,
+  BookOpenCheck
 } from 'lucide-react';
 import { Button } from '@/app/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
@@ -293,6 +302,67 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
         </div>
       </div>
 
+      {/* Admin CTA Banner - Ready to Shape the Future */}
+      <section className="py-12 bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 text-white border-b-4 border-cyan-500">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Target className="w-10 h-10 text-cyan-400" />
+            <h2 className="text-3xl sm:text-4xl font-black">
+              Ready to Shape the Future of Pacific Talent Management?
+            </h2>
+          </div>
+          
+          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+            Empower thousands of students, schools, and employers building careers and communities 
+            across the Western Pacific Islands through data-driven insights and comprehensive platform management.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <button
+              onClick={() => onNavigate('user-management')}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-full font-bold hover:scale-105 transition-transform shadow-xl hover:shadow-2xl"
+            >
+              <Users className="w-5 h-5" />
+              Manage Users
+              <ArrowRight className="w-5 h-5" />
+            </button>
+
+            <button
+              onClick={() => onNavigate('admin-verifications')}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full font-bold hover:bg-white/20 transition-all"
+            >
+              <ShieldCheck className="w-5 h-5" />
+              Verifications
+            </button>
+
+            <button
+              onClick={() => onNavigate('sync-dashboard')}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full font-bold hover:bg-white/20 transition-all"
+            >
+              <BarChart3 className="w-5 h-5" />
+              Analytics
+            </button>
+          </div>
+
+          <div className="pt-6 border-t border-white/20">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+              <div>
+                <div className="text-3xl font-black text-cyan-300 mb-1">1,247</div>
+                <div className="text-sm text-blue-200">Active Users</div>
+              </div>
+              <div>
+                <div className="text-3xl font-black text-green-300 mb-1">96%</div>
+                <div className="text-sm text-blue-200">Placement Rate</div>
+              </div>
+              <div>
+                <div className="text-3xl font-black text-purple-300 mb-1">45</div>
+                <div className="text-sm text-blue-200">Pending Reviews</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
         {/* Quick Actions */}
@@ -376,7 +446,7 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
         </div>
 
         {/* System Monitoring */}
-        <div>
+        <div className="mb-8">
           <h2 className="text-xl font-semibold text-slate-800 mb-4">
             System & Reports
           </h2>
@@ -400,6 +470,194 @@ export function AdminDashboard({ onNavigate }: AdminDashboardProps) {
                 </CardHeader>
               </Card>
             ))}
+          </div>
+        </div>
+
+        {/* Partnership Guide - Moved from Landing Page */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-slate-800 mb-1 flex items-center gap-2">
+                <BookOpenCheck className="w-7 h-7 text-cyan-600" />
+                Partnership Guide & Resources
+              </h2>
+              <p className="text-slate-600 text-sm">Manage and understand all partner types across the ZALPHA platform</p>
+            </div>
+          </div>
+
+          {/* Partnership Overview Banner */}
+          <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 mb-6 border-2 border-cyan-200">
+            <div className="flex items-start gap-4">
+              <div className="bg-cyan-500 rounded-xl p-3">
+                <Users className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">Built for Every Stage of the Journey</h3>
+                <p className="text-slate-700 mb-4">
+                  ZALPHA connects three essential partner types: <strong>Students</strong> seeking opportunities, 
+                  <strong> Schools</strong> managing placements, and <strong>Employers</strong> hiring Pacific talent.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                  <div className="bg-white rounded-lg p-3">
+                    <div className="text-2xl font-black text-blue-600 mb-1">2,000+</div>
+                    <div className="text-xs text-slate-600">Verified Students</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-3">
+                    <div className="text-2xl font-black text-green-600 mb-1">45</div>
+                    <div className="text-xs text-slate-600">Partner Schools</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-3">
+                    <div className="text-2xl font-black text-purple-600 mb-1">100+</div>
+                    <div className="text-xs text-slate-600">Active Employers</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3-Column Partnership Cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Students Partnership Card */}
+            <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-50 hover:shadow-lg transition-all">
+              <CardHeader>
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4">
+                  <GraduationCap className="w-7 h-7 text-white" />
+                </div>
+                <CardTitle className="text-slate-900 text-xl mb-2">Students</CardTitle>
+                <CardDescription className="text-slate-700 text-sm leading-relaxed">
+                  High school students, college students, and recent graduates finding internships 
+                  and early-career opportunities across the Pacific.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm">Free job search tools</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm">AI career coach & skill assessments</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm">Virtual job fairs & networking</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => onNavigate('student-signup')}
+                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:opacity-90 text-white font-semibold"
+                >
+                  Manage Student Partnerships
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Schools Partnership Card */}
+            <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 hover:shadow-lg transition-all">
+              <CardHeader>
+                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4">
+                  <Building className="w-7 h-7 text-white" />
+                </div>
+                <CardTitle className="text-slate-900 text-xl mb-2">Schools</CardTitle>
+                <CardDescription className="text-slate-700 text-sm leading-relaxed">
+                  Career services and educational institutions empowering students with 
+                  <strong> affordable subscription model</strong>—free for all their students.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm"><strong>Free for students</strong>—school pays flat annual fee</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm"><strong>Predictable budgeting</strong> with no per-student charges</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm"><strong>ROI:</strong> Higher placement rates + career services</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => onNavigate('pitch-deck-schools')}
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:opacity-90 text-white font-semibold"
+                >
+                  View School Partnerships
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Employers Partnership Card */}
+            <Card className="border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50 hover:shadow-lg transition-all">
+              <CardHeader>
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
+                  <Briefcase className="w-7 h-7 text-white" />
+                </div>
+                <CardTitle className="text-slate-900 text-xl mb-2">Employers & Contractors</CardTitle>
+                <CardDescription className="text-slate-700 text-sm leading-relaxed">
+                  Local businesses, global contractors, and agencies hiring Pacific talent for internships, 
+                  full-time roles, and fixed-term contracts.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm">Access verified Pacific talent pool</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm">AI interviewer & ATS integration</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-slate-700 text-sm">EPA/DOL compliance support</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => onNavigate('employer-signup')}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold"
+                >
+                  Manage Employer Partnerships
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Additional Resources */}
+          <div className="mt-6 bg-slate-100 rounded-xl p-6 border border-slate-200">
+            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <FileText className="w-5 h-5 text-slate-700" />
+              Partnership Resources
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <button
+                onClick={() => onNavigate('pitch-deck-schools')}
+                className="flex items-center gap-3 bg-white rounded-lg p-4 hover:shadow-md transition-all text-left border border-slate-200"
+              >
+                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                  <BookOpen className="w-5 h-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-900 text-sm">School Pitch Deck</div>
+                  <div className="text-xs text-slate-600">Onboarding materials for educational institutions</div>
+                </div>
+              </button>
+              <button
+                onClick={() => onNavigate('pitch-deck-recruit')}
+                className="flex items-center gap-3 bg-white rounded-lg p-4 hover:shadow-md transition-all text-left border border-slate-200"
+              >
+                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-900 text-sm">Employer Pitch Deck</div>
+                  <div className="text-xs text-slate-600">Recruitment platform overview for businesses</div>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>

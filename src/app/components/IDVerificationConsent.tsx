@@ -11,6 +11,7 @@ export function IDVerificationConsent({ onComplete, interviewerName }: IDVerific
   const [consentAgreed, setConsentAgreed] = useState(false);
   const [recordingAgreed, setRecordingAgreed] = useState(false);
   const [employerViewAgreed, setEmployerViewAgreed] = useState(false);
+  const [behaviorAgreed, setBehaviorAgreed] = useState(false);
   const [idVerificationTime, setIdVerificationTime] = useState(300); // 5 minutes in seconds
   const [idCaptured, setIdCaptured] = useState(false);
   const [isCapturingID, setIsCapturingID] = useState(false);
@@ -38,7 +39,7 @@ export function IDVerificationConsent({ onComplete, interviewerName }: IDVerific
   }, [step, idVerificationTime, idCaptured]);
 
   const handleConsentSubmit = () => {
-    if (consentAgreed && recordingAgreed && employerViewAgreed) {
+    if (consentAgreed && recordingAgreed && employerViewAgreed && behaviorAgreed) {
       setStep('id-verification');
     }
   };
@@ -93,7 +94,7 @@ export function IDVerificationConsent({ onComplete, interviewerName }: IDVerific
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const allConsentsChecked = consentAgreed && recordingAgreed && employerViewAgreed;
+  const allConsentsChecked = consentAgreed && recordingAgreed && employerViewAgreed && behaviorAgreed;
 
   if (step === 'consent') {
     return (
@@ -186,6 +187,25 @@ export function IDVerificationConsent({ onComplete, interviewerName }: IDVerific
                       </div>
                       <p className="text-sm text-slate-700">
                         I am 18 years or older and I agree to ZALPHA's Terms of Service and Privacy Policy. I understand that my recorded responses will be stored securely on ZALPHA's platform and may be used to improve AI interviewing technology.
+                      </p>
+                    </div>
+                  </label>
+
+                  {/* Behavior Consent */}
+                  <label className="flex items-start gap-4 p-4 bg-red-50 rounded-xl border-2 border-red-200 cursor-pointer hover:bg-red-100 transition-all">
+                    <input
+                      type="checkbox"
+                      checked={behaviorAgreed}
+                      onChange={(e) => setBehaviorAgreed(e.target.checked)}
+                      className="w-6 h-6 mt-1 accent-red-600 cursor-pointer"
+                    />
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <AlertTriangle className="w-5 h-5 text-red-600" />
+                        <h3 className="font-bold text-slate-900">Behavioral Guidelines</h3>
+                      </div>
+                      <p className="text-sm text-slate-700">
+                        I agree to follow ZALPHA's behavioral guidelines during the interview to ensure a fair and respectful environment for all participants.
                       </p>
                     </div>
                   </label>

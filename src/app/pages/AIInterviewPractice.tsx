@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react';
 import { BackButton } from '@/app/components/BackButton';
 import { IDVerificationConsent } from '@/app/components/IDVerificationConsent';
 import { Avatar3D } from '@/app/components/Avatar3D';
-import { ElevenLabsInterviewVideo } from '@/app/components/ElevenLabsInterviewVideo';
 import { Mic, MicOff, Video, RotateCcw, ChevronRight, Brain, Award, TrendingUp, CheckCircle, Target, Sparkles, Volume2 } from 'lucide-react';
 
 interface AIInterviewPracticeProps {
@@ -126,7 +125,6 @@ export function AIInterviewPractice({ onNavigate }: AIInterviewPracticeProps) {
   const [showFeedback, setShowFeedback] = useState(false);
   const [interviewStarted, setInterviewStarted] = useState(false);
   const [showIDVerification, setShowIDVerification] = useState(false);
-  const [showElevenLabsVideo, setShowElevenLabsVideo] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [introStage, setIntroStage] = useState<'initial' | 'ready-check' | 'ada-option' | 'special-requests' | 'tech-check' | 'complete'>('initial');
   const [showNoResponsePrompt, setShowNoResponsePrompt] = useState(false);
@@ -424,15 +422,6 @@ export function AIInterviewPractice({ onNavigate }: AIInterviewPracticeProps) {
 
   return (
     <>
-      {/* Show ElevenLabs Video First */}
-      {showElevenLabsVideo && (
-        <ElevenLabsInterviewVideo
-          onClose={() => setShowElevenLabsVideo(false)}
-          onComplete={() => setShowElevenLabsVideo(false)}
-          autoPlay={true}
-        />
-      )}
-
       {/* Show ID Verification before interview */}
       {showIDVerification && (
         <IDVerificationConsent 

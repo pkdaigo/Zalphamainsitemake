@@ -36,6 +36,7 @@ import { HeyGenConfiguration } from '@/app/pages/HeyGenConfiguration';
 import { HeyGenAgentDemo } from '@/app/pages/HeyGenAgentDemo';
 import { StudentPlatformFeatures } from '@/app/pages/StudentPlatformFeatures';
 import { EmployerPlatformFeatures } from '@/app/pages/EmployerPlatformFeatures';
+import { PricingPage } from '@/app/pages/PricingPage';
 import { ComingSoon } from '@/app/pages/ComingSoon';
 import { ExperiencedProfessionalsComingSoon } from '@/app/pages/ExperiencedProfessionalsComingSoon';
 import { FAQ } from '@/app/pages/FAQ';
@@ -57,6 +58,10 @@ import { IntegrationSettings } from '@/app/pages/IntegrationSettings';
 import { SyncDashboard } from '@/app/pages/SyncDashboard';
 import { AppOverview } from '@/app/pages/AppOverview';
 import { GlobalContractsMarketplace } from '@/app/pages/GlobalContractsMarketplace';
+import { CoOpRoleSelection } from '@/app/pages/CoOpRoleSelection';
+import { HighSchoolCoOpDashboard } from '@/app/pages/HighSchoolCoOpDashboard';
+import { CoOpAdminDashboard } from '@/app/pages/CoOpAdminDashboard';
+import { CoOpEmployerDashboard } from '@/app/pages/CoOpEmployerDashboard';
 import { PitchDeckEmployers } from '@/app/pages/PitchDeckEmployers';
 import { DIDAgentDemo } from '@/app/pages/DIDAgentDemo';
 import { EmployerAIAgents } from '@/app/pages/EmployerAIAgents';
@@ -108,7 +113,6 @@ import { EducationalInstitutionDashboard } from '@/app/pages/EducationalInstitut
 import { EmployerPlanDemos } from '@/app/pages/EmployerPlanDemos';
 import { StudentAddonDemo } from '@/app/pages/StudentAddonDemo';
 import { AIInterviewPractice } from '@/app/pages/AIInterviewPractice';
-import { InterviewTutorialVideo } from '@/app/pages/InterviewTutorialVideo';
 import { SchoolDashboardDemo } from '@/app/pages/SchoolDashboardDemo';
 import { SchoolPartnershipGuide } from '@/app/pages/SchoolPartnershipGuide';
 import { BetaTesterApplication } from '@/app/pages/BetaTesterApplication';
@@ -129,7 +133,6 @@ import { DataCheck } from '@/app/pages/DataCheck';
 import { CoOpLogin } from '@/app/pages/CoOpLogin';
 import { CoOpStudentDashboard } from '@/app/pages/CoOpStudentDashboard';
 import { CoOpCoordinatorDashboard } from '@/app/pages/CoOpCoordinatorDashboard';
-import { CoOpEmployerDashboard } from '@/app/pages/CoOpEmployerDashboard';
 import { CoOpFundraisingHub } from '@/app/pages/CoOpFundraisingHub';
 import { CoOpStudentTimeLog } from '@/app/pages/CoOpStudentTimeLog';
 import { CoOpCoordinatorCohortSetup } from '@/app/pages/CoOpCoordinatorCohortSetup';
@@ -239,6 +242,7 @@ export default function App() {
       {currentPage === 'heygen-agent-demo' && <HeyGenAgentDemo onNavigate={handleNavigate} />}
       {currentPage === 'student-features' && <StudentPlatformFeatures onNavigate={handleNavigate} />}
       {currentPage === 'employer-features' && <EmployerPlatformFeatures onNavigate={handleNavigate} />}
+      {currentPage === 'pricing' && <PricingPage onNavigate={handleNavigate} />}
       {currentPage === 'coming-soon' && <ComingSoon onNavigate={setCurrentPage} />}
       {currentPage === 'experienced-professionals-coming-soon' && <ExperiencedProfessionalsComingSoon onNavigate={setCurrentPage} />}
       {currentPage === 'faq' && <FAQ onNavigate={setCurrentPage} />}
@@ -266,6 +270,10 @@ export default function App() {
       {currentPage === 'tutorial-admin' && <TutorialAdmin onNavigate={handleNavigate} />}
       {currentPage === 'app-overview' && <AppOverview onNavigate={handleNavigate} />}
       {currentPage === 'global-contracts-marketplace' && <GlobalContractsMarketplace onNavigate={handleNavigate} />}
+      {currentPage === 'coop-role-selection' && <CoOpRoleSelection onNavigate={handleNavigate} />}
+      {currentPage === 'coop-student-dashboard' && <HighSchoolCoOpDashboard onNavigate={handleNavigate} />}
+      {currentPage === 'coop-admin-dashboard' && <CoOpAdminDashboard onNavigate={handleNavigate} />}
+      {currentPage === 'coop-employer-dashboard' && <CoOpEmployerDashboard onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-employers' && <PitchDeckEmployers onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-students' && <PitchDeckStudents onNavigate={handleNavigate} />}
       {currentPage === 'pitch-deck-schools' && <PitchDeckSchools onNavigate={handleNavigate} />}
@@ -318,7 +326,6 @@ export default function App() {
       {currentPage === 'employer-plan-demos' && <EmployerPlanDemos onNavigate={handleNavigate} />}
       {currentPage === 'student-addon-demo' && <StudentAddonDemo onNavigate={handleNavigate} />}
       {currentPage === 'ai-interview-practice' && <AIInterviewPractice onNavigate={handleNavigate} />}
-      {currentPage === 'interview-tutorial-video' && <InterviewTutorialVideo onNavigate={handleNavigate} />}
       {currentPage === 'school-dashboard-demo' && <SchoolDashboardDemo onNavigate={handleNavigate} />}
       {currentPage === 'school-partnership-guide' && <SchoolPartnershipGuide onNavigate={handleNavigate} />}
       {currentPage === 'beta-tester-application' && <BetaTesterApplication onNavigate={handleNavigate} />}
@@ -338,7 +345,6 @@ export default function App() {
       {currentPage === 'co-op-login' && <CoOpLogin onNavigate={handleNavigate} />}
       {currentPage === 'co-op-student-dashboard' && <CoOpStudentDashboard onNavigate={handleNavigate} />}
       {currentPage === 'co-op-coordinator-dashboard' && <CoOpCoordinatorDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-employer-dashboard' && <CoOpEmployerDashboard onNavigate={handleNavigate} />}
       {currentPage === 'co-op-fundraising-hub' && <CoOpFundraisingHub onNavigate={handleNavigate} />}
       {currentPage === 'co-op-student-time-log' && <CoOpStudentTimeLog onNavigate={handleNavigate} />}
       {currentPage === 'co-op-coordinator-cohort-setup' && <CoOpCoordinatorCohortSetup onNavigate={handleNavigate} />}

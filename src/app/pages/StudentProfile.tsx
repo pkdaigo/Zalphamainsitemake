@@ -9,6 +9,7 @@ import { StudentPremiumModal } from '@/app/components/StudentPremiumModal';
 import { DocumentUpload } from '@/app/components/DocumentUpload';
 import { AIResumeBuilder } from '@/app/components/AIResumeBuilder';
 import { VerifiedReferences } from '@/app/components/VerifiedReferences';
+import { CurrentRole, RoleData } from '@/app/components/CurrentRole';
 
 interface StudentProfileProps {
   onNavigate: (page: string) => void;
@@ -454,6 +455,15 @@ export function StudentProfile({ onNavigate }: StudentProfileProps) {
             </div>
           )}
         </div>
+
+        {/* Current Role - Outcomes Tracking */}
+        <CurrentRole 
+          isEditing={isEditing}
+          onRoleUpdate={(roleData) => {
+            console.log('Role updated:', roleData);
+            // In production, save to database
+          }}
+        />
 
         {/* Video Introduction - Premium Feature */}
         <div className="bg-white rounded-2xl shadow-lg p-8 mb-6 relative overflow-hidden">

@@ -635,6 +635,56 @@ export function Landing({ onNavigate }: LandingProps) {
             </motion.div>
           </div>
 
+          {/* Pricing Teaser */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 sm:mt-16"
+          >
+            <div className="bg-gradient-to-br from-blue-900 via-purple-900 to-pink-900 rounded-3xl p-8 sm:p-12 text-white text-center shadow-2xl">
+              <h2 className="text-3xl sm:text-4xl font-black mb-6">
+                💳 Simple Credit-Based Pricing
+              </h2>
+              <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+                No confusing subscription tiers. Just buy credits and use them however you want!
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+                {/* Student Pricing */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-cyan-400 font-bold mb-2">Students</div>
+                  <div className="text-4xl font-black mb-4">$3.99 - $14.99<span className="text-xl">/mo</span></div>
+                  <div className="text-white/80 text-sm">
+                    Get 10-60 credits per month or pay as you go
+                  </div>
+                </div>
+                
+                {/* Employer Pricing */}
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-purple-400 font-bold mb-2">Employers</div>
+                  <div className="text-4xl font-black mb-4">$29.99 - $149.99<span className="text-xl">/mo</span></div>
+                  <div className="text-white/80 text-sm">
+                    Get 50-350 credits per month or pay as you go
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                <button
+                  onClick={() => onNavigate('pricing')}
+                  className="px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all text-lg"
+                >
+                  View Full Pricing
+                </button>
+                <div className="text-white/70 text-sm">
+                  ✅ Credits never expire • ✅ Cancel anytime
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Bottom CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

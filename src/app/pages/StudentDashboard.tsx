@@ -3,6 +3,7 @@ import { ZalphaBot } from '@/app/components/ZalphaBot';
 import { BackButton } from '@/app/components/BackButton';
 import { CollapsibleSection } from '@/app/components/CollapsibleSection';
 import { PlaidVerification } from '@/app/components/PlaidVerification';
+import { UpdateRoleBanner } from '@/app/components/UpdateRoleBanner';
 import { FileText, Clock, Calendar, Briefcase, Video, MapPin, Star, BookOpen, CheckCircle, Target, Award, Users } from 'lucide-react';
 import { useState } from 'react';
 
@@ -61,6 +62,8 @@ const myApplications = [
 
 export function StudentDashboard({ onNavigate }: StudentDashboardProps) {
   const [showZeeBot, setShowZeeBot] = useState(false);
+  const [hasCurrentRole, setHasCurrentRole] = useState(false); // Track if user has updated their role
+  const [isActiveUser, setIsActiveUser] = useState(true); // In production, check if active in last 90 days
 
   return (
     <div className="min-h-screen pt-16 sm:pt-20 bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-4 sm:py-6 lg:py-8">
@@ -75,6 +78,11 @@ export function StudentDashboard({ onNavigate }: StudentDashboardProps) {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Welcome back, Dolly!</h1>
           <p className="text-sm sm:text-base text-gray-600">Here's what's happening with your job search</p>
         </div>
+
+        {/* Update Role Banner - Show if active but no current role */}
+        {isActiveUser && !hasCurrentRole && (
+          <UpdateRoleBanner onUpdateClick={() => onNavigate('student-profile')} />
+        )}
 
         {/* Premium Add-on Demo Banner */}
         <button
@@ -100,26 +108,14 @@ export function StudentDashboard({ onNavigate }: StudentDashboardProps) {
           onClick={() => onNavigate('ai-interview-practice')}
           className="bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500 text-white rounded-2xl p-6 hover:shadow-2xl hover:scale-105 transition-all text-left group w-full"
         >
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                <Video className="w-7 h-7" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">🎤 Practice AI Interviews</h3>
-                <p className="text-sm text-white/80">Get interviewed by PK or Airen • Instant AI Feedback</p>
-              </div>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+              <Video className="w-7 h-7" />
             </div>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onNavigate('interview-tutorial-video');
-              }}
-              className="px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-lg text-sm font-semibold transition-all flex items-center gap-2 whitespace-nowrap"
-            >
-              <Video className="w-4 h-4" />
-              Watch Tutorial
-            </button>
+            <div>
+              <h3 className="text-xl font-bold">🎤 Practice AI Interviews</h3>
+              <p className="text-sm text-white/80">Get interviewed by PK or Airen • Instant AI Feedback</p>
+            </div>
           </div>
           <p className="text-white/90 text-sm">
             Practice your interview skills with our AI interviewers! Answer real questions, get scored on clarity, content, confidence, and timing. Build confidence before the real thing!

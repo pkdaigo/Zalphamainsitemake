@@ -8,7 +8,8 @@ import {
   MessageSquare,
   Calendar,
   Star,
-  Award
+  Award,
+  UserPlus
 } from 'lucide-react';
 import { 
   RegionalTalentFeed, 
@@ -16,13 +17,14 @@ import {
   CoOpPipelineView,
   CareerServicesBoard 
 } from '@/app/components/college';
+import { CollegeEnrollmentDashboard } from '@/app/components/coop';
 
 interface CollegeDashboardNmcProps {
   onNavigate: (page: string) => void;
 }
 
 export function CollegeDashboardNmc({ onNavigate }: CollegeDashboardNmcProps) {
-  const [activeTab, setActiveTab] = useState<'feed' | 'programs' | 'pipeline' | 'board'>('feed');
+  const [activeTab, setActiveTab] = useState<'feed' | 'programs' | 'pipeline' | 'board' | 'enrollment'>('feed');
 
   // College Info
   const collegeInfo = {
@@ -352,6 +354,16 @@ export function CollegeDashboardNmc({ onNavigate }: CollegeDashboardNmcProps) {
           >
             Career Services Network
           </button>
+          <button
+            onClick={() => setActiveTab('enrollment')}
+            className={`px-6 py-3 rounded-xl font-bold transition-all ${
+              activeTab === 'enrollment'
+                ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            Enrollment Dashboard
+          </button>
         </div>
 
         {/* Content Areas */}
@@ -411,6 +423,10 @@ export function CollegeDashboardNmc({ onNavigate }: CollegeDashboardNmcProps) {
             onBookmark={(id) => console.log('Bookmark post:', id)}
             onComment={(id) => console.log('Comment on post:', id)}
           />
+        )}
+
+        {activeTab === 'enrollment' && (
+          <CollegeEnrollmentDashboard />
         )}
       </div>
     </div>

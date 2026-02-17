@@ -1,569 +1,628 @@
 import { useState } from 'react';
+import { motion } from 'motion/react';
 import { BackButton } from '@/app/components/BackButton';
-import { 
-  Briefcase, 
-  Clock, 
-  Calendar, 
-  MapPin, 
-  User, 
-  FileText, 
-  MessageSquare, 
-  Upload,
+import {
+  Briefcase,
+  Clock,
+  Calendar,
+  MapPin,
+  User,
+  FileText,
+  MessageSquare,
   CheckCircle,
   AlertCircle,
   TrendingUp,
   Star,
   Building2,
+  Target,
+  Award,
+  BookOpen,
+  Heart,
+  Zap,
+  ChevronRight,
+  Bell,
+  Search,
+  Filter,
+  MapPinned,
   Phone,
-  Mail
+  Mail,
+  ExternalLink,
+  Trophy,
 } from 'lucide-react';
-import { 
-  TodayPlacementCard, 
-  TodayDeliverablesCard, 
-  StudentMentalCheckInCard,
-  CoOpMessagesButton 
-} from '@/app/components/coop';
+import { CoOpVotingPanel, RegionalNominationsPanel, EarlyCollegeCreditPanel, MicroGigsPanel, CertificationModulesPanel } from '@/app/components/coop';
 
 interface HighSchoolCoOpDashboardProps {
   onNavigate: (page: string) => void;
 }
 
 export function HighSchoolCoOpDashboard({ onNavigate }: HighSchoolCoOpDashboardProps) {
-  const [activeTab, setActiveTab] = useState<'jobs' | 'applications' | 'placement'>('jobs');
-  const [showMessages, setShowMessages] = useState(false);
+  const [activeTab, setActiveTab] = useState<'today' | 'progress' | 'opportunities' | 'college' | 'microgigs' | 'certifications' | 'awards'>('today');
 
-  // Mock data
+  // Mock student data
   const studentInfo = {
     name: 'Maria Santos',
     school: 'Saipan Southern High School',
     grade: '11th Grade',
+    studentId: 'Z-UID-1234567',
     hoursRequired: 120,
     hoursCompleted: 45,
+    weeklyGoal: 12,
+    currentStreak: 4,
   };
 
   const currentPlacement = {
-    employer: 'Pacific Development Inc.',
-    position: 'Junior Administrative Assistant',
+    employer: 'Kalaayan Inc.',
+    position: 'Food Service Assistant',
     supervisor: 'John Anderson',
-    supervisorEmail: 'j.anderson@pacdev.com',
+    supervisorEmail: 'j.anderson@kalaayan.com',
     supervisorPhone: '+1 (670) 234-5678',
-    startDate: '2026-01-15',
-    expectedEndDate: '2026-05-30',
-    hoursPerWeek: 12,
-    totalHoursLogged: 45,
-  };
-
-  // Today's placement data
-  const todayPlacement = {
-    studentName: studentInfo.name,
-    businessName: 'Kalaayan Inc',
-    employerName: 'Pacific Development Inc.',
-    departmentName: 'Food Service',
-    shiftDate: 'February 17, 2026',
-    shiftTimeRange: '8:00 AM – 12:00 PM',
     location: 'Saipan Business Center, 2nd Floor',
-    supervisorName: currentPlacement.supervisor,
+    shiftToday: '8:00 AM – 12:00 PM',
+    department: 'Food Service',
   };
 
-  // Deliverables data
-  const [deliverables, setDeliverables] = useState([
-    {
-      id: '1',
-      title: 'Set up dining area',
-      description: 'Arrange tables, chairs, and place settings for lunch service',
-      status: 'COMPLETED' as const,
-    },
-    {
-      id: '2',
-      title: 'Stock supplies and inventory',
-      description: 'Check and refill condiments, napkins, and utensils',
-      status: 'IN_PROGRESS' as const,
-    },
-    {
-      id: '3',
-      title: 'Clean and sanitize stations',
-      description: 'Wipe down all surfaces and ensure food safety standards',
-      status: 'NOT_STARTED' as const,
-    },
-    {
-      id: '4',
-      title: 'Customer service duties',
-      description: 'Greet customers, take orders, and handle inquiries',
-      status: 'NOT_STARTED' as const,
-    },
-  ]);
+  // Today's tasks
+  const todayTasks = [
+    { id: 1, title: 'Set up dining area', status: 'completed', time: '8:00 AM' },
+    { id: 2, title: 'Stock supplies and inventory', status: 'completed', time: '9:00 AM' },
+    { id: 3, title: 'Assist with lunch service', status: 'in-progress', time: '11:00 AM' },
+    { id: 4, title: 'Clean and organize workstation', status: 'pending', time: '11:45 AM' },
+  ];
 
-  // Mental check-in data
-  const [mentalCheckIn, setMentalCheckIn] = useState({
-    isSubmitted: false,
-    currentValue: undefined as number | undefined,
-    note: undefined as string | undefined,
-  });
-
-  const handleToggleDeliverable = (id: string, newStatus: 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED') => {
-    setDeliverables(prev =>
-      prev.map(d => (d.id === id ? { ...d, status: newStatus } : d))
-    );
-  };
-
-  const handleMentalCheckInSubmit = (mood: number, note?: string) => {
-    setMentalCheckIn({
-      isSubmitted: true,
-      currentValue: mood,
-      note,
-    });
-    // In real app, would send to backend
-    console.log('Mental check-in submitted:', { mood, note });
-  };
-
-  const coopJobs = [
+  // Recent messages
+  const recentMessages = [
     {
       id: 1,
-      title: 'Retail Sales Associate',
-      company: 'Island Boutique',
-      location: 'Saipan, CNMI',
-      hoursPerWeek: '10-15',
-      duration: '4 months',
-      deadline: 'Feb 25, 2026',
-      applicants: 8,
-      description: 'Help customers, manage inventory, and learn retail operations',
+      from: 'John Anderson',
+      role: 'Supervisor',
+      message: 'Great work today! Keep up the excellent attendance.',
+      time: '2 hours ago',
+      unread: true,
     },
     {
       id: 2,
-      title: 'Office Assistant',
-      company: 'CNMI Government - Education Dept',
-      location: 'Saipan, CNMI',
-      hoursPerWeek: '12-15',
-      duration: '5 months',
-      deadline: 'Mar 1, 2026',
-      applicants: 12,
-      description: 'Filing, data entry, reception, and general office support',
-    },
-    {
-      id: 3,
-      title: 'Social Media Intern',
-      company: 'Marianas Visitors Authority',
-      location: 'Saipan, CNMI',
-      hoursPerWeek: '8-12',
-      duration: '3 months',
-      deadline: 'Feb 28, 2026',
-      applicants: 15,
-      description: 'Create content, manage posts, and track engagement metrics',
+      from: 'Ms. Rodriguez',
+      role: 'Co-Op Coordinator',
+      message: 'Your weekly report has been approved.',
+      time: '1 day ago',
+      unread: false,
     },
   ];
 
-  const myApplications = [
+  // Available opportunities
+  const opportunities = [
     {
       id: 1,
-      title: 'Junior Administrative Assistant',
-      company: 'Pacific Development Inc.',
-      appliedDate: 'Jan 10, 2026',
-      status: 'Placed',
-      statusColor: 'bg-green-100 text-green-800',
+      title: 'Front Desk Trainee',
+      company: 'Saipan Grand Hotel',
+      location: 'Garapan',
+      hours: '15-20 hrs/week',
+      type: 'Hospitality',
+      urgency: 'high',
     },
     {
       id: 2,
-      title: 'Customer Service Trainee',
-      company: 'Saipan Grand Hotel',
-      appliedDate: 'Jan 5, 2026',
-      status: 'Interview Scheduled',
-      statusColor: 'bg-blue-100 text-blue-800',
-      interviewDate: 'Feb 20, 2026 at 2:00 PM',
-    },
-    {
-      id: 3,
       title: 'IT Support Assistant',
       company: 'Northern Marianas College',
-      appliedDate: 'Dec 28, 2025',
-      status: 'Applied',
-      statusColor: 'bg-yellow-100 text-yellow-800',
+      location: 'As Terlaje Campus',
+      hours: '10-15 hrs/week',
+      type: 'Technology',
+      urgency: 'medium',
+    },
+    {
+      id: 3,
+      title: 'Marketing Intern',
+      company: 'Marianas Visitors Authority',
+      location: 'Garapan',
+      hours: '12-16 hrs/week',
+      type: 'Marketing',
+      urgency: 'low',
     },
   ];
 
-  const upcomingInterviews = [
-    {
-      id: 1,
-      company: 'Saipan Grand Hotel',
-      position: 'Customer Service Trainee',
-      date: 'Feb 20, 2026',
-      time: '2:00 PM',
-      location: 'Hotel Main Office',
-      interviewer: 'Sarah Chen - HR Manager',
-    },
-  ];
+  // Performance stats
+  const stats = {
+    attendance: 98,
+    tasksCompleted: 45,
+    skillsLearned: 12,
+    supervisorRating: 4.8,
+  };
 
   return (
-    <div className="min-h-screen pt-16 sm:pt-20 bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
-        {/* Back Button */}
-        <BackButton onNavigate={onNavigate} label="Back to Co-Op Login" variant="dark" />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-slate-50">
+      <BackButton onClick={() => onNavigate('co-op-login')} />
 
-        {/* Welcome Header */}
-        <div className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 rounded-3xl p-8 text-white shadow-xl">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h1 className="text-3xl font-black mb-2">Welcome back, {studentInfo.name}! 🎓</h1>
-              <p className="text-blue-100">
-                {studentInfo.school} • {studentInfo.grade}
-              </p>
-            </div>
-            <div className="text-right">
-              <div className="text-4xl font-bold">{studentInfo.hoursCompleted}</div>
-              <div className="text-sm text-blue-100">of {studentInfo.hoursRequired} hours</div>
-            </div>
-          </div>
-          
-          {/* Progress Bar */}
-          <div className="bg-white/20 rounded-full h-3 overflow-hidden backdrop-blur-sm">
-            <div 
-              className="bg-white h-full rounded-full transition-all"
-              style={{ width: `${(studentInfo.hoursCompleted / studentInfo.hoursRequired) * 100}%` }}
-            />
-          </div>
-          <p className="text-sm text-blue-100 mt-2">
-            {Math.round((studentInfo.hoursCompleted / studentInfo.hoursRequired) * 100)}% complete • 
-            Keep up the great work!
-          </p>
-        </div>
-
-        {/* Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-blue-100">
-            <div className="flex items-center justify-between mb-2">
-              <FileText className="w-8 h-8 text-blue-600" />
-            </div>
-            <div className="text-3xl font-bold text-gray-900 mb-1">3</div>
-            <div className="text-sm text-gray-600">Applications</div>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-purple-100">
-            <div className="flex items-center justify-between mb-2">
-              <Calendar className="w-8 h-8 text-purple-600" />
-            </div>
-            <div className="text-3xl font-bold text-gray-900 mb-1">1</div>
-            <div className="text-sm text-gray-600">Interview Scheduled</div>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-green-100">
-            <div className="flex items-center justify-between mb-2">
-              <CheckCircle className="w-8 h-8 text-green-600" />
-            </div>
-            <div className="text-3xl font-bold text-gray-900 mb-1">1</div>
-            <div className="text-sm text-gray-600">Active Placement</div>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-orange-100">
-            <div className="flex items-center justify-between mb-2">
-              <TrendingUp className="w-8 h-8 text-orange-600" />
-            </div>
-            <div className="text-3xl font-bold text-gray-900 mb-1">8</div>
-            <div className="text-sm text-gray-600">New Co-op Jobs</div>
-          </div>
-        </div>
-
-        {/* Upcoming Interviews Alert */}
-        {upcomingInterviews.length > 0 && (
-          <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl p-6 text-white shadow-xl">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0">
-                <Calendar className="w-6 h-6" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold mb-2">📅 Upcoming Interview</h3>
-                <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
-                  <p className="font-bold mb-1">{upcomingInterviews[0].position}</p>
-                  <p className="text-sm text-purple-100 mb-2">{upcomingInterviews[0].company}</p>
-                  <div className="flex flex-wrap gap-4 text-sm">
-                    <span>📅 {upcomingInterviews[0].date}</span>
-                    <span>⏰ {upcomingInterviews[0].time}</span>
-                    <span>📍 {upcomingInterviews[0].location}</span>
-                  </div>
-                  <p className="text-sm text-purple-100 mt-2">
-                    Interviewer: {upcomingInterviews[0].interviewer}
-                  </p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center border-2 border-white/30">
+                  <User className="w-9 h-9 text-white" />
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Current Placement */}
-        <div className="bg-white rounded-2xl shadow-xl border-2 border-green-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                <Briefcase className="w-6 h-6" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold">Current Placement</h2>
-                <p className="text-green-100 text-sm">Active since January 2026</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="p-6 space-y-6">
-            {/* Placement Details */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-blue-600" />
-                  Position Details
-                </h3>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <p className="text-gray-600">Employer</p>
-                    <p className="font-semibold text-gray-900">{currentPlacement.employer}</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-600">Position</p>
-                    <p className="font-semibold text-gray-900">{currentPlacement.position}</p>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <p className="text-gray-600">Start Date</p>
-                      <p className="font-semibold text-gray-900">
-                        {new Date(currentPlacement.startDate).toLocaleDateString()}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-gray-600">End Date</p>
-                      <p className="font-semibold text-gray-900">
-                        {new Date(currentPlacement.expectedEndDate).toLocaleDateString()}
-                      </p>
-                    </div>
+                <div>
+                  <h1 className="text-3xl font-black mb-1">{studentInfo.name}</h1>
+                  <p className="text-blue-100 mb-2">{studentInfo.school} • {studentInfo.grade}</p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full font-semibold">
+                      {studentInfo.studentId}
+                    </span>
+                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full font-semibold flex items-center gap-1">
+                      <Zap className="w-4 h-4 text-yellow-300" />
+                      {studentInfo.currentStreak} week streak
+                    </span>
                   </div>
                 </div>
               </div>
-
-              <div>
-                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <User className="w-5 h-5 text-purple-600" />
-                  Supervisor Contact
-                </h3>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <p className="text-gray-600">Name</p>
-                    <p className="font-semibold text-gray-900">{currentPlacement.supervisor}</p>
-                  </div>
-                  <div>
-                    <p className="text-gray-600">Email</p>
-                    <div className="flex items-center gap-2">
-                      <Mail className="w-4 h-4 text-gray-400" />
-                      <p className="font-semibold text-blue-600">{currentPlacement.supervisorEmail}</p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-gray-600">Phone</p>
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-4 h-4 text-gray-400" />
-                      <p className="font-semibold text-gray-900">{currentPlacement.supervisorPhone}</p>
-                    </div>
-                  </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center">
+                  <div className="text-3xl font-black">{studentInfo.hoursCompleted}</div>
+                  <div className="text-blue-100 text-sm">Hours Completed</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-black">{studentInfo.hoursRequired - studentInfo.hoursCompleted}</div>
+                  <div className="text-blue-100 text-sm">Hours Remaining</div>
                 </div>
               </div>
             </div>
 
-            {/* Hours Progress */}
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6 border-2 border-blue-200">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-bold text-gray-900 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-blue-600" />
-                  Hours Logged This Week
-                </h3>
-                <span className="text-2xl font-bold text-blue-600">
-                  {currentPlacement.totalHoursLogged} hrs
+            {/* Progress Bar */}
+            <div className="mt-6">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-semibold">Overall Progress</span>
+                <span className="text-sm font-semibold">
+                  {Math.round((studentInfo.hoursCompleted / studentInfo.hoursRequired) * 100)}%
                 </span>
               </div>
-              <p className="text-sm text-gray-600 mb-4">
-                Expected: {currentPlacement.hoursPerWeek} hours/week
-              </p>
-              <button className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-bold hover:shadow-xl transition-all">
-                Log Today's Hours
-              </button>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              <button className="px-6 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition-all flex items-center justify-center gap-2">
-                <MessageSquare className="w-5 h-5" />
-                Message Supervisor
-              </button>
-              <button className="px-6 py-3 bg-gray-600 text-white rounded-xl font-bold hover:bg-gray-700 transition-all flex items-center justify-center gap-2">
-                <FileText className="w-5 h-5" />
-                Update Current Role
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* NEW CO-OP COMPONENTS SECTION */}
-        {/* Today's Placement Card */}
-        <TodayPlacementCard
-          {...todayPlacement}
-          onOpenMessages={() => setShowMessages(true)}
-        />
-
-        {/* Today's Deliverables Card */}
-        <TodayDeliverablesCard
-          date="February 17, 2026"
-          functionName="Food Service"
-          deliverables={deliverables}
-          onToggleStatus={handleToggleDeliverable}
-          onViewAll={() => console.log('View all deliverables')}
-        />
-
-        {/* Mental Check-in Card */}
-        <StudentMentalCheckInCard
-          date="February 17, 2026"
-          currentValue={mentalCheckIn.currentValue}
-          note={mentalCheckIn.note}
-          isSubmitted={mentalCheckIn.isSubmitted}
-          onSubmit={handleMentalCheckInSubmit}
-        />
-
-        {/* Tab Navigation */}
-        <div className="bg-white rounded-2xl shadow-lg p-2 inline-flex gap-2">
-          <button
-            onClick={() => setActiveTab('jobs')}
-            className={`px-6 py-3 rounded-xl font-bold transition-all ${
-              activeTab === 'jobs'
-                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                : 'text-gray-600 hover:bg-gray-100'
-            }`}
-          >
-            Available Jobs
-          </button>
-          <button
-            onClick={() => setActiveTab('applications')}
-            className={`px-6 py-3 rounded-xl font-bold transition-all ${
-              activeTab === 'applications'
-                ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                : 'text-gray-600 hover:bg-gray-100'
-            }`}
-          >
-            My Applications
-          </button>
-        </div>
-
-        {/* Available Co-op Jobs */}
-        {activeTab === 'jobs' && (
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">Available Co-op Opportunities</h2>
-              <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">
-                {coopJobs.length} Open Positions
-              </span>
-            </div>
-
-            {coopJobs.map((job) => (
-              <div
-                key={job.id}
-                className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-100 hover:border-blue-300 hover:shadow-xl transition-all"
-              >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{job.title}</h3>
-                    <p className="text-lg text-gray-700 font-medium mb-3">{job.company}</p>
-                    <p className="text-sm text-gray-600 mb-4">{job.description}</p>
-                    
-                    <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                      <div className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {job.location}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        {job.hoursPerWeek} hrs/week
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        {job.duration}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="text-right">
-                    <div className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-bold mb-2 inline-block">
-                      Apply by {job.deadline}
-                    </div>
-                    <p className="text-sm text-gray-500">{job.applicants} students applied</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3">
-                  <button className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-bold hover:shadow-xl transition-all">
-                    Apply Now
-                  </button>
-                  <button className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-bold hover:bg-gray-50 transition-all">
-                    Save
-                  </button>
-                </div>
+              <div className="w-full bg-white/20 rounded-full h-3">
+                <motion.div
+                  className="bg-white h-3 rounded-full shadow-lg"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${(studentInfo.hoursCompleted / studentInfo.hoursRequired) * 100}%` }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
               </div>
-            ))}
+            </div>
           </div>
-        )}
+        </motion.div>
 
-        {/* My Applications */}
-        {activeTab === 'applications' && (
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-900">My Applications</h2>
-
-            {myApplications.map((app) => (
-              <div
-                key={app.id}
-                className="bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-100"
+        {/* Tabs */}
+        <div className="mb-6 flex gap-2 overflow-x-auto border-b border-slate-200">
+          {[
+            { id: 'today', label: 'Today', icon: Calendar },
+            { id: 'progress', label: 'My Progress', icon: TrendingUp },
+            { id: 'opportunities', label: 'Opportunities', icon: Briefcase },
+            { id: 'college', label: 'College Credit', icon: BookOpen },
+            { id: 'microgigs', label: 'Microgigs', icon: Zap },
+            { id: 'certifications', label: 'Certifications', icon: FileText },
+            { id: 'awards', label: 'Awards', icon: Trophy },
+          ].map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`flex items-center gap-2 px-6 py-3 font-semibold transition whitespace-nowrap ${
+                  activeTab === tab.id
+                    ? 'text-blue-600 border-b-2 border-blue-600'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
               >
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-xl font-bold text-gray-900">{app.title}</h3>
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold ${app.statusColor}`}>
-                        {app.status}
+                <Icon className="w-4 h-4" />
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Content Area */}
+        <div className="grid lg:grid-cols-3 gap-6">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            {activeTab === 'today' && (
+              <>
+                {/* Today's Placement */}
+                <motion.div
+                  className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  <div className="p-6 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-blue-50">
+                    <div className="flex items-center gap-3">
+                      <Building2 className="w-6 h-6 text-blue-600" />
+                      <h2 className="text-xl font-bold text-slate-900">Today's Placement</h2>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-6">
+                      <div>
+                        <h3 className="text-2xl font-bold text-slate-900 mb-1">{currentPlacement.employer}</h3>
+                        <p className="text-slate-600">{currentPlacement.position}</p>
+                      </div>
+                      <span className="px-4 py-2 bg-green-100 text-green-700 rounded-lg font-semibold text-sm flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4" />
+                        Active
                       </span>
                     </div>
-                    <p className="text-gray-700 font-medium mb-2">{app.company}</p>
-                    <p className="text-sm text-gray-500">Applied: {app.appliedDate}</p>
-                    
-                    {app.interviewDate && (
-                      <div className="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                        <p className="text-sm text-blue-900 font-semibold">
-                          📅 Interview: {app.interviewDate}
+                    <div className="grid md:grid-cols-2 gap-4 mb-6">
+                      <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
+                        <Clock className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="text-sm font-semibold text-slate-900">Today's Shift</div>
+                          <div className="text-slate-600">{currentPlacement.shiftToday}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
+                        <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="text-sm font-semibold text-slate-900">Location</div>
+                          <div className="text-slate-600">{currentPlacement.location}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
+                        <User className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="text-sm font-semibold text-slate-900">Supervisor</div>
+                          <div className="text-slate-600">{currentPlacement.supervisor}</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
+                        <Briefcase className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="text-sm font-semibold text-slate-900">Department</div>
+                          <div className="text-slate-600">{currentPlacement.department}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <button className="flex-1 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        Clock In
+                      </button>
+                      <button className="px-4 py-3 bg-slate-100 text-slate-700 rounded-lg font-semibold hover:bg-slate-200 transition">
+                        <MessageSquare className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Today's Tasks */}
+                <motion.div
+                  className="bg-white rounded-xl shadow-sm border border-slate-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="p-6 border-b border-slate-200">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-6 h-6 text-green-600" />
+                      <h2 className="text-xl font-bold text-slate-900">Today's Tasks</h2>
+                      <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">
+                        {todayTasks.filter((t) => t.status === 'completed').length}/{todayTasks.length}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6 space-y-3">
+                    {todayTasks.map((task, index) => (
+                      <motion.div
+                        key={task.id}
+                        className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 + index * 0.1 }}
+                      >
+                        <div
+                          className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                            task.status === 'completed'
+                              ? 'bg-green-100'
+                              : task.status === 'in-progress'
+                              ? 'bg-blue-100'
+                              : 'bg-slate-200'
+                          }`}
+                        >
+                          {task.status === 'completed' ? (
+                            <CheckCircle className="w-5 h-5 text-green-600" />
+                          ) : task.status === 'in-progress' ? (
+                            <Clock className="w-5 h-5 text-blue-600" />
+                          ) : (
+                            <div className="w-3 h-3 rounded-full bg-slate-400" />
+                          )}
+                        </div>
+                        <div className="flex-1">
+                          <div className="font-semibold text-slate-900">{task.title}</div>
+                          <div className="text-sm text-slate-500">{task.time}</div>
+                        </div>
+                        {task.status === 'pending' && (
+                          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700 transition">
+                            Start
+                          </button>
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </>
+            )}
+
+            {activeTab === 'progress' && (
+              <>
+                {/* Performance Stats */}
+                <motion.div
+                  className="grid md:grid-cols-4 gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <Target className="w-8 h-8 text-green-600" />
+                      <span className="text-green-600 text-sm font-semibold">↑ 2%</span>
+                    </div>
+                    <div className="text-3xl font-black text-slate-900">{stats.attendance}%</div>
+                    <div className="text-sm text-slate-600 mt-1">Attendance</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <CheckCircle className="w-8 h-8 text-blue-600" />
+                      <span className="text-blue-600 text-sm font-semibold">↑ 5</span>
+                    </div>
+                    <div className="text-3xl font-black text-slate-900">{stats.tasksCompleted}</div>
+                    <div className="text-sm text-slate-600 mt-1">Tasks Done</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <BookOpen className="w-8 h-8 text-purple-600" />
+                      <span className="text-purple-600 text-sm font-semibold">↑ 3</span>
+                    </div>
+                    <div className="text-3xl font-black text-slate-900">{stats.skillsLearned}</div>
+                    <div className="text-sm text-slate-600 mt-1">Skills Learned</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <Star className="w-8 h-8 text-yellow-500" />
+                      <span className="text-yellow-600 text-sm font-semibold">↑ 0.2</span>
+                    </div>
+                    <div className="text-3xl font-black text-slate-900">{stats.supervisorRating}</div>
+                    <div className="text-sm text-slate-600 mt-1">Rating</div>
+                  </div>
+                </motion.div>
+
+                {/* Weekly Hours Chart */}
+                <motion.div
+                  className="bg-white rounded-xl shadow-sm border border-slate-200 p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <h2 className="text-xl font-bold text-slate-900 mb-6">Weekly Hours</h2>
+                  <div className="space-y-4">
+                    {['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, index) => {
+                      const hours = [4, 3.5, 4, 0, 3][index];
+                      const maxHours = 4;
+                      return (
+                        <div key={day} className="flex items-center gap-4">
+                          <div className="w-12 text-sm font-semibold text-slate-600">{day}</div>
+                          <div className="flex-1 bg-slate-100 rounded-full h-8 relative overflow-hidden">
+                            <motion.div
+                              className="bg-gradient-to-r from-blue-500 to-cyan-500 h-full rounded-full flex items-center justify-end pr-3"
+                              initial={{ width: 0 }}
+                              animate={{ width: `${(hours / maxHours) * 100}%` }}
+                              transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                            >
+                              {hours > 0 && <span className="text-white text-sm font-semibold">{hours}h</span>}
+                            </motion.div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              </>
+            )}
+
+            {activeTab === 'opportunities' && (
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {opportunities.map((opp, index) => (
+                  <motion.div
+                    key={opp.id}
+                    className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900 mb-1">{opp.title}</h3>
+                        <p className="text-slate-600 flex items-center gap-2">
+                          <Building2 className="w-4 h-4" />
+                          {opp.company}
                         </p>
                       </div>
-                    )}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <button className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all">
-                      View Details
+                      {opp.urgency === 'high' && (
+                        <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-bold">
+                          Urgent
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-3 mb-4">
+                      <span className="flex items-center gap-1 text-sm text-slate-600">
+                        <MapPin className="w-4 h-4" />
+                        {opp.location}
+                      </span>
+                      <span className="flex items-center gap-1 text-sm text-slate-600">
+                        <Clock className="w-4 h-4" />
+                        {opp.hours}
+                      </span>
+                      <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">
+                        {opp.type}
+                      </span>
+                    </div>
+                    <button className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                      Apply Now
+                      <ChevronRight className="w-4 h-4" />
                     </button>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+
+            {activeTab === 'college' && (
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <EarlyCollegeCreditPanel 
+                  studentGrade={studentInfo.grade}
+                  studentLocation="CNMI"
+                />
+              </motion.div>
+            )}
+
+            {activeTab === 'microgigs' && (
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <MicroGigsPanel 
+                  studentLevel="high-school"
+                  studentLocation="CNMI"
+                />
+              </motion.div>
+            )}
+
+            {activeTab === 'certifications' && (
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <CertificationModulesPanel 
+                  studentLevel="high-school"
+                />
+              </motion.div>
+            )}
+
+            {activeTab === 'awards' && (
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <CoOpVotingPanel userType="student" cohortName="Spring 2026" />
+                <RegionalNominationsPanel region="CNMI" />
+              </motion.div>
+            )}
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Messages */}
+            <motion.div
+              className="bg-white rounded-xl shadow-sm border border-slate-200"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="p-6 border-b border-slate-200">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <MessageSquare className="w-6 h-6 text-blue-600" />
+                    <h2 className="text-xl font-bold text-slate-900">Messages</h2>
                   </div>
+                  <span className="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">
+                    {recentMessages.filter((m) => m.unread).length}
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+              <div className="p-4 space-y-3">
+                {recentMessages.map((msg) => (
+                  <div
+                    key={msg.id}
+                    className={`p-4 rounded-lg border ${
+                      msg.unread ? 'bg-blue-50 border-blue-200' : 'bg-slate-50 border-slate-200'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <div className="font-semibold text-slate-900">{msg.from}</div>
+                        <div className="text-xs text-slate-500">{msg.role}</div>
+                      </div>
+                      <div className="text-xs text-slate-500">{msg.time}</div>
+                    </div>
+                    <p className="text-sm text-slate-600 line-clamp-2">{msg.message}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="p-4 border-t border-slate-200">
+                <button className="w-full py-2 text-blue-600 hover:text-blue-700 font-semibold text-sm">
+                  View All Messages
+                </button>
+              </div>
+            </motion.div>
 
-        {/* Quick Actions Footer */}
-        <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200">
-          <h3 className="font-bold text-gray-900 mb-4">Quick Actions</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <button className="px-4 py-3 bg-white border-2 border-purple-200 text-gray-900 rounded-xl font-bold hover:bg-purple-50 transition-all text-sm flex items-center justify-center gap-2">
-              <Upload className="w-4 h-4" />
-              Upload Resume
-            </button>
-            <button className="px-4 py-3 bg-white border-2 border-purple-200 text-gray-900 rounded-xl font-bold hover:bg-purple-50 transition-all text-sm flex items-center justify-center gap-2">
-              <MessageSquare className="w-4 h-4" />
-              Message Admin
-            </button>
-            <button className="px-4 py-3 bg-white border-2 border-purple-200 text-gray-900 rounded-xl font-bold hover:bg-purple-50 transition-all text-sm flex items-center justify-center gap-2">
-              <FileText className="w-4 h-4" />
-              View Guidelines
-            </button>
-            <button className="px-4 py-3 bg-white border-2 border-purple-200 text-gray-900 rounded-xl font-bold hover:bg-purple-50 transition-all text-sm flex items-center justify-center gap-2">
-              <Star className="w-4 h-4" />
-              Get Support
-            </button>
+            {/* Wellbeing Check */}
+            <motion.div
+              className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl shadow-lg p-6 text-white"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <Heart className="w-6 h-6" />
+                <h3 className="text-xl font-bold">How are you feeling?</h3>
+              </div>
+              <p className="text-purple-100 mb-4 text-sm">
+                Take a moment to check in with yourself.
+              </p>
+              <button className="w-full py-3 bg-white text-purple-600 rounded-lg font-semibold hover:bg-purple-50 transition">
+                Daily Check-In
+              </button>
+            </motion.div>
+
+            {/* Quick Actions */}
+            <motion.div
+              className="bg-white rounded-xl shadow-sm border border-slate-200 p-6"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <h3 className="text-lg font-bold text-slate-900 mb-4">Quick Actions</h3>
+              <div className="space-y-2">
+                <button className="w-full py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-lg font-semibold text-sm transition flex items-center justify-between px-4">
+                  <span className="flex items-center gap-2">
+                    <FileText className="w-4 h-4" />
+                    Submit Report
+                  </span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+                <button className="w-full py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-lg font-semibold text-sm transition flex items-center justify-between px-4">
+                  <span className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    View Schedule
+                  </span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+                <button className="w-full py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-lg font-semibold text-sm transition flex items-center justify-between px-4">
+                  <span className="flex items-center gap-2">
+                    <Award className="w-4 h-4" />
+                    View Certificates
+                  </span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

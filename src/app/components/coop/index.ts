@@ -9,6 +9,10 @@ export { CoOpMessagesList } from './CoOpMessagesList';
 export { EmployerFunctionTemplates } from './EmployerFunctionTemplates';
 export { EmployerBadgesPanel } from './EmployerBadgesPanel';
 export { PwaInstallPrompt } from './PwaInstallPrompt';
+export { CoOpVotingPanel, RegionalNominationsPanel, CollegeSchoolAwards } from './CoOpVotingPanel';
+export { EarlyCollegeCreditPanel, CollegeEnrollmentDashboard } from './EarlyCollegeCreditPanel';
+export { MicroGigsPanel } from './MicroGigsPanel';
+export { CertificationModulesPanel } from './CertificationModulesPanel';
 
 // Type exports for convenience
 export type { DeliverableStatus, StudentDeliverable } from './TodayDeliverablesCard';

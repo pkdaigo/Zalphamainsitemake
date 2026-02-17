@@ -50,6 +50,26 @@ export function CoOpLogin({ onNavigate }: CoOpLoginProps) {
     },
   ];
 
+  // Auto-navigate when role is selected (demo mode)
+  const handleRoleSelect = (roleId: UserRole) => {
+    setSelectedRole(roleId);
+    
+    // Automatically navigate to demo dashboard based on role
+    setTimeout(() => {
+      switch (roleId) {
+        case 'student':
+          onNavigate('coop-student-dashboard');
+          break;
+        case 'coordinator':
+          onNavigate('coop-admin-dashboard');
+          break;
+        case 'employer':
+          onNavigate('coop-employer-dashboard');
+          break;
+      }
+    }, 600); // Small delay for visual feedback
+  };
+
   const handleLogin = () => {
     if (!selectedRole) {
       alert('Please select your role');
@@ -123,7 +143,7 @@ export function CoOpLogin({ onNavigate }: CoOpLoginProps) {
               return (
                 <motion.button
                   key={role.id}
-                  onClick={() => setSelectedRole(role.id)}
+                  onClick={() => handleRoleSelect(role.id)}
                   className={`relative bg-white/10 backdrop-blur-sm border-2 rounded-2xl p-6 text-left transition-all ${
                     isSelected 
                       ? `${role.borderColor} bg-gradient-to-br ${role.bgColor} bg-opacity-20` 

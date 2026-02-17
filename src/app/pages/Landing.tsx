@@ -707,6 +707,12 @@ export function Landing({ onNavigate }: LandingProps) {
                 Sign Up as Employer
               </button>
               <button
+                onClick={() => onNavigate('co-op-login')}
+                className="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white rounded-xl font-bold hover:shadow-xl transition-all text-base sm:text-lg"
+              >
+                Co-Op Portal Login
+              </button>
+              <button
                 onClick={() => onNavigate('school-login')}
                 className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-xl font-bold hover:shadow-xl transition-all text-base sm:text-lg"
               >

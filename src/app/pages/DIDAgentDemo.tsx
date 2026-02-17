@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PageContainer } from '../components/PageContainer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Button } from '../components/ui/button';
@@ -8,6 +8,29 @@ import { Badge } from '../components/ui/badge';
 
 export function DIDAgentDemo() {
   const [selectedDemo, setSelectedDemo] = useState<string | null>(null);
+  const [agentLoaded, setAgentLoaded] = useState(false);
+
+  // Load D-ID agent script when demo is selected
+  useEffect(() => {
+    if (selectedDemo === 'zee' && !agentLoaded) {
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://agent.d-id.com/v2/index.js';
+      script.setAttribute('data-mode', 'full');
+      script.setAttribute('data-client-key', 'Z29vZ2xlLW9hdXRoMnwxMDYxMzg4MTEwOTY5MzcyMzIyNzg6d2puM2h6T1RZU0p1WEpTdmlmZVRP');
+      script.setAttribute('data-agent-id', 'v2_agt_JVnX5fkj');
+      script.setAttribute('data-name', 'did-agent');
+      script.setAttribute('data-monitor', 'true');
+      script.setAttribute('data-target-id', 'zal-agent');
+      
+      document.body.appendChild(script);
+      setAgentLoaded(true);
+
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [selectedDemo, agentLoaded]);
 
   const demoOptions = [
     {
@@ -44,6 +67,51 @@ export function DIDAgentDemo() {
 
   if (selectedDemo) {
     const demo = demoOptions.find((d) => d.id === selectedDemo);
+    
+    // If Zee agent is selected, show the D-ID embed
+    if (selectedDemo === 'zee') {
+      return (
+        <PageContainer>
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-6">
+              <Button variant="outline" onClick={() => {
+                setSelectedDemo(null);
+                setAgentLoaded(false);
+              }}>
+                ← Back to Demos
+              </Button>
+            </div>
+            
+            {/* D-ID Agent Embed */}
+            <div className="bg-white rounded-2xl shadow-xl p-6">
+              <div className="mb-4">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  Meet Zee - Your AI Career Assistant 🌺
+                </h2>
+                <p className="text-gray-600">
+                  Ask Zee about job opportunities, career advice, resume tips, and more! 
+                  Zee is here to help Pacific Island students navigate their career journey.
+                </p>
+              </div>
+              
+              <div
+                id="zal-agent"
+                style={{
+                  width: '100%',
+                  height: '80vh',
+                  maxWidth: '1200px',
+                  margin: '0 auto',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                }}
+              />
+            </div>
+          </div>
+        </PageContainer>
+      );
+    }
+    
+    // For other demos, use the existing DIDAgentSDK component
     return (
       <PageContainer>
         <div className="max-w-7xl mx-auto">

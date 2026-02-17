@@ -138,6 +138,7 @@ import { CoOpFundraisingHub } from '@/app/pages/CoOpFundraisingHub';
 import { CoOpStudentTimeLog } from '@/app/pages/CoOpStudentTimeLog';
 import { CoOpCoordinatorCohortSetup } from '@/app/pages/CoOpCoordinatorCohortSetup';
 import { CoOpCoordinatorPlacementManagement } from '@/app/pages/CoOpCoordinatorPlacementManagement';
+import { CollegeStudentDashboard } from '@/app/pages/CollegeStudentDashboard';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('landing');
@@ -351,6 +352,7 @@ export default function App() {
         {currentPage === 'co-op-student-time-log' && <CoOpStudentTimeLog onNavigate={handleNavigate} />}
         {currentPage === 'co-op-coordinator-cohort-setup' && <CoOpCoordinatorCohortSetup onNavigate={handleNavigate} />}
         {currentPage === 'co-op-coordinator-placement-management' && <CoOpCoordinatorPlacementManagement onNavigate={handleNavigate} />}
+        {currentPage === 'college-student-dashboard' && <CollegeStudentDashboard onNavigate={handleNavigate} />}
       </div>
     </PasswordGate>
   );

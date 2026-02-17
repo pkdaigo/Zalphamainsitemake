@@ -15,6 +15,7 @@
 
 import { useState, useEffect } from 'react';
 import { Navigation } from '@/app/components/Navigation';
+import { PasswordGate } from '@/app/components/PasswordGate';
 import { Landing } from '@/app/pages/Landing';
 import { SignIn } from '@/app/pages/SignIn';
 import { StudentSignup } from '@/app/pages/StudentSignup';
@@ -214,141 +215,143 @@ export default function App() {
   };
 
   return (
-    <div className="overflow-x-hidden w-full">
-      <Navigation 
-        userType={userType}
-        currentPage={currentPage}
-        onNavigate={handleNavigate}
-      />
-      
-      {currentPage === 'landing' && <Landing onNavigate={handleNavigate} />}
-      {currentPage === 'signin' && <SignIn onNavigate={handleNavigate} />}
-      {currentPage === 'student-signup' && <StudentSignup onNavigate={handleNavigate} />}
-      {currentPage === 'employer-signup' && <EmployerSignup onNavigate={handleNavigate} />}
-      {currentPage === 'student-dashboard' && <StudentDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'job-search' && <JobSearch onNavigate={handleNavigate} />}
-      {currentPage === 'student-profile' && <StudentProfile onNavigate={handleNavigate} />}
-      {currentPage === 'employer-dashboard' && <EmployerDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'training-hub' && <TrainingHub onNavigate={handleNavigate} />}
-      {currentPage === 'install-guide' && <InstallGuide onNavigate={handleNavigate} />}
-      {currentPage === 'qr-code' && <QRCodePage onNavigate={handleNavigate} />}
-      {currentPage === 'company-review-demo' && <CompanyReviewDemo onNavigate={handleNavigate} />}
-      {currentPage === 'admin-moderation' && <AdminModeration onNavigate={handleNavigate} />}
-      {currentPage === 'privacy-policy' && <PrivacyPolicy onNavigate={handleNavigate} />}
-      {currentPage === 'terms-of-service' && <TermsOfService onNavigate={handleNavigate} />}
-      {currentPage === 'demo-showcase' && <DemoShowcase onNavigate={handleNavigate} />}
-      {currentPage === 'heygen-demo' && <HeyGenDemo onNavigate={handleNavigate} />}
-      {currentPage === 'heygen-configuration' && <HeyGenConfiguration onNavigate={handleNavigate} />}
-      {currentPage === 'heygen-agent-demo' && <HeyGenAgentDemo onNavigate={handleNavigate} />}
-      {currentPage === 'student-features' && <StudentPlatformFeatures onNavigate={handleNavigate} />}
-      {currentPage === 'employer-features' && <EmployerPlatformFeatures onNavigate={handleNavigate} />}
-      {currentPage === 'pricing' && <PricingPage onNavigate={handleNavigate} />}
-      {currentPage === 'coming-soon' && <ComingSoon onNavigate={setCurrentPage} />}
-      {currentPage === 'experienced-professionals-coming-soon' && <ExperiencedProfessionalsComingSoon onNavigate={setCurrentPage} />}
-      {currentPage === 'faq' && <FAQ onNavigate={setCurrentPage} />}
-      {currentPage === 'legal-disclaimers' && <LegalDisclaimers onNavigate={setCurrentPage} />}
-      {currentPage === 'internal-staff-portal' && <InternalStaffPortal onNavigate={setCurrentPage} />}
-      {currentPage === 'internal-legal' && <InternalLegalDocs onNavigate={setCurrentPage} />}
-      {currentPage === 'internal-bd' && <InternalBDDocs onNavigate={setCurrentPage} />}
-      {currentPage === 'internal-operational' && <InternalOperationalDocs onNavigate={setCurrentPage} />}
-      {currentPage === 'internal-marketing' && <InternalMarketingDocs onNavigate={setCurrentPage} />}
-      {currentPage === 'about-us' && <AboutUs onNavigate={setCurrentPage} />}
-      {currentPage === 'mission-social-impact' && <MissionSocialImpact onNavigate={setCurrentPage} />}
-      {currentPage === 'social-responsibility' && <SocialResponsibility onNavigate={setCurrentPage} />}
-      {currentPage === 'virtual-college-fairs' && <VirtualCollegeFairs onNavigate={setCurrentPage} />}
-      {currentPage === 'student-privacy-settings' && <StudentPrivacySettingsPage onNavigate={handleNavigate} />}
-      {currentPage === 'ada-information' && <ADAInformation onNavigate={handleNavigate} />}
-      {currentPage === 'ada-settings' && <ADASettings onNavigate={handleNavigate} />}
-      {currentPage === 'inclusive-hiring' && <InclusiveHiring onNavigate={handleNavigate} />}
-      {currentPage === 'integration-settings' && <IntegrationSettings onNavigate={handleNavigate} />}
-      {currentPage === 'sync-dashboard' && <SyncDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'did-agent-demo' && <DIDAgentDemo />}
-      {currentPage === 'employer-ai-agents' && <EmployerAIAgents />}
-      {currentPage === 'did-configuration' && <DIDConfiguration />}
-      {currentPage === 'did-setup' && <DIDSetup onNavigate={handleNavigate} />}
-      {currentPage === 'did-knowledge-manager' && <DIDKnowledgeManager onNavigate={handleNavigate} />}
-      {currentPage === 'tutorial-admin' && <TutorialAdmin onNavigate={handleNavigate} />}
-      {currentPage === 'app-overview' && <AppOverview onNavigate={handleNavigate} />}
-      {currentPage === 'global-contracts-marketplace' && <GlobalContractsMarketplace onNavigate={handleNavigate} />}
-      {currentPage === 'coop-role-selection' && <CoOpRoleSelection onNavigate={handleNavigate} />}
-      {currentPage === 'coop-student-dashboard' && <HighSchoolCoOpDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'coop-admin-dashboard' && <CoOpAdminDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'coop-employer-dashboard' && <CoOpEmployerDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'pitch-deck-employers' && <PitchDeckEmployers onNavigate={handleNavigate} />}
-      {currentPage === 'pitch-deck-students' && <PitchDeckStudents onNavigate={handleNavigate} />}
-      {currentPage === 'pitch-deck-schools' && <PitchDeckSchools onNavigate={handleNavigate} />}
-      {currentPage === 'pitch-deck-investors' && <PitchDeckInvestors onNavigate={handleNavigate} />}
-      {currentPage === 'pitch-deck-internal' && <PitchDeckInternal onNavigate={handleNavigate} />}
-      {currentPage === 'pitch-deck-recruit' && <PitchDeckRecruit onNavigate={handleNavigate} />}
-      {currentPage === 'contract-marketplace' && <ContractMarketplace onNavigate={setCurrentPage} userType={userType} />}
-      {currentPage === 'custom-integrations' && <CustomIntegrations onNavigate={setCurrentPage} />}
-      {currentPage === 'pitch-deck-advertisers' && <PitchDeckAdvertisers onNavigate={setCurrentPage} />}
-      {currentPage === 'basic-skills-demo' && <BasicSkillsDemo onNavigate={handleNavigate} />}
-      {currentPage === 'video-interviews' && <VideoInterviews onNavigate={handleNavigate} />}
-      {currentPage === 'school-bd-guide' && <SchoolBDGuide onNavigate={handleNavigate} />}
-      {currentPage === 'school-login' && <SchoolLogin onNavigate={handleNavigate} />}
-      {currentPage === 'school-dashboard' && <SchoolDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'kickstarter-campaign' && <KickstarterCampaign onNavigate={handleNavigate} />}
-      {currentPage === 'legal-checklist' && <LegalChecklist onNavigate={handleNavigate} />}
-      {currentPage === 'legal-document-repository' && <LegalDocumentRepository onNavigate={handleNavigate} />}
-      {currentPage === 'operational-document-repository' && <OperationalDocumentRepository onNavigate={handleNavigate} />}
-      {currentPage === 'marketing-materials-repository' && <MarketingMaterialsRepository onNavigate={handleNavigate} />}
-      {currentPage === 'business-development-repository' && <BusinessDevelopmentRepository onNavigate={handleNavigate} />}
-      {currentPage === 'contract-work-portal' && <ContractWorkPortal onNavigate={handleNavigate} />}
-      {currentPage === 'coach-dashboard' && <CoachDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'employer-assessments' && <EmployerAssessments onNavigate={handleNavigate} />}
-      {currentPage === 'student-ai-courses' && <StudentAICourses onNavigate={handleNavigate} />}
-      {currentPage === 'cultural-training' && <CulturalSensitivityTraining onNavigate={handleNavigate} />}
-      {currentPage === 'video-tutorials' && <VideoTutorials onNavigate={handleNavigate} userType={userType || 'student'} />}
-      {currentPage === 'employer-bd-guide' && <EmployerBDGuide onNavigate={handleNavigate} />}
-      {currentPage === 'investor-bd-guide' && <InvestorBDGuide onNavigate={handleNavigate} />}
-      {currentPage === 'zalpha-vs-indeed' && <ZALPHAvsIndeed onNavigate={handleNavigate} />}
-      {currentPage === 'internal-login' && <InternalLogin onNavigate={handleNavigate} onLogin={handleInternalLogin} />}
-      {currentPage === 'internal-dashboard' && internalUser && (
-        <InternalDashboard 
-          onNavigate={handleNavigate} 
-          userRole={internalUser.role} 
-          userName={internalUser.name} 
-          onLogout={handleInternalLogout} 
+    <PasswordGate correctPassword="demo2026">
+      <div className="overflow-x-hidden w-full">
+        <Navigation 
+          userType={userType}
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
         />
-      )}
-      {currentPage === 'health-check' && <HealthCheck onNavigate={handleNavigate} />}
-      {currentPage === 'recruiter-integration' && <RecruiterIntegration onNavigate={handleNavigate} />}
-      {currentPage === 'candidate-search' && <CandidateSearch onNavigate={handleNavigate} />}
-      {currentPage === 'employer-profile' && <EmployerProfile onNavigate={handleNavigate} />}
-      {currentPage === 'privacy-dashboard' && <PrivacyDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'freelance-marketplace' && <FreelanceMarketplace onNavigate={handleNavigate} userType={userType || 'student'} />}
-      {currentPage === 'internship-board' && <InternshipBoard onNavigate={handleNavigate} userType={userType || 'student'} />}
-      {currentPage === 'internship-tracking' && <InternshipTracking userType={userType || 'student'} />}
-      {currentPage === 'mentor-intern-workspace' && <MentorInternWorkspace internshipId="INT001" internName="John Doe" mentorName="Jane Smith" userType="student" startDate={new Date('2026-01-15')} endDate={new Date('2026-06-15')} />}
-      {currentPage === 'project-workspace' && <ProjectWorkspace onNavigate={handleNavigate} projectId="PRJ001" projectTitle="Website Redesign" userType={userType || 'student'} currentMilestone={1} />}
-      {currentPage === 'educational-institution-dashboard' && <EducationalInstitutionDashboard onNavigate={handleNavigate} institutionName="Northern Marianas College" />}
-      {currentPage === 'employer-plan-demos' && <EmployerPlanDemos onNavigate={handleNavigate} />}
-      {currentPage === 'student-addon-demo' && <StudentAddonDemo onNavigate={handleNavigate} />}
-      {currentPage === 'ai-interview-practice' && <AIInterviewPractice onNavigate={handleNavigate} />}
-      {currentPage === 'school-dashboard-demo' && <SchoolDashboardDemo onNavigate={handleNavigate} />}
-      {currentPage === 'school-partnership-guide' && <SchoolPartnershipGuide onNavigate={handleNavigate} />}
-      {currentPage === 'beta-tester-application' && <BetaTesterApplication onNavigate={handleNavigate} />}
-      {currentPage === 'metgot-beta-application' && <MetgotBetaApplication onNavigate={handleNavigate} />}
-      {currentPage === 'beta-applications-admin' && <BetaApplicationsAdmin onNavigate={handleNavigate} />}
-      {currentPage === 'beta-user-demo' && <BetaUserDemo onNavigate={handleNavigate} />}
-      {currentPage === 'data-recovery-check' && <DataRecoveryCheck onNavigate={handleNavigate} />}
-      {currentPage === 'database-direct-check' && <DatabaseDirectCheck onNavigate={handleNavigate} />}
-      {currentPage === 'user-management' && <UserManagement onNavigate={handleNavigate} />}
-      {currentPage === 'admin-verifications' && <AdminVerifications onNavigate={handleNavigate} />}
-      {currentPage === 'admin-dashboard' && <AdminDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'logo-showcase' && <LogoShowcase onNavigate={handleNavigate} />}
-      {currentPage === 'color-mockup' && <ColorMockup />}
-      {currentPage === 'signup-monitor' && <SignupMonitor onNavigate={handleNavigate} />}
-      {currentPage === 'admin-data-viewer' && <AdminDataViewer onNavigate={handleNavigate} />}
-      {currentPage === 'data-check' && <DataCheck onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-login' && <CoOpLogin onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-student-dashboard' && <CoOpStudentDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-coordinator-dashboard' && <CoOpCoordinatorDashboard onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-fundraising-hub' && <CoOpFundraisingHub onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-student-time-log' && <CoOpStudentTimeLog onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-coordinator-cohort-setup' && <CoOpCoordinatorCohortSetup onNavigate={handleNavigate} />}
-      {currentPage === 'co-op-coordinator-placement-management' && <CoOpCoordinatorPlacementManagement onNavigate={handleNavigate} />}
-    </div>
+        
+        {currentPage === 'landing' && <Landing onNavigate={handleNavigate} />}
+        {currentPage === 'signin' && <SignIn onNavigate={handleNavigate} />}
+        {currentPage === 'student-signup' && <StudentSignup onNavigate={handleNavigate} />}
+        {currentPage === 'employer-signup' && <EmployerSignup onNavigate={handleNavigate} />}
+        {currentPage === 'student-dashboard' && <StudentDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'job-search' && <JobSearch onNavigate={handleNavigate} />}
+        {currentPage === 'student-profile' && <StudentProfile onNavigate={handleNavigate} />}
+        {currentPage === 'employer-dashboard' && <EmployerDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'training-hub' && <TrainingHub onNavigate={handleNavigate} />}
+        {currentPage === 'install-guide' && <InstallGuide onNavigate={handleNavigate} />}
+        {currentPage === 'qr-code' && <QRCodePage onNavigate={handleNavigate} />}
+        {currentPage === 'company-review-demo' && <CompanyReviewDemo onNavigate={handleNavigate} />}
+        {currentPage === 'admin-moderation' && <AdminModeration onNavigate={handleNavigate} />}
+        {currentPage === 'privacy-policy' && <PrivacyPolicy onNavigate={handleNavigate} />}
+        {currentPage === 'terms-of-service' && <TermsOfService onNavigate={handleNavigate} />}
+        {currentPage === 'demo-showcase' && <DemoShowcase onNavigate={handleNavigate} />}
+        {currentPage === 'heygen-demo' && <HeyGenDemo onNavigate={handleNavigate} />}
+        {currentPage === 'heygen-configuration' && <HeyGenConfiguration onNavigate={handleNavigate} />}
+        {currentPage === 'heygen-agent-demo' && <HeyGenAgentDemo onNavigate={handleNavigate} />}
+        {currentPage === 'student-features' && <StudentPlatformFeatures onNavigate={handleNavigate} />}
+        {currentPage === 'employer-features' && <EmployerPlatformFeatures onNavigate={handleNavigate} />}
+        {currentPage === 'pricing' && <PricingPage onNavigate={handleNavigate} />}
+        {currentPage === 'coming-soon' && <ComingSoon onNavigate={setCurrentPage} />}
+        {currentPage === 'experienced-professionals-coming-soon' && <ExperiencedProfessionalsComingSoon onNavigate={setCurrentPage} />}
+        {currentPage === 'faq' && <FAQ onNavigate={setCurrentPage} />}
+        {currentPage === 'legal-disclaimers' && <LegalDisclaimers onNavigate={setCurrentPage} />}
+        {currentPage === 'internal-staff-portal' && <InternalStaffPortal onNavigate={setCurrentPage} />}
+        {currentPage === 'internal-legal' && <InternalLegalDocs onNavigate={setCurrentPage} />}
+        {currentPage === 'internal-bd' && <InternalBDDocs onNavigate={setCurrentPage} />}
+        {currentPage === 'internal-operational' && <InternalOperationalDocs onNavigate={setCurrentPage} />}
+        {currentPage === 'internal-marketing' && <InternalMarketingDocs onNavigate={setCurrentPage} />}
+        {currentPage === 'about-us' && <AboutUs onNavigate={setCurrentPage} />}
+        {currentPage === 'mission-social-impact' && <MissionSocialImpact onNavigate={setCurrentPage} />}
+        {currentPage === 'social-responsibility' && <SocialResponsibility onNavigate={setCurrentPage} />}
+        {currentPage === 'virtual-college-fairs' && <VirtualCollegeFairs onNavigate={setCurrentPage} />}
+        {currentPage === 'student-privacy-settings' && <StudentPrivacySettingsPage onNavigate={handleNavigate} />}
+        {currentPage === 'ada-information' && <ADAInformation onNavigate={handleNavigate} />}
+        {currentPage === 'ada-settings' && <ADASettings onNavigate={handleNavigate} />}
+        {currentPage === 'inclusive-hiring' && <InclusiveHiring onNavigate={handleNavigate} />}
+        {currentPage === 'integration-settings' && <IntegrationSettings onNavigate={handleNavigate} />}
+        {currentPage === 'sync-dashboard' && <SyncDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'did-agent-demo' && <DIDAgentDemo />}
+        {currentPage === 'employer-ai-agents' && <EmployerAIAgents />}
+        {currentPage === 'did-configuration' && <DIDConfiguration />}
+        {currentPage === 'did-setup' && <DIDSetup onNavigate={handleNavigate} />}
+        {currentPage === 'did-knowledge-manager' && <DIDKnowledgeManager onNavigate={handleNavigate} />}
+        {currentPage === 'tutorial-admin' && <TutorialAdmin onNavigate={handleNavigate} />}
+        {currentPage === 'app-overview' && <AppOverview onNavigate={handleNavigate} />}
+        {currentPage === 'global-contracts-marketplace' && <GlobalContractsMarketplace onNavigate={handleNavigate} />}
+        {currentPage === 'coop-role-selection' && <CoOpRoleSelection onNavigate={handleNavigate} />}
+        {currentPage === 'coop-student-dashboard' && <HighSchoolCoOpDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'coop-admin-dashboard' && <CoOpAdminDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'coop-employer-dashboard' && <CoOpEmployerDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'pitch-deck-employers' && <PitchDeckEmployers onNavigate={handleNavigate} />}
+        {currentPage === 'pitch-deck-students' && <PitchDeckStudents onNavigate={handleNavigate} />}
+        {currentPage === 'pitch-deck-schools' && <PitchDeckSchools onNavigate={handleNavigate} />}
+        {currentPage === 'pitch-deck-investors' && <PitchDeckInvestors onNavigate={handleNavigate} />}
+        {currentPage === 'pitch-deck-internal' && <PitchDeckInternal onNavigate={handleNavigate} />}
+        {currentPage === 'pitch-deck-recruit' && <PitchDeckRecruit onNavigate={handleNavigate} />}
+        {currentPage === 'contract-marketplace' && <ContractMarketplace onNavigate={setCurrentPage} userType={userType} />}
+        {currentPage === 'custom-integrations' && <CustomIntegrations onNavigate={setCurrentPage} />}
+        {currentPage === 'pitch-deck-advertisers' && <PitchDeckAdvertisers onNavigate={setCurrentPage} />}
+        {currentPage === 'basic-skills-demo' && <BasicSkillsDemo onNavigate={handleNavigate} />}
+        {currentPage === 'video-interviews' && <VideoInterviews onNavigate={handleNavigate} />}
+        {currentPage === 'school-bd-guide' && <SchoolBDGuide onNavigate={handleNavigate} />}
+        {currentPage === 'school-login' && <SchoolLogin onNavigate={handleNavigate} />}
+        {currentPage === 'school-dashboard' && <SchoolDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'kickstarter-campaign' && <KickstarterCampaign onNavigate={handleNavigate} />}
+        {currentPage === 'legal-checklist' && <LegalChecklist onNavigate={handleNavigate} />}
+        {currentPage === 'legal-document-repository' && <LegalDocumentRepository onNavigate={handleNavigate} />}
+        {currentPage === 'operational-document-repository' && <OperationalDocumentRepository onNavigate={handleNavigate} />}
+        {currentPage === 'marketing-materials-repository' && <MarketingMaterialsRepository onNavigate={handleNavigate} />}
+        {currentPage === 'business-development-repository' && <BusinessDevelopmentRepository onNavigate={handleNavigate} />}
+        {currentPage === 'contract-work-portal' && <ContractWorkPortal onNavigate={handleNavigate} />}
+        {currentPage === 'coach-dashboard' && <CoachDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'employer-assessments' && <EmployerAssessments onNavigate={handleNavigate} />}
+        {currentPage === 'student-ai-courses' && <StudentAICourses onNavigate={handleNavigate} />}
+        {currentPage === 'cultural-training' && <CulturalSensitivityTraining onNavigate={handleNavigate} />}
+        {currentPage === 'video-tutorials' && <VideoTutorials onNavigate={handleNavigate} userType={userType || 'student'} />}
+        {currentPage === 'employer-bd-guide' && <EmployerBDGuide onNavigate={handleNavigate} />}
+        {currentPage === 'investor-bd-guide' && <InvestorBDGuide onNavigate={handleNavigate} />}
+        {currentPage === 'zalpha-vs-indeed' && <ZALPHAvsIndeed onNavigate={handleNavigate} />}
+        {currentPage === 'internal-login' && <InternalLogin onNavigate={handleNavigate} onLogin={handleInternalLogin} />}
+        {currentPage === 'internal-dashboard' && internalUser && (
+          <InternalDashboard 
+            onNavigate={handleNavigate} 
+            userRole={internalUser.role} 
+            userName={internalUser.name} 
+            onLogout={handleInternalLogout} 
+          />
+        )}
+        {currentPage === 'health-check' && <HealthCheck onNavigate={handleNavigate} />}
+        {currentPage === 'recruiter-integration' && <RecruiterIntegration onNavigate={handleNavigate} />}
+        {currentPage === 'candidate-search' && <CandidateSearch onNavigate={handleNavigate} />}
+        {currentPage === 'employer-profile' && <EmployerProfile onNavigate={handleNavigate} />}
+        {currentPage === 'privacy-dashboard' && <PrivacyDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'freelance-marketplace' && <FreelanceMarketplace onNavigate={handleNavigate} userType={userType || 'student'} />}
+        {currentPage === 'internship-board' && <InternshipBoard onNavigate={handleNavigate} userType={userType || 'student'} />}
+        {currentPage === 'internship-tracking' && <InternshipTracking userType={userType || 'student'} />}
+        {currentPage === 'mentor-intern-workspace' && <MentorInternWorkspace internshipId="INT001" internName="John Doe" mentorName="Jane Smith" userType="student" startDate={new Date('2026-01-15')} endDate={new Date('2026-06-15')} />}
+        {currentPage === 'project-workspace' && <ProjectWorkspace onNavigate={handleNavigate} projectId="PRJ001" projectTitle="Website Redesign" userType={userType || 'student'} currentMilestone={1} />}
+        {currentPage === 'educational-institution-dashboard' && <EducationalInstitutionDashboard onNavigate={handleNavigate} institutionName="Northern Marianas College" />}
+        {currentPage === 'employer-plan-demos' && <EmployerPlanDemos onNavigate={handleNavigate} />}
+        {currentPage === 'student-addon-demo' && <StudentAddonDemo onNavigate={handleNavigate} />}
+        {currentPage === 'ai-interview-practice' && <AIInterviewPractice onNavigate={handleNavigate} />}
+        {currentPage === 'school-dashboard-demo' && <SchoolDashboardDemo onNavigate={handleNavigate} />}
+        {currentPage === 'school-partnership-guide' && <SchoolPartnershipGuide onNavigate={handleNavigate} />}
+        {currentPage === 'beta-tester-application' && <BetaTesterApplication onNavigate={handleNavigate} />}
+        {currentPage === 'metgot-beta-application' && <MetgotBetaApplication onNavigate={handleNavigate} />}
+        {currentPage === 'beta-applications-admin' && <BetaApplicationsAdmin onNavigate={handleNavigate} />}
+        {currentPage === 'beta-user-demo' && <BetaUserDemo onNavigate={handleNavigate} />}
+        {currentPage === 'data-recovery-check' && <DataRecoveryCheck onNavigate={handleNavigate} />}
+        {currentPage === 'database-direct-check' && <DatabaseDirectCheck onNavigate={handleNavigate} />}
+        {currentPage === 'user-management' && <UserManagement onNavigate={handleNavigate} />}
+        {currentPage === 'admin-verifications' && <AdminVerifications onNavigate={handleNavigate} />}
+        {currentPage === 'admin-dashboard' && <AdminDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'logo-showcase' && <LogoShowcase onNavigate={handleNavigate} />}
+        {currentPage === 'color-mockup' && <ColorMockup />}
+        {currentPage === 'signup-monitor' && <SignupMonitor onNavigate={handleNavigate} />}
+        {currentPage === 'admin-data-viewer' && <AdminDataViewer onNavigate={handleNavigate} />}
+        {currentPage === 'data-check' && <DataCheck onNavigate={handleNavigate} />}
+        {currentPage === 'co-op-login' && <CoOpLogin onNavigate={handleNavigate} />}
+        {currentPage === 'co-op-student-dashboard' && <CoOpStudentDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'co-op-coordinator-dashboard' && <CoOpCoordinatorDashboard onNavigate={handleNavigate} />}
+        {currentPage === 'co-op-fundraising-hub' && <CoOpFundraisingHub onNavigate={handleNavigate} />}
+        {currentPage === 'co-op-student-time-log' && <CoOpStudentTimeLog onNavigate={handleNavigate} />}
+        {currentPage === 'co-op-coordinator-cohort-setup' && <CoOpCoordinatorCohortSetup onNavigate={handleNavigate} />}
+        {currentPage === 'co-op-coordinator-placement-management' && <CoOpCoordinatorPlacementManagement onNavigate={handleNavigate} />}
+      </div>
+    </PasswordGate>
   );
 }

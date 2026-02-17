@@ -59,13 +59,13 @@ export function CoOpLogin({ onNavigate }: CoOpLoginProps) {
     // Navigate based on selected role
     switch (selectedRole) {
       case 'student':
-        onNavigate('co-op-student-dashboard');
+        onNavigate('coop-student-dashboard'); // Routes to HighSchoolCoOpDashboard
         break;
       case 'coordinator':
-        onNavigate('co-op-coordinator-dashboard');
+        onNavigate('coop-admin-dashboard'); // Routes to CoOpAdminDashboard
         break;
       case 'employer':
-        onNavigate('co-op-employer-dashboard');
+        onNavigate('coop-employer-dashboard'); // Routes to CoOpEmployerDashboard
         break;
     }
   };

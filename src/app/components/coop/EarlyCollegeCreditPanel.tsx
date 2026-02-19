@@ -18,6 +18,7 @@ import {
   Heart,
   Globe,
   Sparkles,
+  TrendingUp,
 } from 'lucide-react';
 
 interface EarlyCollegeCreditPanelProps {
